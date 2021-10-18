@@ -1,0 +1,43 @@
+.artist {
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: all 0.1s ease-in-out;
+    cursor: pointer;
+}
+
+.artist:hover {
+    background-color: rgba(0, 0, 0, 0.781);
+    color: #f4f4f4;
+}
+
+.artist:hover .subDetail {
+    color: #f4f4f4;
+}
+
+
+.imgWrapper {
+    display: flex;
+    width: 50px;
+}
+
+.imgWrapper > img {
+    border-radius: 50%;
+
+}
+
+.details {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.title {
+    font-weight: 900;
+    margin-bottom: 4px;
+}
+
+.subDetail {
+    color: #7e7d7d;
+}

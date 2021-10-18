@@ -1,24 +1,16 @@
-import express from 'express'
-import { User } from '../models'
+import express from 'express';
+import userRouter from './user';
+import albumRouter from './album';
+import authRouter from './auth';
+import songRouter from './song';
+import artistRouter from './artist';
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/', (req, res, next) => {
-  res.status(200).send('api endpoint')
-})
+router.use('/user', userRouter);
+router.use('/artist', artistRouter);
+router.use('/album', albumRouter);
+router.use('/auth', authRouter);
+router.use('/song', songRouter);
 
-router.get('/sample', async (req, res, next) => {
-
-  let user = await User.findOne({}).exec();
-
-  if (!user) {
-    const newUser = new User({
-      username: "Freddie",
-    })
-    user = await newUser.save()
-  }
-
-  res.status(200).send(user)
-})
-
-module.exports = router
+module.exports = router;

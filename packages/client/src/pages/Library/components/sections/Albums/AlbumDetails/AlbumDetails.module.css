@@ -1,0 +1,36 @@
+
+.albumTitle {
+    font-size: 30px;
+}
+
+.detailsHeader {
+    display: flex;
+    background: #f4f4f4;
+}
+
+.imgWrapper {
+    max-width: 250px;
+}
+
+.detailsBox {
+    margin-left: 32px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+}
+
+
+.albumDetails {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.textDetails {
+
+}
+
+.controls {
+
+}

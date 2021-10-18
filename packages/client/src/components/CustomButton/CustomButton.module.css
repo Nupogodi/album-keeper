@@ -1,0 +1,28 @@
+.btn {
+  display: block;
+  border: none;
+  appearance: none;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 5px;
+  max-width: 150px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.outline {
+
+  background: none;
+  border: 1px solid #fff;
+}
+
+.fill {
+    background: #fff;
+    color: #363636;
+    border: 1px solid #363636;
+}

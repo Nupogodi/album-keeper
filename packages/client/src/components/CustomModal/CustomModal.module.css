@@ -1,0 +1,62 @@
+.overlayBase {
+    padding: 1rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 1);
+    opacity: 0;
+    transition-property: background-color, opacity;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+    outline: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .overlayAfter {
+    background-color: rgba(0, 0, 0, 0.85);
+    opacity: 1;
+  }
+  
+  .overlayBefore {
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+  }
+  
+  .contentBase {
+    position: relative;
+    /*
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    */
+    margin: 0 auto;
+    border-radius: 0px;
+    outline: 0;
+    height: 0%;
+    width: 0%;
+    display: grid;
+    background-color: transparent;
+    transition-property: background-color, width, height;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+  }
+  
+  .contentAfter {
+    width: 400px;
+    height: fit-content;
+    background-color: 	#363636;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+  }
+  
+  .contentBefore {
+    width: 0%;
+    height: 0%;
+    background-color: transparent;
+  }
+  

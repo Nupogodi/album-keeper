@@ -1,0 +1,51 @@
+
+.link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.songItem {
+  display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  align-items: center;
+  padding: 5px 2px;
+  min-height: 50px;
+}
+
+.songItem:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.imgWrapper {
+  width: 40px;
+  padding: 3px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.imgWrapper > img {
+  border-radius: 5px;
+}
+
+.songDetails {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.songDetail:hover {
+  /* cursor: pointer; */
+}
+
+.songDetail:last-child {
+  justify-self: end;
+}
+
+.gridSpan3 {
+  grid-column: 3/ 5;
+}
+
+.songIndex {
+  margin-right: 10px;
+}

@@ -1,6 +1,86 @@
-
 /* Your CSS Here */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;700;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.html {
+  font-family: "Poppins", sans-serif;
+}
+
+
+.btn-wrapper {
+  display: block;
+  border: none;
+  appearance: none;
+  color: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  font: inherit;
+  background: none;
+ 
+}
+
 
 main {
   text-align: center;
 }
+
+.btn {
+  display: block;
+  font-size: 12px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.btn-light {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.btn-light:hover {
+  background-color: aquamarine;
+}
+
+.container {
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: 1176px;
+}
+
+@media screen and (min-width: 768px) {
+}
+/* const container = {
+  ...containerFluid,
+  "@media (min-width: 576px)": {
+    maxWidth: "540px",
+  },
+  "@media (min-width: 768px)": {
+    maxWidth: "720px",
+  },
+  "@media (min-width: 992px)": {
+    maxWidth: "960px",
+  },
+  "@media (min-width: 1200px)": {
+    maxWidth: "1140px",
+  },
+}; */

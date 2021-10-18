@@ -1,0 +1,61 @@
+
+
+.albumForm {
+    min-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    padding: 10px;
+}
+
+.formTitle {
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.formGroup {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-bottom: 1px solid black;
+    display: flex;
+}
+
+.label {
+    margin-right: 10px;
+    flex: 1;
+}
+
+.input {
+    font-size: 16px;
+    
+}
+
+.input:focus {
+    outline: 2px solid rebeccapurple;
+}
+
+.submitBtn {
+    padding: 5px 10px;
+    font-size: 12px;
+    border: 2px solid rebeccapurple;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background-color: inherit;
+    color: rebeccapurple;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.submitBtn:hover {
+    background-color: rebeccapurple;
+    color: #fff;
+
+}
+.submitBtn:active {
+    background-color: #f4f4f4;
+    color: rgb(45, 30, 59)
+}

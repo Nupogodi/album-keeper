@@ -109,9 +109,15 @@ This would add a "react-router-dom" dependency to the frontend, and a "mongoose"
 
 _(Put your project plan here. It could be pseudocode, an outline-style development plan, etc. But whatever form you choose, it should be detailed enough that another developer could feasibly use it to implement your solution.)_
 
+Create backend (models, routes, middleware, server instance)
+create frontend (components, pages (artists, albums, songs))
+connect backend api with frontend
+
 ## Reflection
 
 What different approaches or techniques did you consider when planning your implementation? What were the advantages and disadvantages of those alternatives?
+
+for backend I considered connecting models between each other vs not doing so. The benefit is that all models are interconnected, the disadvantage is that I'm making additional calls to the db whenever I need to change 1 model.
 
 _(Put your reflection answer here.)_
 

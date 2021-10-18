@@ -1,0 +1,90 @@
+
+
+
+.img {
+    width: 100%;
+}
+
+.imgWrapper {
+    max-width: 150px;
+}
+
+
+.album {
+    max-width: 150px;
+}
+
+.iconBtnWrapper {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    border-radius: 50%;
+}
+
+.editIcon {
+    font-size: 25px;
+    background-color: #fff;
+    border: 1px solid rebeccapurple;
+    color: rebeccapurple;
+    border-radius: 50%;
+    padding: 3px;
+    transition: all 0.1s ease-in-out;
+}
+.editIcon:hover {
+    background-color: #fff;
+    color: rebeccapurple;
+
+}
+
+.editIcon:active {
+    background-color: rebeccapurple;
+    color: #fff;
+}
+
+
+
+
+.albumBody {
+    position: relative;
+}
+
+/* .albumBody:hover:after {
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.50);
+    z-index: 3;
+} */
+
+.albumBody:hover {
+    background-color: rgba(0, 0, 0, 0.50);
+    cursor: pointer;
+
+}
+
+.title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.albumFooter {
+    margin-top: 5px;
+}
+
+.albumDetails {
+    margin-top: 5px;
+}
+
+.detail {
+    margin-right: 5px;
+}
+
+.title:hover,
+.detail:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}

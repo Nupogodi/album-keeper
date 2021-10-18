@@ -1,0 +1,39 @@
+
+
+.grid {
+    border: 1px solid rebeccapurple;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1176px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 16px;
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgba(0, 0, 0, 0.9); */
+}
+
+
+
+.btn {
+    appearance: none;
+    border: none;
+    background-color: inherit;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon:active {
+    background-color: #54f;
+}
+
+
+.icon {
+    font-size: 20px;
+}
