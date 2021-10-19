@@ -99,7 +99,7 @@ export function useProvideAuth() {
 
   const signout = () => {
     dispatch({
-      type: 'LOGOUT',
+      type: LOG_OUT,
     });
     router.push('/');
   };
@@ -113,12 +113,12 @@ export function useProvideAuth() {
       JSON.parse(localStorage.getItem('AlbumKeeperUser')) || false;
     if (savedUser) {
       dispatch({
-        type: 'LOGIN',
+        type: LOG_IN,
         payload: savedUser,
       });
     } else {
       dispatch({
-        type: 'LOGOUT',
+        type: LOG_OUT,
       });
     }
   }, [dispatch]);

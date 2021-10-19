@@ -53,19 +53,16 @@ const AlbumGrid = ({ children }) => {
     getAlbums();
   }, []);
 
-  useEffect(async () => {
-    const sortAlbums = () => {
-      const sortedList = [...albums].sort((a, b) => {
-        if (sortType === SORT_TYPES.artist) {
-          return b.artist.artist_name - a.artist.artist_name;
-        } else {
-          return b[sortType] - a[sortType];
-        }
-      });
-      setSortedAlbums(sortedList);
-    };
-    sortAlbums();
-  }, [sortType]);
+  useEffect(() => {
+    const sortedList = [...albums].sort((a, b) => {
+      if (sortType === SORT_TYPES.artist) {
+        return b.artist.artist_name - a.artist.artist_name;
+      } else {
+        return b[sortType] - a[sortType];
+      }
+    });
+    setSortedAlbums(sortedList);
+  }, [albums, sortType]);
 
   const handleSuccess = (album) => {
     setAlbums([...albums, album]);

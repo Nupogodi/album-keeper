@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react';
-import GlobalContext from 'context/globalContext/globalContext';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 
@@ -13,7 +12,6 @@ import styles from './Register.module.css';
 import 'index.css';
 
 const Register = () => {
-  const globalContext = useContext(GlobalContext);
 
   const initialState = {
     username: '',

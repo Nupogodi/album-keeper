@@ -89,6 +89,8 @@ yarn start
 
 _Note that you must be in the root folder of this repository to run both the front and backend!_
 
+cd into client and server and run yarn install and then yarn start
+
 ### Folder structure
 
 The front and backend are held inside of `packages/client/` and `packages/server/`
