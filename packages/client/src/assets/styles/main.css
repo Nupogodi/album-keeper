@@ -1,1 +1,2 @@
-/* import base and variables and possibly sanitize css */
+@import './base.css';
+@import './variables.css';

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 //constants
-import { ROUTES, LIBRARY_ROUTES } from 'util/constants';
+import { ROUTES, AUTH_ROUTES, LIBRARY_ROUTES } from 'util/constants';
 
 // components
 import HomePage from 'pages/HomePage/HomePage';
@@ -21,8 +21,11 @@ import Navigation from 'components/layout/Navigation/Navigation';
 import './index.css';
 
 const App = () => {
-  const isAuthenticated = useAuth();
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
 
+  console.log(useAuth());
   console.log(isAuthenticated);
 
   return (
@@ -36,10 +39,14 @@ const App = () => {
               <HomePage />
             </Route>
             <Route path={ROUTES.library.url}>
-              <Library />
+              {isAuthenticated ?  <Library /> : <Redirect to={ROUTES.home.url} />}
             </Route>
-            <Route path={ROUTES.signIn.url} component={SignIn} />
-            <Route path={ROUTES.register.url} component={Register} />
+            <Route path={AUTH_ROUTES.signIn.url}>
+              <SignIn />
+            </Route>
+            <Route path={AUTH_ROUTES.register.url}>
+              <Register />
+            </Route>
           </Switch>
         </BrowserRouter>
       </ErrorBoundary>

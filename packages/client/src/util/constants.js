@@ -48,9 +48,14 @@ export const ROUTES = {
   library: {
     url: '/library',
     title: 'Library',
+    private: true,
   },
-  register: { url: '/signup', title: 'Register' },
-  signIn: { url: '/signin', title: 'Sign in' },
+};
+
+export const AUTH_ROUTES = {
+  register: { url: '/signup', title: 'Register', private: false },
+  signIn: { url: '/signin', title: 'Sign in', private: false },
+  signOut: { url: '/signout', title: 'Sign out', private: true },
 };
 
 export const LIBRARY_ROUTES = {
@@ -133,17 +138,15 @@ export const ICON_TYPES = {
 export const BTN_STYLES = {
   outline: 'outline',
   fill: 'fill',
-}
+};
 
 export const BTN_TYPES = {
   submit: 'submit',
   button: 'button',
-}
-
+};
 
 export const SORT_TYPES = {
   album: 'album_title',
   artist: 'artist_name',
   year: 'release_year',
-}
-
+};

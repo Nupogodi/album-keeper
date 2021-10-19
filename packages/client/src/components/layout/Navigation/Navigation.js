@@ -1,27 +1,67 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 //constants
-import { ROUTES } from 'util/constants';
+import { ROUTES, AUTH_ROUTES } from 'util/constants';
 
+//hooks
+import { useAuth, useProvideAuth } from 'hooks/useAuth';
+
+//components
+import ButtonWrapper from 'components/wrappers/ButtonWrapper';
+
+//styles
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
+  const { state, signout } = useProvideAuth();
+
+  console.log(state);
+  console.log(signout);
+
+  const {
+    state: { isAuthenticated },
+  } = useAuth();
+
   return (
     <div>
       <nav className={styles.nav}>
         <h2 className={styles.logo}>
-          <Link className={styles.link} to='/'>
+          <NavLink className={styles.link} exact to='/'>
             Album Keeper
-          </Link>
+          </NavLink>
         </h2>
         <ul className={styles.navList}>
-          {Object.entries(ROUTES).map(([key, value]) => {
+          {Object.entries({ ...ROUTES, ...AUTH_ROUTES }).map(([key, value]) => {
+            if (
+              (!isAuthenticated &&
+                value.private &&
+                value.hasOwnProperty('private')) ||
+              (isAuthenticated &&
+                !value.private &&
+                value.hasOwnProperty('private'))
+            ) {
+              return null;
+            }
+
+            if (isAuthenticated && value.url === '/signout') {
+              return (
+                <li className={styles.navItem} key={key}>
+                  <ButtonWrapper
+                    className={styles.link}
+                    action={() => signout()}
+                  >
+                    {value.title}
+                  </ButtonWrapper>
+                </li>
+              );
+            }
+
             return (
               <li className={styles.navItem} key={key}>
-                <Link className={styles.link} to={value.url}>
+                <NavLink className={styles.link} exact to={value.url}>
                   {value.title}
-                </Link>
+                </NavLink>
               </li>
             );
           })}

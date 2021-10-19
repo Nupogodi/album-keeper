@@ -4,6 +4,10 @@ import { Switch, Route } from 'react-router-dom';
 //constants
 import { LIBRARY_ROUTES, SONG_GRID_VIEWS } from 'util/constants';
 
+//hooks
+import { useRequireAuth } from 'hooks/useRequireAuth';
+import { useProvideAuth } from 'hooks/useAuth';
+
 //components
 import AlbumsGrid from './components/sections/Albums/AlbumsGrid/AlbumsGrid';
 import AlbumDetails from './components/sections/Albums/AlbumDetails/AlbumDetails';
@@ -16,6 +20,12 @@ import ArtistDetails from './components/sections/Artists/ArtistDetails/ArtistDet
 import 'index.css';
 
 const Library = () => {
+  const { state } = useProvideAuth();
+  const {
+    state: { isAuthenticated },
+  } = useRequireAuth();
+
+  
   return (
     <div className='container'>
       <LibraryNav />

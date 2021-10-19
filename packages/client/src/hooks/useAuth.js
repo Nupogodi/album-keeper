@@ -2,12 +2,16 @@ import React, { useReducer, useEffect, useContext, createContext } from 'react';
 import useRouter from 'hooks/useRouter';
 import api from 'util/api';
 import { API_ROUTES } from 'util/constants';
-import { LOG_IN, LOG_OUT } from 'context/types';
 
 const initialState = {
   isAuthenticated: null,
   user: null,
 };
+
+// constants
+const SET_LOADING = 'SET_LOADING';
+const LOG_IN = 'LOG_IN';
+const LOG_OUT = 'LOG_OUT';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -18,7 +22,7 @@ const reducer = (state, action) => {
         user: action.payload,
       };
     case LOG_OUT:
-      localStorage.clear();
+      localStorage.removeItem('AlbumKeeperUser');
       return {
         ...state,
         isAuthenticated: false,
@@ -66,7 +70,7 @@ export function useProvideAuth() {
       });
       localStorage.setItem('AlbumKeeperUser', JSON.stringify(response.data));
       dispatch({
-        type: 'LOGIN',
+        type: LOG_IN,
         payload: response.data,
       });
       return response;
