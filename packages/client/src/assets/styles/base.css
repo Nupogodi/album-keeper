@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Alegreya+Sans&family=Merriweather&family=Nunito&display=swap');
+
+html {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
 img {
     max-width: 100%;
 }
 
 .container {
-    
-}
+    padding-top: var(--nav-height);
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+    max-width: 1176px;
+  }

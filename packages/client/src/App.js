@@ -18,7 +18,7 @@ import { useAuth } from 'hooks/useAuth';
 //components
 import Navigation from 'components/layout/Navigation/Navigation';
 
-import './index.css';
+import 'assets/styles/main.css';
 
 const App = () => {
   const {
@@ -39,7 +39,11 @@ const App = () => {
               <HomePage />
             </Route>
             <Route path={ROUTES.library.url}>
-              {isAuthenticated ?  <Library /> : <Redirect to={ROUTES.home.url} />}
+              {isAuthenticated ? (
+                <Library />
+              ) : (
+                <Redirect to={ROUTES.home.url} />
+              )}
             </Route>
             <Route path={AUTH_ROUTES.signIn.url}>
               <SignIn />

@@ -1,0 +1,10 @@
+:root {
+  --main-bg-color: #222;
+  --secondary-bg-color: #333;
+  --main-accent-color-light: #d22;
+  --main-accent-color-medium: #c00;
+  --main-accent-color-dark: #900;
+  --secondary-accent-color-light: #eee;
+  --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --nav-height: 75px;
+}

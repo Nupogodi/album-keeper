@@ -24,13 +24,11 @@ const Navigation = () => {
   } = useAuth();
 
   return (
-    <div>
+    <>
       <nav className={styles.nav}>
-        <h2 className={styles.logo}>
-          <NavLink className={styles.link} exact to='/'>
-            Album Keeper
-          </NavLink>
-        </h2>
+        <NavLink className={styles.link} exact to='/'>
+          <h2 className={styles.logo}>Album Keeper</h2>
+        </NavLink>
         <ul className={styles.navList}>
           {Object.entries({ ...ROUTES, ...AUTH_ROUTES }).map(([key, value]) => {
             if (
@@ -67,7 +65,7 @@ const Navigation = () => {
           })}
         </ul>
       </nav>
-    </div>
+    </>
   );
 };
 

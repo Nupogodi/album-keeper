@@ -1,16 +1,32 @@
+.registerWrap {
+  min-height: 100vh;
+  background-image: url('assets/img/hero-image-2.jpg'),
+    linear-gradient(
+      to right,
+      var(--main-accent-color-light) 55%,
+      var(--main-bg-color)
+    );
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  filter: grayscale(0.1);
+}
+
 .title {
   text-align: center;
   margin-bottom: 10px;
 }
 
 .registerForm {
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: var(--box-shadow);
   max-width: 300px;
   margin: 0 auto;
   margin-top: 30px;
   padding: 16px;
   display: flex;
   flex-direction: column;
+  z-index: 2;
+  background-color: var(--main-accent-color-light);
 }
 
 .formGroup {
@@ -24,9 +40,9 @@
 }
 
 .input {
-    margin-top: 5px;
-    border: none;
-    border-bottom: 1px solid black;
+  margin-top: 5px;
+  border: none;
+  border-bottom: 1px solid black;
 }
 
 .label {
