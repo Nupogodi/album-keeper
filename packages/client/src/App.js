@@ -8,7 +8,7 @@ import { ROUTES, AUTH_ROUTES, LIBRARY_ROUTES } from 'util/constants';
 // components
 import HomePage from 'pages/HomePage/HomePage';
 import Library from 'pages/Library/Library';
-import SignIn from 'pages/SignIn/SignIn';
+import SignIn from 'components/SignIn/SignIn';
 import Register from 'pages/Register/Register';
 import ErrorBoundary from 'components/ErrorBoundary';
 
@@ -45,12 +45,12 @@ const App = () => {
                 <Redirect to={ROUTES.home.url} />
               )}
             </Route>
-            <Route path={AUTH_ROUTES.signIn.url}>
+            {/* <Route path={AUTH_ROUTES.signIn.url}>
               <SignIn />
             </Route>
             <Route path={AUTH_ROUTES.register.url}>
               <Register />
-            </Route>
+            </Route> */}
           </Switch>
         </BrowserRouter>
       </ErrorBoundary>
