@@ -1,19 +1,29 @@
-
 .link:hover {
-    cursor: pointer;
-    text-decoration: underline;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.link {
+  color: var(--secondary-accent-color-light);
 }
 
 .songItem {
   display: flex;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid var(--secondary-accent-color-medium);
   align-items: center;
   padding: 5px 2px;
   min-height: 50px;
+  color: var(--secondary-accent-color-light);
+  transition: all 0.05s ease;
 }
 
 .songItem:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--secondary-accent-color-color-dark-hover);
+}
+
+.songItem:hover,
+.songItem:hover .link {
+  color: var(--secondary-accent-color-light);
 }
 
 .imgWrapper {
@@ -32,10 +42,6 @@
   flex: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-}
-
-.songDetail:hover {
-  /* cursor: pointer; */
 }
 
 .songDetail:last-child {

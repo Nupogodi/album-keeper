@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
-import {toast} from 'react-toastify';
-
+import { toast } from 'react-toastify';
 
 //constants
 import {
@@ -19,14 +18,13 @@ import useRouter from 'hooks/useRouter';
 
 //components
 import SettingsMenu from 'components/SettingsMenu/SettingsMenu';
-import ButtonWrapper from 'components/wrappers/ButtonWrapper';
+import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 
 // styles
 import styles from './Album.module.css';
 
 const Album = ({ albumTitle, albumYear, artist, albumCover, albumId }) => {
-
   const router = useRouter();
   let { path, url } = useRouteMatch();
   const [showSettings, setShowSettings] = useState(false);
@@ -36,13 +34,14 @@ const Album = ({ albumTitle, albumYear, artist, albumCover, albumId }) => {
     setShowSettings(!showSettings);
   };
   const handleEdit = async () => {
-    router.push(`${url}/${albumId}`)
-  
+    router.push(`${url}/${albumId}`);
   };
 
   const handleDelete = async () => {
     try {
-      const response = await api.delete(`${API_ROUTES.albums.delete}/${albumId}`)
+      const response = await api.delete(
+        `${API_ROUTES.albums.delete}/${albumId}`
+      );
       toast.success(response.data.msg);
     } catch (error) {
       console.log(error);

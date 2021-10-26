@@ -1,3 +1,8 @@
+
+.artistDetails {
+
+}
+
 .imgWrapper {
   min-width: 200px;
   min-height: 200px;
@@ -29,7 +34,7 @@
 }
 
 .artistDetails {
-  background: #f4f4f4;
+  background: var(--secondary-accent-color-light);
   margin-bottom: 10px;
   /* min-height: 100px; */
   display: flex;
@@ -59,3 +64,4 @@
 .title {
   font-size: 25px;
 }
+

@@ -2,7 +2,7 @@
 }
 
 .songItem {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--secondary-accent-color-medium);
   display: flex;
   justify-content: space-between;
   align-items: center;

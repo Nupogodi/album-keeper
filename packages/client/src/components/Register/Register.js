@@ -69,42 +69,42 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.registerWrap}>
-      <div className='container'>
-        <form onSubmit={handleSignup} className={styles.registerForm}>
-          <h2 className={styles.title}>Register</h2>
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor='username'>
-              Username
-            </label>
-            <input
-              className={styles.input}
-              value={data.username}
-              type='text'
-              name='username'
-              id='username'
-              onChange={handleChange}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor='password'>
-              Password
-            </label>
-            <input
-              className={styles.input}
-              value={data.password}
-              type='password'
-              name='password'
-              id='password'
-              onChange={handleChange}
-            />
-          </div>
-          <CustomButton btnType={BTN_TYPES.button} btnStyle={BTN_STYLES.fill}>
-            Submit
-          </CustomButton>
-        </form>
+    <form onSubmit={handleSignup} className={styles.registerForm}>
+      <h2 className={styles.title}>Register</h2>
+      <div className={styles.formGroup}>
+        <input
+          className={`${styles.input} ${data.username && styles.hasValue}`}
+          value={data.username}
+          type='text'
+          name='username'
+          id='username'
+          onChange={handleChange}
+        />
+        <label className={styles.label} htmlFor='username'>
+          Username
+        </label>
       </div>
-    </div>
+      <div className={styles.formGroup}>
+        <input
+          className={`${styles.input} ${data.password && styles.hasValue}`}
+          value={data.password}
+          type='password'
+          name='password'
+          id='password'
+          onChange={handleChange}
+        />
+        <label className={styles.label} htmlFor='password'>
+          Password
+        </label>
+      </div>
+      <CustomButton
+        btnType={BTN_TYPES.button}
+        btnStyle={BTN_STYLES.fill}
+        className={styles.btnSubmit}
+      >
+        Submit
+      </CustomButton>
+    </form>
   );
 };
 

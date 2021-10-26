@@ -1,0 +1,25 @@
+.controls {
+  background-color: transparent;
+  display: flex;
+  min-width: 100px;
+  justify-content: space-between;
+}
+
+.controlsWrapper {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+
+.btn {
+
+}
+
+
+
+.icon {
+  font-size: 20px;
+  color: var(--secondary-accent-color-light);
+}

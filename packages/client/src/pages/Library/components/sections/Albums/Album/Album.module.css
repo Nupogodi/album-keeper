@@ -2,7 +2,7 @@
 
 
 .img {
-    width: 100%;
+    max-width: 100%;
 }
 
 .imgWrapper {
@@ -12,6 +12,7 @@
 
 .album {
     max-width: 150px;
+    color: var(--secondary-accent-color-light);
 }
 
 .iconBtnWrapper {
@@ -23,21 +24,21 @@
 
 .editIcon {
     font-size: 25px;
-    background-color: #fff;
-    border: 1px solid rebeccapurple;
-    color: rebeccapurple;
+    background-color: var(--secondary-accent-color-light);
+    border: 1px solid var(--main-bg-color);
+    color: var(--main-bg-color);
     border-radius: 50%;
     padding: 3px;
     transition: all 0.1s ease-in-out;
 }
 .editIcon:hover {
     background-color: #fff;
-    color: rebeccapurple;
+    color: var(--main-accent-color-dark);
 
 }
 
 .editIcon:active {
-    background-color: rebeccapurple;
+    background-color: var(--main-bg-color);
     color: #fff;
 }
 

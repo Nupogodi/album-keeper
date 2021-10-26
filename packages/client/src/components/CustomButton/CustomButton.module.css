@@ -15,14 +15,33 @@
   border-radius: 3px;
 }
 
-.outline {
-
+/* Btn Styles */
+.outlineLight {
   background: none;
-  border: 1px solid #fff;
+  border: 2px solid var(--secondary-accent-color-light);
+  color: var(--main-bg-color);
 }
 
-.fill {
-    background: #fff;
-    color: #363636;
-    border: 1px solid #363636;
+.outlineDark {
+  border: 2px solid var(--main-bg-color);
+  color: var(--main-bg-color);
+}
+
+.fillLight {
+  background: var(--secondary-accent-color-light);
+  color: var(--main-bg-color);
+}
+.fillDark {
+  background: var(--main-bg-color);
+  color: var(--secondary-accent-color-light);
+}
+
+
+
+.light {
+}
+
+.dark {
+  color: var(--main-bg-color);
+  border: 1px solid var(--main-bg-color);
 }

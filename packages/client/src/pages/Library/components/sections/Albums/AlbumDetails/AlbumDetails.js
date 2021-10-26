@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useRouteMatch } from 'react-router-dom';
+import { useRouteMatch, Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 //api
@@ -15,7 +15,7 @@ import {
 import { AlbumLength, secondsToTimestamp } from 'util/calculations';
 
 //components
-import ViewControls from '../../ViewControls/ViewControls';
+import ViewControls from '../../../LibraryNav/ViewControls/ViewControls';
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import SongGrid from '../../Songs/SongsGrid/SongsGrid';
 import AlbumEditForm from '../AlbumEditForm/AlbumEditForm';
@@ -72,8 +72,7 @@ const AlbumDetails = (props) => {
 
   const { album_title, description, artist, release_year, song_list } = album;
   return (
-    <div className='container'>
-      <ViewControls />
+    <div>
       {modalOpen && (
         <CustomModal modalOpen={modalOpen} toggleModal={toggleModal}>
           <AlbumEditForm
@@ -102,7 +101,7 @@ const AlbumDetails = (props) => {
           <div className={styles.controls}>
             <CustomButton
               btnType={BTN_TYPES.button}
-              btnStyle={BTN_STYLES.fill}
+              btnStyle={BTN_STYLES.outlineDark}
               action={toggleModal}
               text='Edit Album'
             ></CustomButton>

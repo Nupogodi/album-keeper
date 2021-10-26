@@ -8,7 +8,7 @@ import { ROUTES, AUTH_ROUTES } from 'util/constants';
 import { useAuth, useProvideAuth } from 'hooks/useAuth';
 
 //components
-import ButtonWrapper from 'components/wrappers/ButtonWrapper';
+import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 
 //styles
 import styles from './Navigation.module.css';
@@ -46,7 +46,7 @@ const Navigation = () => {
               return (
                 <li className={styles.navItem} key={key}>
                   <ButtonWrapper
-                    className={styles.link}
+                    className={`${styles.link} ${styles.btnOutline}`}
                     action={() => signout()}
                   >
                     {value.title}

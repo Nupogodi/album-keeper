@@ -10,7 +10,7 @@ import { API_ROUTES, LIBRARY_ROUTES, SORT_TYPES } from 'util/constants';
 import api from 'util/api';
 
 //components
-import ViewControls from '../../ViewControls/ViewControls';
+import ViewControls from '../../../LibraryNav/ViewControls/ViewControls';
 import Album from '../Album/Album';
 import AlbumForm from '../AlbumForm/AlbumForm';
 import AlbumDetails from '../AlbumDetails/AlbumDetails';
@@ -79,14 +79,13 @@ const AlbumGrid = ({ children }) => {
   }
 
   return (
-    <div className='container'>
+    <div>
       {modalOpen && (
         <CustomModal modalOpen={modalOpen} toggleModal={toggleModal}>
           <AlbumForm onSuccess={handleSuccess} />
         </CustomModal>
       )}
 
-      <ViewControls action={toggleModal} setSorted={setSortType} />
       <div className={styles.grid}>
         {sortedAlbums.length > 0 ? (
           sortedAlbums.map((album) => {

@@ -4,9 +4,17 @@ import { toast } from 'react-toastify';
 
 //api
 import api from 'util/api';
-import { API_ROUTES, ICON_TYPES, BTN_STYLES, BTN_TYPES } from 'util/constants';
+import {
+  API_ROUTES,
+  ICON_TYPES,
+  BTN_STYLES,
+  BTN_TYPES,
+  BTN_COLORS,
+  SONG_GRID_VIEWS,
+} from 'util/constants';
 
 //components
+import SongGrid from '../../Songs/SongsGrid/SongsGrid';
 import Song from '../../Songs/Song/Song';
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import DefaultImg from 'assets/img/default_album.jpg';
@@ -59,7 +67,7 @@ const ArtistDetails = () => {
   if (isSubmitting) return <LoadingSpinner />;
 
   return (
-    <div className='container'>
+    <div>
       {modalOpen && (
         <CustomModal modalOpen={modalOpen} toggleModal={toggleModal}>
           <ArtistForm
@@ -80,12 +88,10 @@ const ArtistDetails = () => {
                 : artist.profile_image
             }
           />
-
-          
         </div>
         <div className={styles.detailsGroup}>
           <h4 className={styles.title}>{artist.artist_name}</h4>
-            {artist.description && <p>{artist.description}</p>}
+          {artist.description && <p>{artist.description}</p>}
           {artist.band_members !== undefined &&
           artist.band_members.length > 0 ? (
             <div className={styles.bandMembers}>
@@ -103,39 +109,23 @@ const ArtistDetails = () => {
           <CustomButton
             type={BTN_TYPES.button}
             action={toggleModal}
-            btnStyle={BTN_STYLES.outline}
+            btnStyle={BTN_STYLES.outlineDark}
           >
             <CustomIcon className={styles.icon} iconType={ICON_TYPES.edit} />
             Edit Artist
           </CustomButton>
-          {/* <button
-            type='button'
-            className={styles.btnWrapper}
-            onClick={toggleModal}
-          >
-            <CustomIcon className={styles.icon} iconType={ICON_TYPES.edit} />
-            Edit Artist
-          </button> */}
         </div>
       </div>
-      <div className={styles.songGrid}>
-        {artist?.song_list !== undefined
-          ? artist.song_list.map((song) => {
-              return (
-                <Song
-                  key={song._id}
-                  songTitle={song.song_title}
-                  artistName={song.artist.artist_name}
-                  artistId={song.artist._id}
-                  albumTitle={song.album.album_title}
-                  albumId={song.album._id}
-                  albumCover={song.album.album_cover}
-                  songDuration={song.song_duration}
-                />
-              );
-            })
-          : 'No Songs'}
-      </div>
+
+      {artist?.song_list !== undefined ? (
+        <SongGrid
+          view={SONG_GRID_VIEWS.albumView}
+          songList={artist.song_list}
+          className={styles.songGrid}
+        />
+      ) : (
+        'No Songs yet.'
+      )}
     </div>
   );
 };

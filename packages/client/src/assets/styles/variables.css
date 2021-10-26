@@ -5,6 +5,9 @@
   --main-accent-color-medium: #c00;
   --main-accent-color-dark: #900;
   --secondary-accent-color-light: #eee;
+  --secondary-accent-color-medium:  #808080;
+  --secondary-accent-color-color-dark-hover: rgba(0, 0, 0, 0.75);
+  --secondary-accent-color-success: forestgreen;
   --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   --nav-height: 75px;
 }

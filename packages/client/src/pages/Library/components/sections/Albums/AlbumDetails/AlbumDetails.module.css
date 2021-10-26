@@ -10,6 +10,7 @@
 
 .imgWrapper {
     max-width: 250px;
+    display: flex;
 }
 
 .detailsBox {

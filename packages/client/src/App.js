@@ -8,8 +8,6 @@ import { ROUTES, AUTH_ROUTES, LIBRARY_ROUTES } from 'util/constants';
 // components
 import HomePage from 'pages/HomePage/HomePage';
 import Library from 'pages/Library/Library';
-import SignIn from 'components/SignIn/SignIn';
-import Register from 'pages/Register/Register';
 import ErrorBoundary from 'components/ErrorBoundary';
 
 //hooks

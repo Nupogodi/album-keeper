@@ -1,37 +1,38 @@
 .libraryNav {
-    border-bottom: 1px solid black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  border-bottom: 1px solid var(--secondary-accent-color-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
 }
+
 
 /* list */
 .linksWrapper {
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Link tag */
 .link {
-    color: #000;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-    transition: all 0.2s ease-in-out;
+  color: var(--secondary-accent-color-light);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  border-bottom: 2px solid transparent;
 }
 
 .link:hover {
-    background-color: rebeccapurple;
-    color: #fff;
+  border-bottom: 2px solid var(--secondary-accent-color-light);
 }
 
 /* List item */
 .linkItem {
-    text-align: center;
-    list-style: none;
-    padding: 5px;
-    text-transform: uppercase;
-    margin: 0 auto;
+  text-align: center;
+  list-style: none;
+  padding: 5px;
+  text-transform: uppercase;
+  margin: 0 auto;
 }

@@ -47,3 +47,7 @@ li > *,
 .navItem:hover {
   border-bottom: 2px solid var(--main-accent-color-dark);
 }
+
+.btnOutline {
+  color: var(--secondary-accent-color-light);
+}

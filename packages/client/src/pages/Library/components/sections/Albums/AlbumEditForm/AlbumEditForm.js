@@ -10,7 +10,7 @@ import api from 'util/api';
 
 //components
 import LoadingSpinner from 'components/LoadingSpinner/index';
-import ButtonWrapper from 'components/wrappers/ButtonWrapper';
+import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 import CustomButton from 'components/CustomButton/CustomButton';
 

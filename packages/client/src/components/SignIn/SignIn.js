@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 //hooks
 import { useProvideAuth } from 'hooks/useAuth';
 import useRouter from 'hooks/useRouter';
 import { setAuthToken } from 'util/api';
 
-import { toast } from 'react-toastify';
+//constants
+import {BTN_TYPES, BTN_STYLES} from 'util/constants';
+
+//components
+import CustomButton from 'components/CustomButton/CustomButton';
+
 
 //styles
 import styles from './SignIn.module.css';
-import 'index.css';
 
 const initialState = {
   username: '',
@@ -61,13 +66,9 @@ const SignIn = () => {
   };
 
   return (
-    <div className='container'>
       <form onSubmit={handleSignin} className={styles.registerForm}>
         <h2 className={styles.title}>Sign in</h2>
         <div className={styles.formGroup}>
-          <label className={styles.label} htmlFor='username'>
-            Username
-          </label>
           <input
             className={styles.input}
             value={data.username}
@@ -75,11 +76,11 @@ const SignIn = () => {
             name='username'
             onChange={handleInputChange}
           />
+          <label className={styles.label} htmlFor='username'>
+            Username
+          </label>
         </div>
         <div className={styles.formGroup}>
-          <label className={styles.label} htmlFor='password'>
-            Password
-          </label>
           <input
             className={styles.input}
             value={data.password}
@@ -87,12 +88,14 @@ const SignIn = () => {
             name='password'
             onChange={handleInputChange}
           />
+          <label className={styles.label} htmlFor='password'>
+            Password
+          </label>
         </div>
-        <button type='submit' className='btn btn-light'>
+        <CustomButton action={handleSignin} btnType={BTN_TYPES.submit} btnStyle={BTN_STYLES.fill} className={styles.btnSubmit}>
           Submit
-        </button>
+        </CustomButton>
       </form>
-    </div>
   );
 };
 

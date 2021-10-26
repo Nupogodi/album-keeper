@@ -9,7 +9,7 @@ import btnStyles from './CustomButton.module.css';
 const CustomButton = ({
   btnType = 'button',
   text,
-  btnStyle,
+  btnStyle = 'outline',
   action,
   className = {},
   children,

@@ -1,0 +1,13 @@
+.defaultStyles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: inherit;
+    color: #fff;
+    border: none;
+    appearance: none;
+    color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: inherit;
+}

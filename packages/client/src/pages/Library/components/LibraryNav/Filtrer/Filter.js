@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import { BsSearch } from 'react-icons/bs';
 
+//components
+
 //styles
 import styles from './Filter.module.css';
 
@@ -23,18 +25,19 @@ const Filter = () => {
 
   return (
     <div className={styles.filter}>
-      <input
-        placeholder='Search'
-        className={styles.input}
-        value={data.searchInput}
-        onChange={handleChange}
-        type='text'
-        name='searchInput'
-        id='searchInput'
-      />
-      <button type='button' className={styles.filterBtn}>
-        <BsSearch className={styles.icon}></BsSearch>
-      </button>
+      <div className='formGroup'>
+        <input
+          className={`input ${data.searchInput && 'hasValue'}`}
+          value={data.searchInput}
+          onChange={handleChange}
+          type='text'
+          name='searchInput'
+          id='searchInput'
+        />
+        <label className='label' htmlFor='searchInput'>
+          Search
+        </label>
+      </div>
     </div>
   );
 };

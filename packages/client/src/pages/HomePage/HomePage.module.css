@@ -26,6 +26,17 @@
 }
 
 .gridItem {
+  background-color: var(--main-bg-color);
+  color: var(--secondary-accent-light);
+  min-height: 75%;
+  min-width: 50%;
+  justify-self: end;
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionRight {
+  justify-self: flex-start;
 }
 
 .heroContent {
@@ -41,6 +52,17 @@
   opacity: 1;
 }
 
+.tabs {
+  color: var(--secondary-accent-color-light);
+  display: flex;
+  border-bottom: 2px solid var(--secondary-accent-color-light);
+}
+
+.tab {
+  width: 50%;
+  min-height: 30px;
+}
+
 
 
 .heading {
@@ -50,4 +72,15 @@
 .heading,
 .subtitle {
   margin-bottom: 16px;
+}
+
+.welcomeBack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary-accent-color-light);
+  margin: 50px auto;
+  min-height: 200px;
+  max-width: 400px;
+  background-color: rgba(0, 0, 0, 0.4);
 }

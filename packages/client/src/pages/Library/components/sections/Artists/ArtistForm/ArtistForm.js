@@ -9,7 +9,7 @@ import { API_ROUTES, ICON_TYPES } from 'util/constants';
 
 //components
 import CustomIcon from 'components/CustomIcon/CustomIcon';
-import ButtonWrapper from 'components/wrappers/ButtonWrapper';
+import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 
 //styles
 import styles from './ArtistForm.module.css';

@@ -1,34 +1,60 @@
 .title {
-    text-align: center;
-    margin-bottom: 10px;
-  }
+  text-align: center;
+}
+
+.registerForm {
+  max-width: 100%;
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--secondary-bg-color);
+  color: var(--secondary-accent-color-light);
+}
+
+.formGroup {
+  position: relative;
+}
+
+.display,
+.input {
+  display: block;
+  width: 100%;
+}
+
+.input {
+  margin-top: 5px;
+  color: var(--secondary-accent-color-light);
+  z-index: 1;
+  border: none;
+  border-bottom: 2px solid var(--secondary-accent-color-light);
+  background-color: transparent;
+  font: inherit;
+  font-size: 18px;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  outline: transparent;
+}
+
+.label {
+  color: var(--secondary-accent-color-light);
+  transition: 0.25s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.input:focus ~ .label,
+.input:valid ~ .label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
   
-  .registerForm {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    max-width: 300px;
-    margin: 0 auto;
-    margin-top: 30px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .formGroup {
-    margin-bottom: 10px;
-  }
-  
-  .display,
-  .input {
-    display: block;
-    width: 100%;
-  }
-  
-  .input {
-      margin-top: 5px;
-      border: none;
-      border-bottom: 1px solid black;
-  }
-  
-  .label {
-  }
-  
+}
+
+.btnSubmit {
+  margin-top: 32px;
+}

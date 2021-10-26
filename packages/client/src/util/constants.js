@@ -6,7 +6,11 @@ import {
 } from 'react-icons/md';
 import { RiMusicLine, RiAlbumLine } from 'react-icons/ri';
 import { BsMusicNoteList, BsPersonCircle } from 'react-icons/bs';
-import { AiOutlinePlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
+import {
+  AiOutlinePlusCircle,
+  AiOutlineMinusCircle,
+  AiOutlineArrowLeft,
+} from 'react-icons/ai';
 import { HiDotsVertical } from 'react-icons/hi';
 
 export const API_URL = 'http://localhost:5000/api/';
@@ -115,6 +119,7 @@ export const ICONS = {
   addArtist: MdPersonAdd,
   addPlaylist: BsMusicNoteList,
   threeDots: HiDotsVertical,
+  backArrow: AiOutlineArrowLeft,
   plus: AiOutlinePlusCircle,
   minus: AiOutlineMinusCircle,
   cancel: MdOutlineCancel,
@@ -129,6 +134,7 @@ export const ICON_TYPES = {
   addArtist: 'addArtist',
   addPlaylist: 'addPlaylist',
   threeDots: 'threeDots',
+  backArrow: 'backArrow',
   plus: 'plus',
   minus: 'minus',
   cancel: 'cancel',
@@ -136,9 +142,16 @@ export const ICON_TYPES = {
 };
 
 export const BTN_STYLES = {
-  outline: 'outline',
-  fill: 'fill',
+  outlineDark: 'outlineDark',
+  outlineLight: 'outlineLight',
+  fillLight: 'fillLight',
+  fillDark: 'fillDark',
 };
+
+export const BTN_COLORS = {
+  light: 'light',
+  dark: 'dark',
+}
 
 export const BTN_TYPES = {
   submit: 'submit',
