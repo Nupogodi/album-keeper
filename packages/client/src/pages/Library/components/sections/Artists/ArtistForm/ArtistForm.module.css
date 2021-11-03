@@ -1,104 +1,76 @@
 .artistForm {
-  padding: 20px;
+    max-width: 100%;
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-accent-color-light);
 }
 
 .formTitle {
-  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .formGroup {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
   position: relative;
 }
 
 .label {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
+  color: var(--secondary-accent-color-light);
+  transition: 0.25s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  font-size: 16px;
 }
 
 .input {
+  margin-top: 5px;
+  color: var(--secondary-accent-color-light);
+  z-index: 1;
+  min-width: 100%;
   border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-  background-color: inherit;
-  font-size: 14px;
-  color: #fff;
-  font-weight: 900;
-  padding: 2px;
-}
-
-.input:focus {
-  outline: solid 1px transparent;
-  border-bottom: 1px solid #73a6ff;
-}
-
-.iconBtnPlus {
-  right: 0px;
-  top: 15px;
-  position: absolute;
-}
-
-.iconBtnMinus {
-  /* position: absolute;
-  top: 0;
-  right: 5px; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.icon {
+  border-bottom: 2px solid var(--secondary-accent-color-light);
+  background-color: transparent;
+  font: inherit;
   font-size: 18px;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  outline: transparent;
 }
 
-.iconSmall {
-  font-size: 16px;
+.input:focus + .label,
+.input:-webkit-autofill + .label,
+.hasValue + .label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
 }
 
 .relative {
-  position: relative;
-}
-
-.bandMembers {
-  margin-top: 10px;
-}
-
-.bandMemberWrapper {
-  display: flex;
-  align-items: center;
-  margin-bottom: 2px;
-}
-
-.bandMember {
-  font-size: 16px;
-  font-weight: normal;
-  margin-right: 5px;
-}
-
-/* form footer */
-
-.formFooter {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn {
-  text-transform: uppercase;
-  font-weight: 900;
-  font-family: inherit;
-  background-color: #fff;
-  border-radius: 3px;
-  color: #363636;
-  border: none;
-  padding: 10px 12px;
-  margin-right: 10px;
-  cursor: pointer;
-  min-width: 70px;
-}
-
-.clearBtn {
-  background-color: inherit;
-  color: #fff;
-}
+    position: relative;
+  }
+  
+  .bandMembers {
+    margin-top: 10px;
+  }
+  
+  .bandMemberWrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+  }
+  
+  .bandMember {
+    font-size: 16px;
+    font-weight: normal;
+    margin-right: 5px;
+  }
+  

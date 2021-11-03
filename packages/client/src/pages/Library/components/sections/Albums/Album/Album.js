@@ -21,6 +21,8 @@ import SettingsMenu from 'components/SettingsMenu/SettingsMenu';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 
+import DefaultSvg from '../../../DefaultSvg/DefaultSvg';
+
 // styles
 import styles from './Album.module.css';
 
@@ -78,7 +80,8 @@ const Album = ({ albumTitle, albumYear, artist, albumCover, albumId }) => {
 
         <Link to={`${url}/${albumId}`}>
           <div className={styles.imgWrapper}>
-            <img className={styles.img} src={albumCover} />
+            {/* <img className={styles.img} src={albumCover} /> */}
+            <DefaultSvg width={200} height={200} fill={'transparent'} />
           </div>
         </Link>
       </div>

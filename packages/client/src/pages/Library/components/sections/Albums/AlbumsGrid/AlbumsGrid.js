@@ -1,13 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 
 //constants
-import { API_ROUTES, LIBRARY_ROUTES, SORT_TYPES } from 'util/constants';
+import {
+  API_ROUTES,
+  LIBRARY_ROUTES,
+  SORT_TYPES,
+  ADD_ITEM_PATHNAME_TYPES,
+} from 'util/constants';
 
 //api
 import api from 'util/api';
+
+//context
+import AddItemContext from 'context/addItem/addItemContext';
 
 //components
 import ViewControls from '../../../LibraryNav/ViewControls/ViewControls';
@@ -16,6 +24,7 @@ import AlbumForm from '../AlbumForm/AlbumForm';
 import AlbumDetails from '../AlbumDetails/AlbumDetails';
 import CustomModal from 'components/CustomModal/CustomModal';
 import LoadingSpinner from 'components/LoadingSpinner/index';
+
 import DefaultImg from 'assets/img/default_album.jpg';
 
 // styles
@@ -31,7 +40,9 @@ const AlbumGrid = ({ children }) => {
   const [sortType, setSortType] = useState(SORT_TYPES.artist);
   const [errorMessage, setErrorMessage] = useState(null);
   const { path } = useRouteMatch();
-
+  const addItemContext = useContext(AddItemContext);
+  const { setCurrentActiveFormPathname, currentActiveFormPathname } =
+    addItemContext;
   useEffect(() => {
     const getAlbums = async () => {
       setIsSubmitting(true);
@@ -64,6 +75,14 @@ const AlbumGrid = ({ children }) => {
     setSortedAlbums(sortedList);
   }, [albums, sortType]);
 
+  // write useEffect to listen to global state value and set modal open when needed
+  useEffect(() => {
+    if (currentActiveFormPathname === ADD_ITEM_PATHNAME_TYPES.albums) {
+      console.log('useEffect hit');
+      toggleModal();
+    }
+  }, [currentActiveFormPathname]);
+
   const handleSuccess = (album) => {
     setAlbums([...albums, album]);
 
@@ -71,6 +90,7 @@ const AlbumGrid = ({ children }) => {
   };
 
   const toggleModal = () => {
+    setCurrentActiveFormPathname(null);
     setModalOpen(!modalOpen);
   };
 

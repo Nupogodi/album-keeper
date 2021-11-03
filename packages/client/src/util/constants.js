@@ -163,3 +163,14 @@ export const SORT_TYPES = {
   artist: 'artist_name',
   year: 'release_year',
 };
+
+
+export const ADD_ITEM_CONTEXT_TYPES = {
+  SET_ACTIVE_FORM: 'SET_ACTIVE_FORM',
+}
+
+export const ADD_ITEM_PATHNAME_TYPES = {
+  albums: `${ROUTES.library.url}${LIBRARY_ROUTES.albums.url}`,
+  artists: `${ROUTES.library.url}${LIBRARY_ROUTES.artists.url}`,
+  songs: `${ROUTES.library.url}${LIBRARY_ROUTES.songs.url}`,
+}

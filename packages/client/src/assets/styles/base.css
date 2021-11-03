@@ -23,6 +23,11 @@ img {
     flex-direction: column;
 }
 
+.upper-level {
+  position: relative;
+  z-index: 10;
+}
+
 /* inputs & labels */
 
 

@@ -10,7 +10,7 @@ const albumSchema = new mongoose.Schema({
   artist: { type: ObjectId, ref: 'Artist' },
   album_title: requiredString,
   description: { type: String },
-  release_year: requiredString,
+  release_year: {type: Number, default: 1900},
   song_list: [{ type: ObjectId, ref: 'Song' }],
   user: { type: ObjectId, ref: 'User', required: true },
 });

@@ -1,15 +1,17 @@
-import React, { useReducer, useContext } from 'react';
-
-import AddItemReducer from './addItemReducer';
+import React, { useState } from 'react';
 import AddItemContext from './addItemContext';
 
 const AddItemState = ({ children }) => {
-  const initialState = {};
-
-  const [state, dispatch] = useReducer(AddItemReducer, initialState);
+  const [currentActiveFormPathname, setCurrentActiveFormPathname] =
+    useState(null);
 
   return (
-    <AddItemContext.Provider value={{ state, dispatch }}>
+    <AddItemContext.Provider
+      value={{
+        setCurrentActiveFormPathname,
+        currentActiveFormPathname,
+      }}
+    >
       {children}
     </AddItemContext.Provider>
   );

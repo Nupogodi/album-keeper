@@ -1,52 +1,93 @@
-
-
-
 .img {
-    max-width: 100%;
+  max-width: 100%;
 }
-
+/* 
 .imgWrapper {
-    max-width: 150px;
-}
+  max-width: 150px;
+  display: flex;
+} */
 
 
 .album {
-    max-width: 150px;
-    color: var(--secondary-accent-color-light);
+
+  transition: transform 0.3s ease;
 }
 
-.iconBtnWrapper {
+.albumBody {
+  max-width: 200px;
+  max-height: 200px;
+  color: var(--secondary-accent-color-light);
+  background: inherit;
+  margin-top: 10px;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  background: inherit;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.albumBody::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+  filter: blur(10px);
+  margin: -20px;
+  z-index: -1;
+}
+
+.album:hover {
+    margin-top: 0px;
+    transform: translateY(-10px);
+}
+
+
+/* .album:hover:before {
+    max-width: 150px;
+    max-height: 150px;
+    content: '';
     position: absolute;
-    right: 8px;
-    top: 8px;
-    border-radius: 50%;
+    top: 0px;
+    left: 0px;
+    bottom: 0;
+    right: 0;
+    background: inherit;
+  box-shadow: inset 0 0 0 200px rgba(255, 255, 255, 0.2);
+  filter: blur(10px);
+  transition: all 1s ease;
+} */
+
+.iconBtnWrapper {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  border-radius: 50%;
 }
 
 .editIcon {
-    font-size: 25px;
-    background-color: var(--secondary-accent-color-light);
-    border: 1px solid var(--main-bg-color);
-    color: var(--main-bg-color);
-    border-radius: 50%;
-    padding: 3px;
-    transition: all 0.1s ease-in-out;
+  font-size: 25px;
+  background-color: var(--secondary-accent-color-light);
+  border: 1px solid var(--main-bg-color);
+  color: var(--main-bg-color);
+  border-radius: 50%;
+  padding: 3px;
+  transition: all 0.1s ease-in-out;
 }
 .editIcon:hover {
-    background-color: #fff;
-    color: var(--main-accent-color-dark);
-
+  background-color: #fff;
+  color: var(--main-accent-color-dark);
 }
 
 .editIcon:active {
-    background-color: var(--main-bg-color);
-    color: #fff;
+  background-color: var(--main-bg-color);
+  color: #fff;
 }
 
-
-
-
 .albumBody {
-    position: relative;
+  position: relative;
 }
 
 /* .albumBody:hover:after {
@@ -61,31 +102,31 @@
     z-index: 3;
 } */
 
-.albumBody:hover {
-    background-color: rgba(0, 0, 0, 0.50);
-    cursor: pointer;
-
-}
+/* .albumBody:hover {
+  background-color: rgba(73, 25, 25, 0.5);
+  cursor: pointer;
+} */
 
 .title {
-    font-size: 16px;
-    font-weight: bold;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .albumFooter {
-    margin-top: 5px;
+  margin-top: 5px;
+  color: var(--secondary-accent-color-light);
 }
 
 .albumDetails {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 
 .detail {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .title:hover,
 .detail:hover {
-    text-decoration: underline;
-    cursor: pointer;
+  text-decoration: underline;
+  cursor: pointer;
 }

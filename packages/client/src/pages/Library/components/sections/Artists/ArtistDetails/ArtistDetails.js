@@ -19,7 +19,7 @@ import Song from '../../Songs/Song/Song';
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import DefaultImg from 'assets/img/default_album.jpg';
 import SettingsMenu from 'components/SettingsMenu/SettingsMenu';
-import ArtistForm from '../ArtistForm/ArtistForm';
+import ArtistForm from '../ArtistEditForm/ArtistEditForm';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 import CustomModal from 'components/CustomModal/CustomModal';
 import CustomButton from 'components/CustomButton/CustomButton';

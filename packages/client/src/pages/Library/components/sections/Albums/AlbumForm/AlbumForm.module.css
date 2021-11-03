@@ -1,61 +1,55 @@
-
-
 .albumForm {
-    min-width: 400px;
+    max-width: 100%;
+    flex: 1;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items:center;
-    padding: 10px;
+    background-color: var(--secondary-bg-color);
+    color: var(--secondary-accent-color-light);
 }
 
 .formTitle {
-    text-align: center;
-    margin-bottom: 10px;
-    border-bottom: 1px solid black;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 .formGroup {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
-    border-bottom: 1px solid black;
-    display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+  position: relative;
 }
 
 .label {
-    margin-right: 10px;
-    flex: 1;
+  color: var(--secondary-accent-color-light);
+  transition: 0.25s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+  font-size: 16px;
 }
 
 .input {
-    font-size: 16px;
-    
+  margin-top: 5px;
+  color: var(--secondary-accent-color-light);
+  z-index: 1;
+  min-width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--secondary-accent-color-light);
+  background-color: transparent;
+  font: inherit;
+  font-size: 18px;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  outline: transparent;
 }
 
-.input:focus {
-    outline: 2px solid rebeccapurple;
-}
-
-.submitBtn {
-    padding: 5px 10px;
-    font-size: 12px;
-    border: 2px solid rebeccapurple;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    background-color: inherit;
-    color: rebeccapurple;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.submitBtn:hover {
-    background-color: rebeccapurple;
-    color: #fff;
-
-}
-.submitBtn:active {
-    background-color: #f4f4f4;
-    color: rgb(45, 30, 59)
+.input:focus + .label,
+.input:-webkit-autofill + .label,
+.hasValue + .label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
 }

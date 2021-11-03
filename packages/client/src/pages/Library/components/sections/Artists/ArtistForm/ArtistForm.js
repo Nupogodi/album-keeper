@@ -1,43 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
 //api
 import api from 'util/api';
 
 // constants
-import { API_ROUTES, ICON_TYPES } from 'util/constants';
+import { API_ROUTES, BTN_TYPES, BTN_STYLES, ICON_TYPES } from 'util/constants';
+
+
 
 //components
-import CustomIcon from 'components/CustomIcon/CustomIcon';
+import LoadingSpinner from 'components/LoadingSpinner/index';
+import CustomButton from 'components/CustomButton/CustomButton';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
+import CustomIcon from 'components/CustomIcon/CustomIcon';
 
 //styles
 import styles from './ArtistForm.module.css';
-import 'index.css';
-import LoadingSpinner from 'components/LoadingSpinner';
 
-const ArtistForm = ({
-  onSuccess,
-  artistTitle,
-  artistId,
-  bandMembers,
-  description = '',
-}) => {
+const ArtistForm = ({ onSuccess }) => {
   const initialState = {
-    artistTitle: artistTitle,
-    bandMembers: bandMembers,
+    modalOpen: false,
+    artistTitle: '',
+    bandMembers: [],
     newBandMember: '',
-    description: description,
+    description: '',
     isSubmitting: false,
     errorMessage: null,
-    artistId: artistId,
   };
 
   const [data, setData] = useState(initialState);
-
-  useEffect(() => {
-    renderBandMembers();
-  }, [data.bandMembers]);
 
   const handleInputChange = (e) => {
     setData({
@@ -46,7 +38,7 @@ const ArtistForm = ({
     });
   };
 
-  const handleSubmitArtist = async (e) => {
+  const handleSubmitAlbum = async (e) => {
     e.preventDefault();
 
     setData({
@@ -55,20 +47,17 @@ const ArtistForm = ({
       errorMessage: null,
     });
 
+    const body = {
+      artistTitle: data.artistTitle,
+      description: data.description,
+      bandMembers: data.bandMembers,
+    };
 
     try {
-      const body = {
-        artistTitle:data.artistTitle,
-        bandMembers: data.bandMembers,
-        description: data.description,
-      }
-
-      const response = await api.put(`${API_ROUTES.artists.update}/${data.artistId}`, body)
+      const response = await api.post(API_ROUTES.artists.post, body);
 
       toast.success(response.data.msg);
-
-      onSuccess();
-
+      onSuccess(response.data.artist);
     } catch (error) {
       setData({
         ...data,
@@ -119,42 +108,38 @@ const ArtistForm = ({
     });
   };
 
+
   return (
     <div>
-      <form className={styles.artistForm} onSubmit={handleSubmitArtist}>
-        <div className={styles.formHeader}></div>
-        <h3 className={styles.formTitle}>Edit Artist</h3>
-        <div className={styles.formBody}>
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor='artistTitle'>
-              Title
-            </label>
-            <input
-              className={styles.input}
-              type='text'
-              name='artistTitle'
-              id='artistTitle'
-              value={data.artistTitle}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor='description'>
-              Description
-            </label>
-            <input
-              className={styles.input}
-              type='text'
-              name='description'
-              id='description'
-              value={data.description}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className={`${styles.formGroup} ${styles.relative}`}>
-            <label className={styles.label} htmlFor='bandMembers'>
-              Band Members
-            </label>
+      <form className={styles.artistForm} onSubmit={handleSubmitAlbum}>
+        <h3 className={styles.formTitle}>New Artist</h3>
+        <div className={styles.formGroup}>
+          <input
+            className={`${styles.input} ${data.artistTitle && styles.hasValue}`}
+            type='text'
+            name='artistTitle'
+            id='artistTitle'
+            value={data.artistTitle}
+            onChange={handleInputChange}
+          />
+          <label className={styles.label} htmlFor='artist'>
+            Artist
+          </label>
+        </div>
+        <div className={styles.formGroup}>
+          <input
+            className={`${styles.input} ${data.description && styles.hasValue}`}
+            type='text'
+            name='description'
+            id='description'
+            value={data.description}
+            onChange={handleInputChange}
+          />
+          <label className={styles.label} htmlFor='albumTitle'>
+            Description
+          </label>
+        </div>
+        <div className={`${styles.formGroup} ${styles.relative}`}>
             <input
               className={styles.input}
               type='text'
@@ -163,6 +148,9 @@ const ArtistForm = ({
               value={data.newBandMember}
               onChange={handleInputChange}
             />
+            <label className={styles.label} htmlFor='bandMembers'>
+              Band Members
+            </label>
             <ButtonWrapper
               action={handleAddBandMember}
               type='button'
@@ -176,20 +164,9 @@ const ArtistForm = ({
                 : null}
             </div>
           </div>
-        </div>
-
-        <div className={styles.formFooter}>
-          <button
-            onClick={onSuccess}
-            className={`${styles.btn} ${styles.clearBtn}`}
-            type='button'
-          >
-            Cancel
-          </button>
-          <button className={styles.btn} type='submit'>
-            {data.isSubmitting ? <LoadingSpinner /> : 'Save'}
-          </button>
-        </div>
+        <CustomButton className={styles.btnSubmit} btnStyle={BTN_STYLES.fillLight} btnType={BTN_TYPES.submit}>
+          {data.isSubmitting ? <LoadingSpinner /> : 'Add'}
+        </CustomButton>
       </form>
     </div>
   );

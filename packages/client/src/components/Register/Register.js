@@ -99,7 +99,7 @@ const Register = () => {
       </div>
       <CustomButton
         btnType={BTN_TYPES.button}
-        btnStyle={BTN_STYLES.fill}
+        btnStyle={BTN_STYLES.outlineLight}
         className={styles.btnSubmit}
       >
         Submit

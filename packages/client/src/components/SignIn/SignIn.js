@@ -92,7 +92,7 @@ const SignIn = () => {
             Password
           </label>
         </div>
-        <CustomButton action={handleSignin} btnType={BTN_TYPES.submit} btnStyle={BTN_STYLES.fill} className={styles.btnSubmit}>
+        <CustomButton action={handleSignin} btnType={BTN_TYPES.submit} btnStyle={BTN_STYLES.outlineLight} className={styles.btnSubmit}>
           Submit
         </CustomButton>
       </form>

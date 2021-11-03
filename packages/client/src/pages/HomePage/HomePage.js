@@ -36,13 +36,6 @@ const HomePage = (props) => {
                   Placeat deserunt totam fugiat nobis tempore sunt sequi
                   expedita quas, consectetur blanditiis!
                 </p>
-                <CustomButton
-                  action={() => console.log('sign up')}
-                  btnType={BTN_TYPES.button}
-                  btnStyle={BTN_STYLES.fill}
-                >
-                  Sign Up
-                </CustomButton>
               </div>
             </section>
             <section className={`${styles.gridItem} ${styles.sectionRight}`}>

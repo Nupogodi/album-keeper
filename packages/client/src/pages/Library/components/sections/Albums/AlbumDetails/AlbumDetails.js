@@ -68,6 +68,12 @@ const AlbumDetails = (props) => {
     setEditingMode(!editingMode);
   }
 
+  const handleSuccess = (album) => {
+    setAlbum(album);
+
+    toggleModal();
+  };
+
   if (isSubmitting) return <LoadingSpinner />;
 
   const { album_title, description, artist, release_year, song_list } = album;
@@ -76,7 +82,7 @@ const AlbumDetails = (props) => {
       {modalOpen && (
         <CustomModal modalOpen={modalOpen} toggleModal={toggleModal}>
           <AlbumEditForm
-            onSuccess={toggleModal}
+            onSuccess={handleSuccess}
             album={album}
           />
         </CustomModal>

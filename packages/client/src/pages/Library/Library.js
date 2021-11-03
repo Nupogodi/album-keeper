@@ -31,7 +31,7 @@ const Library = () => {
   return (
     <AddItemState>
       <div className={styles.mainBg}>
-        <div className='container'>
+        <div className='container upper-level'>
           <LibraryNav />
           <div className={styles.content}>
             <Switch>

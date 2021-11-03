@@ -9,7 +9,7 @@ import {
 } from 'react-router-dom';
 
 //constants
-import { LIBRARY_ROUTES } from 'util/constants';
+import { LIBRARY_ROUTES, ROUTES, ADD_ITEM_CONTEXT_TYPES, ADD_ITEM_PATHNAME_TYPES } from 'util/constants';
 
 //context
 import AddItemContext from 'context/addItem/addItemContext';
@@ -18,26 +18,31 @@ import AddItemContext from 'context/addItem/addItemContext';
 import Filter from './Filtrer/Filter';
 import ViewControls from './ViewControls/ViewControls';
 
+import AlbumEditForm from '../sections/Albums/AlbumEditForm/AlbumEditForm';
+import ArtistForm from '../sections/Artists/ArtistEditForm/ArtistEditForm';
+// import EditForm from '../EditForm/EditForm';
+// import SongForm from '../sections/Songs/SongForm/SongForm'
+
 // styles
 import styles from './LibraryNav.module.css';
 
 const LibraryNav = () => {
   const addItemContext = useContext(AddItemContext);
-  const [currentAddItemType, setCurrentAddItemType] = useState(null);
+  const [currentActiveForm, setCurrentActiveForm] = useState(null);
+  
 
   let { path, url } = useRouteMatch();
 
   let {pathname} = useLocation()
 
   const onAddItem = useCallback(() => {
-
-    
-    console.log(pathname, 'OnAddItem')
-
+    console.log(addItemContext)
+    // configurate setCurrentActiveForm
+    addItemContext.setCurrentActiveFormPathname(pathname);
+    console.log(pathname)
 
   }, [pathname]);
 
-  console.log(useLocation())
   
   return (
     <div className='page-fixer'>
