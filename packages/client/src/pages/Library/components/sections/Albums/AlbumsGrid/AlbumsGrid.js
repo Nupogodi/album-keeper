@@ -1,14 +1,15 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 
 //constants
 import {
   API_ROUTES,
-  LIBRARY_ROUTES,
-  SORT_TYPES,
   ADD_ITEM_PATHNAME_TYPES,
+  ICON_TYPES,
+  BTN_TYPES,
+  BTN_STYLES,
 } from 'util/constants';
 
 //api
@@ -18,14 +19,17 @@ import api from 'util/api';
 import AddItemContext from 'context/addItem/addItemContext';
 
 //components
-import ViewControls from '../../../LibraryNav/ViewControls/ViewControls';
 import Album from '../Album/Album';
 import AlbumForm from '../AlbumForm/AlbumForm';
-import AlbumDetails from '../AlbumDetails/AlbumDetails';
 import CustomModal from 'components/CustomModal/CustomModal';
 import LoadingSpinner from 'components/LoadingSpinner/index';
+import CustomIcon from 'components/CustomIcon/CustomIcon';
+import CustomButton from 'components/CustomButton/CustomButton';
 
 import DefaultImg from 'assets/img/default_album.jpg';
+
+//dependecies
+import Fuse from 'fuse.js'
 
 // styles
 import styles from './AlbumsGrid.module.css';
@@ -36,12 +40,10 @@ const AlbumGrid = ({ children }) => {
   const [albums, setAlbums] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [sortedAlbums, setSortedAlbums] = useState([]);
-  const [sortType, setSortType] = useState(SORT_TYPES.artist);
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [filteredAlbums, setFilteredAlbums] = useState([]);
   const { path } = useRouteMatch();
   const addItemContext = useContext(AddItemContext);
-  const { setCurrentActiveFormPathname, currentActiveFormPathname } =
+  const { setCurrentActiveFormPathname, currentActiveFormPathname, filterValue } =
     addItemContext;
   useEffect(() => {
     const getAlbums = async () => {
@@ -64,16 +66,7 @@ const AlbumGrid = ({ children }) => {
     getAlbums();
   }, []);
 
-  useEffect(() => {
-    const sortedList = [...albums].sort((a, b) => {
-      if (sortType === SORT_TYPES.artist) {
-        return b.artist.artist_name - a.artist.artist_name;
-      } else {
-        return b[sortType] - a[sortType];
-      }
-    });
-    setSortedAlbums(sortedList);
-  }, [albums, sortType]);
+  
 
   // write useEffect to listen to global state value and set modal open when needed
   useEffect(() => {
@@ -82,6 +75,29 @@ const AlbumGrid = ({ children }) => {
       toggleModal();
     }
   }, [currentActiveFormPathname]);
+
+  useEffect(() => {
+    setFilteredAlbums(albums);
+
+   if (
+     path === ADD_ITEM_PATHNAME_TYPES.albums &&
+     !isSubmitting &&
+     filterValue !== ''
+   ) {
+     const options = {
+       keys: ['album_title'],
+     };
+
+     const fuse = new Fuse(albums, options);
+     const result = fuse.search(filterValue);
+
+     setFilteredAlbums(
+       result.map((album) => {
+         return album.item;
+       })
+     );
+   }
+ }, [filterValue, albums]);
 
   const handleSuccess = (album) => {
     setAlbums([...albums, album]);
@@ -107,8 +123,8 @@ const AlbumGrid = ({ children }) => {
       )}
 
       <div className={styles.grid}>
-        {sortedAlbums.length > 0 ? (
-          sortedAlbums.map((album) => {
+        {filteredAlbums.length > 0 ? (
+          filteredAlbums.map((album) => {
             return (
               <Album
                 albumCover={DefaultImg}
@@ -121,9 +137,9 @@ const AlbumGrid = ({ children }) => {
             );
           })
         ) : (
-          <button type='button' onClick={toggleModal} className={styles.btn}>
-            Add New Album <AiOutlinePlusCircle className={styles.icon} />
-          </button>
+          <CustomButton btnStyle={BTN_STYLES.fillDark} btnType={BTN_TYPES.button} action={toggleModal} >
+            Add New Album <CustomIcon iconType={ICON_TYPES.plus}  className={styles.icon} />
+          </CustomButton>
         )}
       </div>
     </div>

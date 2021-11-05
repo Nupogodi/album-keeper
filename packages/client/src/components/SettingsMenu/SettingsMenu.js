@@ -1,13 +1,10 @@
 import React from 'react';
 
 //constants
-import { ICON_TYPES, SETTINGS_MENU_OPTIONS } from 'util/constants';
+import { SETTINGS_MENU_OPTIONS } from 'util/constants';
 
 //components
 import OutsideClickDetector from 'components/wrappers/OutsideClickDetector';
-import { MdOutlineEdit, MdDeleteOutline, MdPersonAdd } from 'react-icons/md';
-import { RiMusicLine, RiAlbumLine } from 'react-icons/ri';
-import { BsMusicNoteList, BsPersonCircle } from 'react-icons/bs';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 
 //styles

@@ -1,49 +1,39 @@
-import React, { useMemo, useState, useCallback, useContext } from 'react';
-import {
-  useParams,
-  useRouteMatch,
-  useLocation,
-  Link,
-  Switch,
-  Route,
-} from 'react-router-dom';
+import React, { useState, useCallback, useContext, useEffect } from 'react';
+import { useRouteMatch, useLocation, Link } from 'react-router-dom';
 
 //constants
-import { LIBRARY_ROUTES, ROUTES, ADD_ITEM_CONTEXT_TYPES, ADD_ITEM_PATHNAME_TYPES } from 'util/constants';
+import { LIBRARY_ROUTES, ADD_ITEM_PATHNAME_TYPES } from 'util/constants';
 
 //context
 import AddItemContext from 'context/addItem/addItemContext';
 
 //components
-import Filter from './Filtrer/Filter';
+import Filter from './Filter/Filter';
 import ViewControls from './ViewControls/ViewControls';
-
-import AlbumEditForm from '../sections/Albums/AlbumEditForm/AlbumEditForm';
-import ArtistForm from '../sections/Artists/ArtistEditForm/ArtistEditForm';
-// import EditForm from '../EditForm/EditForm';
-// import SongForm from '../sections/Songs/SongForm/SongForm'
 
 // styles
 import styles from './LibraryNav.module.css';
 
 const LibraryNav = () => {
   const addItemContext = useContext(AddItemContext);
-  const [currentActiveForm, setCurrentActiveForm] = useState(null);
-  
+  const [showItem, setShowItem] = useState(false);
 
-  let { path, url } = useRouteMatch();
+  let { url } = useRouteMatch();
 
-  let {pathname} = useLocation()
+  let { pathname } = useLocation();
 
   const onAddItem = useCallback(() => {
-    console.log(addItemContext)
-    // configurate setCurrentActiveForm
     addItemContext.setCurrentActiveFormPathname(pathname);
-    console.log(pathname)
-
   }, [pathname]);
 
-  
+  useEffect(() => {
+    if (Object.values(ADD_ITEM_PATHNAME_TYPES).includes(pathname)) {
+      setShowItem(true);
+    } else {
+      setShowItem(false);
+    }
+  }, [pathname]);
+
   return (
     <div className='page-fixer'>
       <div className={styles.libraryNav}>
@@ -56,8 +46,8 @@ const LibraryNav = () => {
             );
           })}
         </ul>
-        <ViewControls onAddItem={onAddItem} />
-        <Filter />
+        <ViewControls showItem={showItem} onAddItem={onAddItem} />
+        <Filter showItem={showItem} />
       </div>
     </div>
   );

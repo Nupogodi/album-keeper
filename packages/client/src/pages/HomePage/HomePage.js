@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 //constants
-import { BTN_TYPES, BTN_STYLES } from 'util/constants';
+import { API_ROUTES } from 'util/constants';
+
+//api
+import api from 'util/api';
 
 //hooks
 import { useAuth } from 'hooks/useAuth';
 
 //components
-import CustomButton from 'components/CustomButton/CustomButton';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import Register from 'components/Register/Register';
 import SignIn from 'components/SignIn/SignIn';
@@ -20,7 +22,39 @@ const HomePage = (props) => {
     state: { isAuthenticated, user },
   } = useAuth();
 
-  console.log(user);
+  const initialState = {
+    artistCount: 0,
+    albumCount: 0,
+    songCount: 0,
+  }
+
+  const [libraryStats, setLibraryStats] = useState(initialState);
+
+  useEffect(() => {
+    const getLibraryStats = async () => {
+
+      const artistRequest = await api.get(API_ROUTES.artists.getArtists)
+      const artistCount = artistRequest.data.length
+
+      const albumRequest = await api.get(API_ROUTES.albums.getAlbums)
+      const albumCount = albumRequest.data.length
+      
+      const songRequest = await api.get(API_ROUTES.songs.getSongs)
+      const songCount = songRequest.data.length
+
+      setLibraryStats({
+        ...libraryStats,
+        albumCount,
+        artistCount,
+        songCount,
+      })
+
+
+    }
+
+    getLibraryStats();
+  }, []);
+
 
   const [currentTab, setCurrentTab] = useState('signup');
   return (
@@ -59,6 +93,12 @@ const HomePage = (props) => {
         ) : (
           <section className={styles.welcomeBack}>
             <h3 className={styles.heading}>Welcome Back, {user.username}!</h3>
+            <div className={styles.libraryDetails}>
+              <h4 className={styles.subHeading}>Library Stats</h4>
+              <p className={styles.stat}>{`Artists: ${libraryStats.artistCount}`}</p>
+              <p className={styles.stat}>{`Albums:  ${libraryStats.albumCount}`}</p>
+              <p className={styles.stat}>{`Songs:  ${libraryStats.songCount}`}</p>
+            </div>
           </section>
         )}
       </div>

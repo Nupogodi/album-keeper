@@ -7,8 +7,6 @@ import api from 'util/api';
 // constants
 import { API_ROUTES, BTN_TYPES, BTN_STYLES } from 'util/constants';
 
-//hooks
-import useRequest from 'hooks/useRequest';
 
 //components
 import LoadingSpinner from 'components/LoadingSpinner/index';

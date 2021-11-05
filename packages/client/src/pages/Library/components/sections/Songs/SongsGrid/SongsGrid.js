@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
+import { useRouteMatch} from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 //constants
@@ -16,16 +17,20 @@ import SongForm from '../SongForm/SongForm';
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import CustomModal from 'components/CustomModal/CustomModal';
 
+//dependecies
+import Fuse from 'fuse.js';
+
 //styles
 import styles from './SongsGrid.module.css';
-import 'index.css';
 
 const SongsGrid = ({ view, songList }) => {
   const [songListToRender, setSongListToRender] = useState(songList);
+  const [filteredSongListToRender, setFilteredSongListToRender] = useState([])
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const { path } = useRouteMatch();
   const addItemContext = useContext(AddItemContext);
-  const { setCurrentActiveFormPathname, currentActiveFormPathname } =
+  const { setCurrentActiveFormPathname, currentActiveFormPathname, filterValue, } =
     addItemContext;
 
   useEffect(() => {
@@ -58,6 +63,29 @@ const SongsGrid = ({ view, songList }) => {
     }
   }, [currentActiveFormPathname]);
 
+  useEffect(() => {
+     setFilteredSongListToRender(songListToRender);
+
+    if (
+      path === ADD_ITEM_PATHNAME_TYPES.songs &&
+      !isSubmitting &&
+      filterValue !== ''
+    ) {
+      const options = {
+        keys: ['song_title'],
+      };
+
+      const fuse = new Fuse(songListToRender, options);
+      const result = fuse.search(filterValue);
+
+      setFilteredSongListToRender(
+        result.map((song) => {
+          return song.item;
+        })
+      );
+    }
+  }, [filterValue, songListToRender]);
+
   const toggleModal = () => {
     setCurrentActiveFormPathname(null);
     setModalOpen(!modalOpen);
@@ -81,8 +109,8 @@ const SongsGrid = ({ view, songList }) => {
         </CustomModal>
       )}
       <div className={styles.songsGrid}>
-        {songListToRender?.length > 0
-          ? songListToRender.map((song, index) => {
+        {filteredSongListToRender?.length > 0
+          ? filteredSongListToRender.map((song, index) => {
               return (
                 <Song
                   view={view}

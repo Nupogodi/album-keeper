@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 //constants
 import { ROUTES, AUTH_ROUTES } from 'util/constants';
@@ -14,10 +14,7 @@ import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
-  const { state, signout } = useProvideAuth();
-
-  console.log(state);
-  console.log(signout);
+  const { signout } = useProvideAuth();
 
   const {
     state: { isAuthenticated },

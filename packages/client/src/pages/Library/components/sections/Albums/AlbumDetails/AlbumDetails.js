@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useRouteMatch, Link } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 //api
@@ -12,10 +12,9 @@ import {
 } from 'util/constants';
 
 //calculations
-import { AlbumLength, secondsToTimestamp } from 'util/calculations';
+import { AlbumLength } from 'util/calculations';
 
 //components
-import ViewControls from '../../../LibraryNav/ViewControls/ViewControls';
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import SongGrid from '../../Songs/SongsGrid/SongsGrid';
 import AlbumEditForm from '../AlbumEditForm/AlbumEditForm';
@@ -35,7 +34,6 @@ const AlbumDetails = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [editingMode, setEditingMode] = useState(false);
   const [album, setAlbum] = useState({});
-  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     const getAlbumDetails = async () => {

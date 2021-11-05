@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useRouteMatch, Link } from 'react-router-dom';
 
 //components
-import LoadingSpinner from 'components/LoadingSpinner/index';
 import DefaultImg from 'assets/img/default_album.jpg';
 
 // styles

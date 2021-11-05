@@ -9,16 +9,13 @@ import {
   ICON_TYPES,
   BTN_STYLES,
   BTN_TYPES,
-  BTN_COLORS,
   SONG_GRID_VIEWS,
 } from 'util/constants';
 
 //components
 import SongGrid from '../../Songs/SongsGrid/SongsGrid';
-import Song from '../../Songs/Song/Song';
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import DefaultImg from 'assets/img/default_album.jpg';
-import SettingsMenu from 'components/SettingsMenu/SettingsMenu';
 import ArtistForm from '../ArtistEditForm/ArtistEditForm';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 import CustomModal from 'components/CustomModal/CustomModal';
@@ -31,10 +28,8 @@ import 'index.css';
 const ArtistDetails = () => {
   const { id } = useRouteMatch().params;
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [editingMode, setEditionMode] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [artist, setArtist] = useState({});
-  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     const getArtistDetails = async () => {
@@ -44,7 +39,6 @@ const ArtistDetails = () => {
 
         if (response.data) {
           setArtist(response.data);
-          console.log(artist);
         } else {
           toast.error(response.data.error);
           console.log(response);

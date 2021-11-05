@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 //constants
@@ -74,8 +74,3 @@ const Library = () => {
 };
 
 export default Library;
-
-// const withGlobalContext = ({ children }) => {
-//   return <GlobalState>{"KEK"}</GlobalState>;
-// };
-// export default withGlobalContext(Library);

@@ -17,109 +17,6 @@ import CustomButton from 'components/CustomButton/CustomButton';
 //styles
 import styles from './AlbumEditForm.module.css';
 
-const GeneralTab = ({
-  handleInputChange,
-  handleSubmit,
-  albumTitle,
-  description,
-  releaseYear,
-  onSuccess,
-  isSubmitting,
-}) => {
-
-  const handleconfirmDelete = () => {};
-
-  return <></>;
-};
-
-// const AddSongTab = ({
-//   handleInputChange,
-//   handleSubmit,
-//   songTitle,
-//   songDurationMinutes,
-//   songDurationSeconds,
-//   isSubmitting,
-//   onSuccess,
-// }) => {
-//   return (
-//     <>
-//       <div className={styles.formBody}>
-//         <div className={styles.formGroup}>
-//           <div className={styles.formGroup}>
-//             <label className={styles.label} htmlFor='songTitle'>
-//               Song Title
-//             </label>
-//             <input
-//               className={styles.input}
-//               type='text'
-//               name='songTitle'
-//               id='songTitle'
-//               value={songTitle}
-//               onChange={handleInputChange}
-//               required
-//             />
-//           </div>
-//           <h4 className={styles.sectionTitle}>Song Duration</h4>
-//           <div className={styles.formGroup}>
-//             <label className={styles.label} htmlFor='songDurationMinutes'>
-//               Minutes
-//             </label>
-//             <input
-//               step='1'
-//               min='0'
-//               className={styles.input}
-//               type='number'
-//               name='songDurationMinutes'
-//               id='songDurationMinutes'
-//               value={songDurationMinutes}
-//               onChange={handleInputChange}
-//               required
-//             />
-//           </div>
-//           <div className={styles.formGroup}>
-//             <label className={styles.label} htmlFor='songDurationSeconds'>
-//               Seconds
-//             </label>
-//             <input
-//               step='1'
-//               min='0'
-//               className={styles.input}
-//               type='number'
-//               name='songDurationSeconds'
-//               id='songDurationSeconds'
-//               value={songDurationSeconds}
-//               onChange={handleInputChange}
-//               required
-//             />
-//           </div>
-//           <div>
-//             <CustomButton
-//               btnType={BTN_TYPES.button}
-//               btnStyle={BTN_STYLES.outlineDark}
-//               action={handleSubmit}
-//             >
-//               {isSubmitting ? (
-//                 <LoadingSpinner />
-//               ) : (
-//                 <CustomIcon text={'add'} iconType={ICON_TYPES.addSong} />
-//               )}
-//             </CustomButton>
-//           </div>
-//         </div>
-//       </div>
-//       <div className={styles.formFooter}>
-//         <CustomButton
-//           btnType={BTN_TYPES.button}
-//           btnStyle={BTN_STYLES.fillDark}
-//           className={styles.mx10}
-//           action={onSuccess}
-//         >
-//           Done
-//         </CustomButton>
-//       </div>
-//     </>
-//   );
-// };
 
 const AlbumEditForm = ({ onSuccess, album }) => {
   const [albumTitle, setAlbumTitle] = useState(album.album_title);
@@ -129,8 +26,6 @@ const AlbumEditForm = ({ onSuccess, album }) => {
   const [songDurationMinutes, setSongDurationMinutes] = useState('');
   const [songDurationSeconds, setSongDurationSeconds] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [formData, setFormData] = useState({});
   const [confirmDelete, setConfirmDelete] = useState(false);
 
 

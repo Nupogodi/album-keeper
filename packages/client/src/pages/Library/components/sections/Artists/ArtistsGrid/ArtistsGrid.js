@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useRouteMatch, Link } from 'react-router-dom';
+import { useRouteMatch} from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 //constants
 import {
   API_ROUTES,
-  LIBRARY_ROUTES,
   ADD_ITEM_PATHNAME_TYPES,
 } from 'util/constants';
 
@@ -20,7 +19,9 @@ import Artist from '../Artist/Artist';
 import ArtistForm from '../ArtistForm/ArtistForm';
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import CustomModal from 'components/CustomModal/CustomModal';
-import DefaultImg from 'assets/img/default_album.jpg';
+
+//dependecies
+import Fuse from 'fuse.js';
 
 //styles
 import styles from './ArtistsGrid.module.css';
@@ -28,13 +29,17 @@ import 'index.css';
 
 const ArtistsGrid = ({ children }) => {
   const [artists, setArtists] = useState([]);
+  const [filteredArtists, setFilteredArtists] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
   const { path } = useRouteMatch();
   const addItemContext = useContext(AddItemContext);
-  const { setCurrentActiveFormPathname, currentActiveFormPathname } =
-    addItemContext;
+  const {
+    setCurrentActiveFormPathname,
+    currentActiveFormPathname,
+    filterValue,
+  } = addItemContext;
 
   useEffect(() => {
     const getArtists = async () => {
@@ -59,10 +64,32 @@ const ArtistsGrid = ({ children }) => {
 
   useEffect(() => {
     if (currentActiveFormPathname === ADD_ITEM_PATHNAME_TYPES.artists) {
-      console.log('useEffect hit');
       toggleModal();
     }
   }, [currentActiveFormPathname]);
+
+  useEffect(() => {
+    setFilteredArtists(artists);
+
+    if (
+      path === ADD_ITEM_PATHNAME_TYPES.artists &&
+      !isSubmitting &&
+      filterValue !== ''
+    ) {
+      const options = {
+        keys: ['artist_name'],
+      };
+
+      const fuse = new Fuse(artists, options);
+      const result = fuse.search(filterValue);
+
+      setFilteredArtists(
+        result.map((artist) => {
+          return artist.item;
+        })
+      );
+    }
+  }, [filterValue, artists]);
 
   const toggleModal = () => {
     setCurrentActiveFormPathname(null);
@@ -70,8 +97,7 @@ const ArtistsGrid = ({ children }) => {
   };
 
   const handleSuccess = (artist) => {
-
-    setArtists([...artists, artist])
+    setArtists([...artists, artist]);
 
     toggleModal();
   };
@@ -82,14 +108,14 @@ const ArtistsGrid = ({ children }) => {
 
   return (
     <div>
-         {modalOpen && (
+      {modalOpen && (
         <CustomModal modalOpen={modalOpen} toggleModal={toggleModal}>
           <ArtistForm onSuccess={handleSuccess} />
         </CustomModal>
       )}
       <div className={styles.artistsGrid}>
-        {artists?.length > 0
-          ? artists.map((artist) => {
+        {filteredArtists?.length > 0
+          ? filteredArtists.map((artist) => {
               return (
                 <Artist
                   key={artist._id}

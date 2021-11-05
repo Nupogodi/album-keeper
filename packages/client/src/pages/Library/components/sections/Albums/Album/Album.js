@@ -1,14 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Switch, Route, Link, useRouteMatch } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 //constants
-import {
-  API_ROUTES,
-  LIBRARY_ROUTES,
-  SETTINGS_MENU_OPTIONS,
-  ICON_TYPES,
-} from 'util/constants';
+import { API_ROUTES, SETTINGS_MENU_OPTIONS, ICON_TYPES } from 'util/constants';
 
 //api
 import api from 'util/api';
@@ -28,7 +23,7 @@ import styles from './Album.module.css';
 
 const Album = ({ albumTitle, albumYear, artist, albumCover, albumId }) => {
   const router = useRouter();
-  let { path, url } = useRouteMatch();
+  let { url } = useRouteMatch();
   const [showSettings, setShowSettings] = useState(false);
   const [showIcon, setShowIcon] = useState(false);
   const { edit, remove } = SETTINGS_MENU_OPTIONS;
@@ -80,7 +75,6 @@ const Album = ({ albumTitle, albumYear, artist, albumCover, albumId }) => {
 
         <Link to={`${url}/${albumId}`}>
           <div className={styles.imgWrapper}>
-            {/* <img className={styles.img} src={albumCover} /> */}
             <DefaultSvg width={200} height={200} fill={'transparent'} />
           </div>
         </Link>

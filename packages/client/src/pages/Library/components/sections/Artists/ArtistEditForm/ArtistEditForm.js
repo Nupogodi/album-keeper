@@ -10,11 +10,10 @@ import { API_ROUTES, ICON_TYPES } from 'util/constants';
 //components
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
+import LoadingSpinner from 'components/LoadingSpinner';
 
 //styles
 import styles from './ArtistEditForm.module.css';
-import 'index.css';
-import LoadingSpinner from 'components/LoadingSpinner';
 
 const ArtistForm = ({
   onSuccess,
