@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useRouteMatch } from 'react-router-dom';
-import { AiOutlinePlusCircle } from 'react-icons/ai';
 import { toast } from 'react-toastify';
 
 //constants
@@ -29,7 +28,7 @@ import CustomButton from 'components/CustomButton/CustomButton';
 import DefaultImg from 'assets/img/default_album.jpg';
 
 //dependecies
-import Fuse from 'fuse.js'
+import Fuse from 'fuse.js';
 
 // styles
 import styles from './AlbumsGrid.module.css';
@@ -43,8 +42,11 @@ const AlbumGrid = ({ children }) => {
   const [filteredAlbums, setFilteredAlbums] = useState([]);
   const { path } = useRouteMatch();
   const addItemContext = useContext(AddItemContext);
-  const { setCurrentActiveFormPathname, currentActiveFormPathname, filterValue } =
-    addItemContext;
+  const {
+    setCurrentActiveFormPathname,
+    currentActiveFormPathname,
+    filterValue,
+  } = addItemContext;
   useEffect(() => {
     const getAlbums = async () => {
       setIsSubmitting(true);
@@ -66,12 +68,8 @@ const AlbumGrid = ({ children }) => {
     getAlbums();
   }, []);
 
-  
-
-  // write useEffect to listen to global state value and set modal open when needed
   useEffect(() => {
     if (currentActiveFormPathname === ADD_ITEM_PATHNAME_TYPES.albums) {
-      console.log('useEffect hit');
       toggleModal();
     }
   }, [currentActiveFormPathname]);
@@ -79,25 +77,25 @@ const AlbumGrid = ({ children }) => {
   useEffect(() => {
     setFilteredAlbums(albums);
 
-   if (
-     path === ADD_ITEM_PATHNAME_TYPES.albums &&
-     !isSubmitting &&
-     filterValue !== ''
-   ) {
-     const options = {
-       keys: ['album_title'],
-     };
+    if (
+      path === ADD_ITEM_PATHNAME_TYPES.albums &&
+      !isSubmitting &&
+      filterValue !== ''
+    ) {
+      const options = {
+        keys: ['album_title'],
+      };
 
-     const fuse = new Fuse(albums, options);
-     const result = fuse.search(filterValue);
+      const fuse = new Fuse(albums, options);
+      const result = fuse.search(filterValue);
 
-     setFilteredAlbums(
-       result.map((album) => {
-         return album.item;
-       })
-     );
-   }
- }, [filterValue, albums]);
+      setFilteredAlbums(
+        result.map((album) => {
+          return album.item;
+        })
+      );
+    }
+  }, [filterValue, albums]);
 
   const handleSuccess = (album) => {
     setAlbums([...albums, album]);
@@ -137,8 +135,13 @@ const AlbumGrid = ({ children }) => {
             );
           })
         ) : (
-          <CustomButton btnStyle={BTN_STYLES.fillDark} btnType={BTN_TYPES.button} action={toggleModal} >
-            Add New Album <CustomIcon iconType={ICON_TYPES.plus}  className={styles.icon} />
+          <CustomButton
+            btnStyle={BTN_STYLES.fillDark}
+            btnType={BTN_TYPES.button}
+            action={toggleModal}
+          >
+            Add New Album{' '}
+            <CustomIcon iconType={ICON_TYPES.plus} className={styles.icon} />
           </CustomButton>
         )}
       </div>

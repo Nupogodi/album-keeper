@@ -23,7 +23,7 @@ const App = () => {
   } = useAuth();
 
   return (
-    <div className='App'>
+    <div >
       <ErrorBoundary>
         <ToastContainer />
         <BrowserRouter>

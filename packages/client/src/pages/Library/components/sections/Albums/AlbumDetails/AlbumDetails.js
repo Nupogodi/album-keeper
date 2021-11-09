@@ -62,10 +62,6 @@ const AlbumDetails = (props) => {
     setModalOpen(!modalOpen);
   };
 
-  const toggleEditingMode = () => {
-    setEditingMode(!editingMode);
-  }
-
   const handleSuccess = (album) => {
     setAlbum(album);
 
