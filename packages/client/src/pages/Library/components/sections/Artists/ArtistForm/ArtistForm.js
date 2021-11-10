@@ -7,13 +7,12 @@ import api from 'util/api';
 // constants
 import { API_ROUTES, BTN_TYPES, BTN_STYLES, ICON_TYPES } from 'util/constants';
 
-
-
 //components
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import CustomButton from 'components/CustomButton/CustomButton';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
+import Input from 'components/Input/Input';
 
 //styles
 import styles from './ArtistForm.module.css';
@@ -108,63 +107,62 @@ const ArtistForm = ({ onSuccess }) => {
     });
   };
 
-
   return (
     <div>
       <form className={styles.artistForm} onSubmit={handleSubmitAlbum}>
         <h3 className={styles.formTitle}>New Artist</h3>
-        <div className={styles.formGroup}>
-          <input
-            className={`${styles.input} ${data.artistTitle && styles.hasValue}`}
+        <Input
+          inputClassName={data.artistTitle && styles.hasValue}
+          type='text'
+          name='artistTitle'
+          id='artistTitle'
+          inputValue={data.artistTitle}
+          onChange={handleInputChange}
+          labelValue={'Artist'}
+          htmlFor={'artist'}
+        />
+
+        <Input
+          inputClassName={data.description && styles.hasValue}
+          type='text'
+          name='description'
+          id='description'
+          inputValue={data.description}
+          onChange={handleInputChange}
+          labelValue={'Description'}
+          htmlFor={'description'}
+        />
+
+        <div className={styles.bandMembers}>
+          <Input
+            inputClassName={styles.relative}
             type='text'
-            name='artistTitle'
-            id='artistTitle'
-            value={data.artistTitle}
+            name='newBandMember'
+            id='newBandMember'
+            inputValue={data.newBandMember}
             onChange={handleInputChange}
+            labelValue={'Band Members'}
+            htmlFor={'bandMembers'}
           />
-          <label className={styles.label} htmlFor='artist'>
-            Artist
-          </label>
+
+          <ButtonWrapper
+            action={handleAddBandMember}
+            type='button'
+            className={styles.absolute}
+          >
+            <CustomIcon iconType={ICON_TYPES.plus} className={styles.icon} />
+          </ButtonWrapper>
         </div>
-        <div className={styles.formGroup}>
-          <input
-            className={`${styles.input} ${data.description && styles.hasValue}`}
-            type='text'
-            name='description'
-            id='description'
-            value={data.description}
-            onChange={handleInputChange}
-          />
-          <label className={styles.label} htmlFor='albumTitle'>
-            Description
-          </label>
+        <div className={styles.bandMembers}>
+          {data.bandMembers && data.bandMembers.length > 0
+            ? renderBandMembers()
+            : null}
         </div>
-        <div className={`${styles.formGroup} ${styles.relative}`}>
-            <input
-              className={styles.input}
-              type='text'
-              name='newBandMember'
-              id='newBandMember'
-              value={data.newBandMember}
-              onChange={handleInputChange}
-            />
-            <label className={styles.label} htmlFor='bandMembers'>
-              Band Members
-            </label>
-            <ButtonWrapper
-              action={handleAddBandMember}
-              type='button'
-              className={styles.iconBtnPlus}
-            >
-              <CustomIcon iconType={ICON_TYPES.plus} className={styles.icon} />
-            </ButtonWrapper>
-            <div className={styles.bandMembers}>
-              {data.bandMembers && data.bandMembers.length > 0
-                ? renderBandMembers()
-                : null}
-            </div>
-          </div>
-        <CustomButton className={styles.btnSubmit} btnStyle={BTN_STYLES.fillLight} btnType={BTN_TYPES.submit}>
+        <CustomButton
+          className={styles.btnSubmit}
+          btnStyle={BTN_STYLES.fillLight}
+          btnType={BTN_TYPES.submit}
+        >
           {data.isSubmitting ? <LoadingSpinner /> : 'Add'}
         </CustomButton>
       </form>

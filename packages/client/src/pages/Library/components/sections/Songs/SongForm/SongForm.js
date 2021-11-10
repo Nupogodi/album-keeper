@@ -11,6 +11,7 @@ import { calculateSeconds } from 'util/calculations';
 //components
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import CustomButton from 'components/CustomButton/CustomButton';
+import Input from 'components/Input/Input';
 
 //styles
 import styles from './SongForm.module.css';
@@ -48,7 +49,10 @@ const SongForm = ({ onSuccess }) => {
 
     const body = {
       songTitle: data.songTitle,
-      songDuration: calculateSeconds(data.songDurationMinutes, data.songDurationSeconds),
+      songDuration: calculateSeconds(
+        data.songDurationMinutes,
+        data.songDurationSeconds
+      ),
       artistName: data.artistTitle,
       albumTitle: data.albumTitle,
       albumReleaseYear: data.releaseYear,
@@ -74,96 +78,77 @@ const SongForm = ({ onSuccess }) => {
     <div>
       <form className={styles.albumForm} onSubmit={handleSubmitAlbum}>
         <h3 className={styles.formTitle}>New Song</h3>
-        <div className={styles.formGroup}>
-          <input
-            className={`${styles.input} ${data.songTitle && styles.hasValue}`}
-            type='text'
-            name='songTitle'
-            id='songTitle'
-            value={data.songTitle}
-            onChange={handleInputChange}
-          />
-          <label className={styles.label} htmlFor='songTitle'>
-            Title
-          </label>
-        </div>
-        <div className={styles.formGroup}>
-          <input
-            step='1'
-            min='0'
-            className={`${styles.input} ${
-              data.songDurationMinutes && styles.hasValue
-            }`}
-            type='number'
-            name='songDurationMinutes'
-            id='songDurationMinutes'
-            value={data.songDurationMinutes}
-            onChange={handleInputChange}
-            required
-          />
-          <label className={styles.label} htmlFor='songDurationMinutes'>
-            Minutes
-          </label>
-        </div>
-        <div className={styles.formGroup}>
-          <input
-            step='1'
-            min='0'
-            className={`${styles.input} ${
-              data.songDurationSeconds && styles.hasValue
-            }`}
-            type='number'
-            name='songDurationSeconds'
-            id='songDurationSeconds'
-            value={data.songDurationSeconds}
-            onChange={handleInputChange}
-            required
-          />
-          <label className={styles.label} htmlFor='songDurationSeconds'>
-            Seconds
-          </label>
-        </div>
+        <Input
+          inputClassName={data.songTitle && styles.hasValue}
+          type='text'
+          name='songTitle'
+          id='songTitle'
+          inputValue={data.songTitle}
+          onChange={handleInputChange}
+          labelValue={'Title'}
+          htmlFor={'songTitle'}
+        />
 
-        <div className={styles.formGroup}>
-          <input
-            className={`${styles.input} ${data.artistTitle && styles.hasValue}`}
-            type='text'
-            name='artistTitle'
-            id='artistTitle'
-            value={data.artistTitle}
-            onChange={handleInputChange}
-          />
-          <label className={styles.label} htmlFor='artistTitle'>
-            Artist
-          </label>
-        </div>
-        <div className={styles.formGroup}>
-          <input
-            className={`${styles.input} ${data.albumTitle && styles.hasValue}`}
-            type='text'
-            name='albumTitle'
-            id='albumTitle'
-            value={data.albumTitle}
-            onChange={handleInputChange}
-          />
-          <label className={styles.label} htmlFor='albumTitle'>
-            Album
-          </label>
-        </div>
-        <div className={styles.formGroup}>
-          <input
-            className={`${styles.input} ${data.releaseYear && styles.hasValue}`}
-            type='number'
-            min='1900'
-            name='releaseYear'
-            id='releaseYear'
-            value={data.releaseYear}
-            onChange={handleInputChange}
-          />
-          <label className={styles.label} htmlFor='releaseYear'>
-            Album Release Year
-          </label>
-        </div>
+        <Input
+          step='1'
+          min='0'
+          inputClassName={data.songDurationMinutes && styles.hasValue}
+          type='number'
+          name='songDurationMinutes'
+          id='songDurationMinutes'
+          inputValue={data.songDurationMinutes}
+          onChange={handleInputChange}
+          labelValue={'Minutes'}
+          htmlFor={'songDurationMinutes'}
+        />
+
+        <Input
+          step='1'
+          min='0'
+          inputClassName={data.songDurationSeconds && styles.hasValue}
+          type='number'
+          name='songDurationSeconds'
+          id='songDurationSeconds'
+          inputValue={data.songDurationSeconds}
+          onChange={handleInputChange}
+          labelValue={'Seconds'}
+          htmlFor={'songDurationSeconds'}
+        />
+
+        <Input
+          inputClassName={data.artistTitle && styles.hasValue}
+          type='text'
+          name='artistTitle'
+          id='artistTitle'
+          inputValue={data.artistTitle}
+          onChange={handleInputChange}
+          labelValue={'Artist'}
+          htmlFor={'artistTitle'}
+        />
+
+        <Input
+          inputClassName={data.albumTitle && styles.hasValue}
+          type='text'
+          name='albumTitle'
+          id='albumTitle'
+          inputValue={data.albumTitle}
+          onChange={handleInputChange}
+          labelValue={'Album'}
+          htmlFor={'albumTitle'}
+        />
+
+        <Input
+          inputClassName={data.releaseYear && styles.hasValue}
+          type='number'
+          min='1900'
+          name='releaseYear'
+          id='releaseYear'
+          inputValue={data.releaseYear}
+          onChange={handleInputChange}
+          labelValue={'Album Release Year'}
+          htmlFor={'releaseYear'}
+        />
+
         <CustomButton
           className={styles.btnSubmit}
           btnStyle={BTN_STYLES.fillLight}

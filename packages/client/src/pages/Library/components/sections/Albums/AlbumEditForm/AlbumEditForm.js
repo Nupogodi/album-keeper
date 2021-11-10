@@ -13,6 +13,7 @@ import LoadingSpinner from 'components/LoadingSpinner/index';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 import CustomButton from 'components/CustomButton/CustomButton';
+import Input from 'components/Input/Input';
 
 //styles
 import styles from './AlbumEditForm.module.css';
@@ -128,46 +129,37 @@ const AlbumEditForm = ({ onSuccess, album }) => {
           <h3 className={styles.formTitle}>{album.album_title}</h3>
         </div>
         <div className={styles.formBody}>
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor='albumTitle'>
-              Title
-            </label>
-            <input
-              className={styles.input}
+   
+            <Input
               type='text'
               name='albumTitle'
               id='albumTitle'
-              value={albumTitle}
+              inputValue={albumTitle}
               onChange={handleInputChange}
+              labelValue={'Title'}
+              htmlFor={'albumTitle'}
             />
-          </div>
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor='releaseYear'>
-              Release Year
-            </label>
-            <input
-              className={styles.input}
+ 
+            <Input
               min='1900'
               type='number'
               name='releaseYear'
               id='releaseYear'
-              value={releaseYear}
+              inputValue={releaseYear}
               onChange={handleInputChange}
+              labelValue={'Release Year'}
+              htmlFor={'releaseYear'}
             />
-          </div>
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor='description'>
-              Description
-            </label>
-            <input
-              className={styles.input}
+    
+            <Input
               type='text'
               name='description'
               id='description'
-              value={description}
+              inputValue={description}
               onChange={handleInputChange}
+              labelValue={'Description'}
+              htmlFor={'description'}
             />
-          </div>
           <div className={styles.formGroup}>
             <CustomButton
               btnType={BTN_TYPES.button}

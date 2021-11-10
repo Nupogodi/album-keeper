@@ -5,12 +5,14 @@ import { toast } from 'react-toastify';
 import api from 'util/api';
 
 // constants
-import { API_ROUTES, ICON_TYPES } from 'util/constants';
+import { API_ROUTES, ICON_TYPES, BTN_TYPES, BTN_STYLES } from 'util/constants';
 
 //components
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import LoadingSpinner from 'components/LoadingSpinner';
+import Input from 'components/Input/Input';
+import CustomButton from 'components/CustomButton/CustomButton';
 
 //styles
 import styles from './ArtistEditForm.module.css';
@@ -54,20 +56,21 @@ const ArtistForm = ({
       errorMessage: null,
     });
 
-
     try {
       const body = {
-        artistTitle:data.artistTitle,
+        artistTitle: data.artistTitle,
         bandMembers: data.bandMembers,
         description: data.description,
-      }
+      };
 
-      const response = await api.put(`${API_ROUTES.artists.update}/${data.artistId}`, body)
+      const response = await api.put(
+        `${API_ROUTES.artists.update}/${data.artistId}`,
+        body
+      );
 
       toast.success(response.data.msg);
 
       onSuccess();
-
     } catch (error) {
       setData({
         ...data,
@@ -106,7 +109,7 @@ const ArtistForm = ({
           <ButtonWrapper
             action={() => handleRemoveBandMember(index)}
             className={styles.iconBtnMinus}
-            type='button'
+            type="button"
           >
             <CustomIcon
               iconType={ICON_TYPES.cancel}
@@ -124,70 +127,68 @@ const ArtistForm = ({
         <div className={styles.formHeader}></div>
         <h3 className={styles.formTitle}>Edit Artist</h3>
         <div className={styles.formBody}>
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor='artistTitle'>
-              Title
-            </label>
-            <input
-              className={styles.input}
-              type='text'
-              name='artistTitle'
-              id='artistTitle'
-              value={data.artistTitle}
+          <Input
+            type="text"
+            name="artistTitle"
+            id="artistTitle"
+            inputValue={data.artistTitle}
+            onChange={handleInputChange}
+            labelValue={'Title'}
+            htmlFor={'artistTitle'}
+          />
+
+          <Input
+            type="text"
+            name="description"
+            id="description"
+            inputValue={data.description}
+            onChange={handleInputChange}
+            labelValue={'Description'}
+            htmlFor={'description'}
+          />
+
+          <div className={styles.relative}>
+            <Input
+              type="text"
+              name="newBandMember"
+              id="newBandMember"
+              inputValue={data.newBandMember}
               onChange={handleInputChange}
-            />
-          </div>
-          <div className={styles.formGroup}>
-            <label className={styles.label} htmlFor='description'>
-              Description
-            </label>
-            <input
-              className={styles.input}
-              type='text'
-              name='description'
-              id='description'
-              value={data.description}
-              onChange={handleInputChange}
-            />
-          </div>
-          <div className={`${styles.formGroup} ${styles.relative}`}>
-            <label className={styles.label} htmlFor='bandMembers'>
-              Band Members
-            </label>
-            <input
-              className={styles.input}
-              type='text'
-              name='newBandMember'
-              id='newBandMember'
-              value={data.newBandMember}
-              onChange={handleInputChange}
+              labelValue={'Band Members'}
+              htmlFor={'newBandMember'}
             />
             <ButtonWrapper
               action={handleAddBandMember}
-              type='button'
+              type="button"
               className={styles.iconBtnPlus}
             >
               <CustomIcon iconType={ICON_TYPES.plus} className={styles.icon} />
             </ButtonWrapper>
-            <div className={styles.bandMembers}>
-              {data.bandMembers && data.bandMembers.length > 0
-                ? renderBandMembers()
-                : null}
-            </div>
+          </div>
+
+          <div className={styles.bandMembers}>
+            {data.bandMembers && data.bandMembers.length > 0
+              ? renderBandMembers()
+              : null}
           </div>
         </div>
 
         <div className={styles.formFooter}>
-          <button
-            onClick={onSuccess}
+          <CustomButton
+            action={onSuccess}
             className={`${styles.btn} ${styles.clearBtn}`}
-            type='button'
+            btnType={BTN_TYPES.button}
+            btnStyle={BTN_STYLES.outlineDark}
           >
             Cancel
-          </button>
-          <button className={styles.btn} type='submit'>
+          </CustomButton>
+          <CustomButton
+            className={styles.btn}
+            btnType={BTN_TYPES.submit}
+            btnStyle={BTN_STYLES.outlineDark}
+          >
             {data.isSubmitting ? <LoadingSpinner /> : 'Save'}
-          </button>
+          </CustomButton>
         </div>
       </form>
     </div>

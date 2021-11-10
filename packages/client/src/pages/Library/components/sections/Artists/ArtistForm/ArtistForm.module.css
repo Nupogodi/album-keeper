@@ -13,64 +13,33 @@
   margin-bottom: 10px;
 }
 
-.formGroup {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 5px;
-  position: relative;
-}
-
-.label {
-  color: var(--secondary-accent-color-light);
-  transition: 0.25s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px 0;
-  font-size: 16px;
-}
-
-.input {
-  margin-top: 5px;
-  color: var(--secondary-accent-color-light);
-  z-index: 1;
-  min-width: 100%;
-  border: none;
-  border-bottom: 2px solid var(--secondary-accent-color-light);
-  background-color: transparent;
-  font: inherit;
-  font-size: 18px;
-  padding: 10px 0;
-  margin-bottom: 10px;
-  outline: transparent;
-}
-
-.input:focus + .label,
-.input:-webkit-autofill + .label,
-.hasValue + .label {
-  top: -20px;
-  left: 0;
-  color: #03e9f4;
-  font-size: 12px;
-}
 
 .relative {
-    position: relative;
-  }
+}
+
+.bandMembers {
+  position: relative;
+  display: flex;
+  flex-direction: column;   
+  padding-bottom: 10px;                                                                                                                                                                                                                                                                                                                                             
   
-  .bandMembers {
-    margin-top: 10px;
-  }
+}
+
+.bandMemberWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.bandMember {
+  font-size: 16px;
+  font-weight: normal;
+  margin-right: 5px;
+}
   
-  .bandMemberWrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2px;
-  }
-  
-  .bandMember {
-    font-size: 16px;
-    font-weight: normal;
-    margin-right: 5px;
-  }
-  
+.absolute {
+  position: absolute;
+  right: 10px;
+  top: 45%;
+  transform: translateY(-50%);
+}

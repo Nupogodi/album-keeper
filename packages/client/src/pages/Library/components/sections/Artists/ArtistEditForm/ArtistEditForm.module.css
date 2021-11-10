@@ -6,43 +6,16 @@
   margin-bottom: 20px;
 }
 
-.formGroup {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  position: relative;
-}
 
-.label {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-}
-
-.input {
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-  background-color: inherit;
-  font-size: 14px;
-  color: #fff;
-  font-weight: 900;
-  padding: 2px;
-}
-
-.input:focus {
-  outline: solid 1px transparent;
-  border-bottom: 1px solid #73a6ff;
-}
 
 .iconBtnPlus {
-  right: 0px;
-  top: 15px;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   position: absolute;
 }
 
 .iconBtnMinus {
-  /* position: absolute;
-  top: 0;
-  right: 5px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,35 +55,4 @@
 .formFooter {
   display: flex;
   justify-content: flex-end;
-}
-
-.btn {
-  text-transform: uppercase;
-  font-weight: 900;
-  font-family: inherit;
-  background-color: #fff;
-  border-radius: 3px;
-  color: #363636;
-  border: none;
-  padding: 10px 12px;
-  margin-right: 10px;
-  cursor: pointer;
-  min-width: 70px;
-}
-
-.clearBtn {
-  background-color: inherit;
-  color: #fff;
-}
-
-
-/* glass restyling */
-
-
-.glassContainer {
-  
-}
-
-.glassContainer:before {
- 
 }
