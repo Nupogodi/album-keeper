@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-//calculations
+// calculations
 import { secondsToTimestamp } from 'util/calculations';
 
-//constants
+// constants
 import { ROUTES, LIBRARY_ROUTES, SONG_GRID_VIEWS } from 'util/constants';
 
-//components
+// components
 import DefaultImg from 'assets/img/default_album.jpg';
 
-//styles
+// styles
 import styles from './Song.module.css';
 
 const Song = ({
