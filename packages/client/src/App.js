@@ -1,7 +1,9 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter, Route, Switch, Redirect,
+} from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-//constants
+// constants
 import { ROUTES } from 'util/constants';
 
 // components
@@ -9,10 +11,10 @@ import HomePage from 'pages/HomePage/HomePage';
 import Library from 'pages/Library/Library';
 import ErrorBoundary from 'components/ErrorBoundary';
 
-//hooks
+// hooks
 import { useAuth } from 'hooks/useAuth';
 
-//components
+// components
 import Navigation from 'components/layout/Navigation/Navigation';
 
 import 'assets/styles/main.css';
@@ -23,7 +25,7 @@ const App = () => {
   } = useAuth();
 
   return (
-    <div >
+    <div>
       <ErrorBoundary>
         <ToastContainer />
         <BrowserRouter>

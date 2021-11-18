@@ -1,14 +1,17 @@
 .albumForm {
-    max-width: 100%;
-    flex: 1;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--secondary-bg-color);
-    color: var(--secondary-accent-color-light);
+  padding: 16px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  max-width: 100%;
+
+  color: var(--secondary-accent-color-light);
+  background-color: var(--secondary-bg-color);
 }
 
 .formTitle {
-  text-align: center;
   margin-bottom: 10px;
+
+  text-align: center;
 }

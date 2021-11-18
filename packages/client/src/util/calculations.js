@@ -2,11 +2,11 @@ export const secondsToTimestamp = (seconds) => {
   if (!seconds) return '';
 
   let duration = seconds;
-  let hours = duration / 3600;
-  duration = duration % 3600;
+  const hours = duration / 3600;
+  duration %= 3600;
 
   let min = parseInt(duration / 60);
-  duration = duration % 60;
+  duration %= 60;
 
   let sec = parseInt(duration);
 
@@ -19,18 +19,15 @@ export const secondsToTimestamp = (seconds) => {
 
   if (parseInt(hours, 10) > 0) {
     return `${parseInt(hours, 10)}:${min}:${sec}`;
-  } else if (min === 0) {
+  } if (min === 0) {
     return `${sec}`;
-  } else {
-    return `${min}:${sec}`;
   }
+  return `${min}:${sec}`;
 };
 
 export const AlbumLength = ({ songsArr }) => {
   let albumLength = 0;
-  songsArr.map((song) => {
-    return (albumLength += parseInt(song.song_duration));
-  });
+  songsArr.map((song) => (albumLength += parseInt(song.song_duration)));
 
   albumLength = secondsToTimestamp(albumLength);
 
@@ -38,7 +35,7 @@ export const AlbumLength = ({ songsArr }) => {
 };
 
 export const calculateSeconds = (min, sec) => {
-  let seconds = parseInt(min) * 60 + parseInt(sec);
+  const seconds = parseInt(min) * 60 + parseInt(sec);
 
   return seconds;
 };

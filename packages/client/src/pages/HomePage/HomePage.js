@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 
-//constants
+// constants
 import { API_ROUTES } from 'util/constants';
 
-//api
+// api
 import api from 'util/api';
 
-//hooks
+// hooks
 import { useAuth } from 'hooks/useAuth';
 
-//components
+// components
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import Register from 'components/Register/Register';
 import SignIn from 'components/SignIn/SignIn';
 
-//styles
+// styles
 import styles from './HomePage.module.css';
 
-const HomePage = (props) => {
+const HomePage = () => {
   const {
     state: { isAuthenticated, user },
   } = useAuth();
@@ -26,49 +26,43 @@ const HomePage = (props) => {
     artistCount: 0,
     albumCount: 0,
     songCount: 0,
-  }
+  };
 
   const [libraryStats, setLibraryStats] = useState(initialState);
 
   useEffect(() => {
     const getLibraryStats = async () => {
+      const artistRequest = await api.get(API_ROUTES.artists.getArtists);
+      const artistCount = artistRequest.data.length;
 
-      const artistRequest = await api.get(API_ROUTES.artists.getArtists)
-      const artistCount = artistRequest.data.length
+      const albumRequest = await api.get(API_ROUTES.albums.getAlbums);
+      const albumCount = albumRequest.data.length;
 
-      const albumRequest = await api.get(API_ROUTES.albums.getAlbums)
-      const albumCount = albumRequest.data.length
-      
-      const songRequest = await api.get(API_ROUTES.songs.getSongs)
-      const songCount = songRequest.data.length
+      const songRequest = await api.get(API_ROUTES.songs.getSongs);
+      const songCount = songRequest.data.length;
 
       setLibraryStats({
         ...libraryStats,
         albumCount,
         artistCount,
         songCount,
-      })
-
-
-    }
+      });
+    };
 
     getLibraryStats();
   }, []);
 
-
   const [currentTab, setCurrentTab] = useState('signup');
   return (
-    <main className={` ${styles['main-bg']} page-fixer`}>
+    <main className={` ${styles['mainBg']} pageFixer`}>
       <div className={`container ${styles.pageWrap}`}>
         {!isAuthenticated ? (
-          <div className={styles['grid']}>
+          <div className={styles.grid}>
             <section className={styles.gridItem}>
               <div className={styles.heroContent}>
                 <h2 className={styles.heading}>Album Keeper</h2>
                 <p className={styles.subtitle}>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Placeat deserunt totam fugiat nobis tempore sunt sequi
-                  expedita quas, consectetur blanditiis!
+                  A single place for your music collection!
                 </p>
               </div>
             </section>
@@ -95,9 +89,15 @@ const HomePage = (props) => {
             <h3 className={styles.heading}>Welcome Back, {user.username}!</h3>
             <div className={styles.libraryDetails}>
               <h4 className={styles.subHeading}>Library Stats</h4>
-              <p className={styles.stat}>{`Artists: ${libraryStats.artistCount}`}</p>
-              <p className={styles.stat}>{`Albums:  ${libraryStats.albumCount}`}</p>
-              <p className={styles.stat}>{`Songs:  ${libraryStats.songCount}`}</p>
+              <p
+                className={styles.stat}
+              >{`Artists: ${libraryStats.artistCount}`}</p>
+              <p
+                className={styles.stat}
+              >{`Albums:  ${libraryStats.albumCount}`}</p>
+              <p
+                className={styles.stat}
+              >{`Songs:  ${libraryStats.songCount}`}</p>
             </div>
           </section>
         )}

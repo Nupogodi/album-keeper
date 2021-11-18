@@ -1,16 +1,16 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-//constants
+// constants
 import { ROUTES, AUTH_ROUTES } from 'util/constants';
 
-//hooks
+// hooks
 import { useAuth, useProvideAuth } from 'hooks/useAuth';
 
-//components
+// components
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 
-//styles
+// styles
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
@@ -23,18 +23,18 @@ const Navigation = () => {
   return (
     <>
       <nav className={styles.nav}>
-        <NavLink className={styles.link} exact to='/'>
+        <NavLink className={styles.link} exact to="/">
           <h2 className={styles.logo}>Album Keeper</h2>
         </NavLink>
         <ul className={styles.navList}>
           {Object.entries({ ...ROUTES, ...AUTH_ROUTES }).map(([key, value]) => {
             if (
-              (!isAuthenticated &&
-                value.private &&
-                value.hasOwnProperty('private')) ||
-              (isAuthenticated &&
-                !value.private &&
-                value.hasOwnProperty('private'))
+              (!isAuthenticated
+                && value.private
+                && value.hasOwnProperty('private'))
+              || (isAuthenticated
+                && !value.private
+                && value.hasOwnProperty('private'))
             ) {
               return null;
             }

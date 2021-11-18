@@ -1,6 +1,6 @@
 import React from 'react';
 
-//constants
+// constants
 import { ICONS } from 'util/constants';
 
 const CustomIcon = ({ iconType, className, text = '' }) => {

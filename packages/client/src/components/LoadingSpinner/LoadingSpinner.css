@@ -1,19 +1,23 @@
 .FullPageSpinner {
-  font-size: 4em;
-  height: 100vh;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  height: 100vh;
+
+  font-size: 4em;
+
   pointer-events: none;
 }
 
 .Spinner {
-  font-size: 2em;
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+
+  font-size: 2em;
+
   pointer-events: none;
 }
 
@@ -21,6 +25,7 @@
   .FullPageSpinner {
     animation: spinner 1s infinite linear;
   }
+
   .Spinner {
     animation: spinner 1s infinite linear;
   }
@@ -30,6 +35,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

@@ -1,45 +1,47 @@
 .artistForm {
-    max-width: 100%;
-    flex: 1;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    background-color: var(--secondary-bg-color);
-    color: var(--secondary-accent-color-light);
+  padding: 16px;
+
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  max-width: 100%;
+
+  color: var(--secondary-accent-color-light);
+  background-color: var(--secondary-bg-color);
 }
 
 .formTitle {
-  text-align: center;
   margin-bottom: 10px;
-}
 
-
-.relative {
+  text-align: center;
 }
 
 .bandMembers {
   position: relative;
+  padding-bottom: 10px;
+
   display: flex;
-  flex-direction: column;   
-  padding-bottom: 10px;                                                                                                                                                                                                                                                                                                                                             
-  
+  flex-direction: column;
 }
 
 .bandMemberWrapper {
+  margin-bottom: 2px;
+
   display: flex;
   align-items: center;
-  margin-bottom: 2px;
 }
 
 .bandMember {
+  margin-right: 5px;
+
   font-size: 16px;
   font-weight: normal;
-  margin-right: 5px;
 }
-  
+
 .absolute {
   position: absolute;
-  right: 10px;
   top: 45%;
+  right: 10px;
+
   transform: translateY(-50%);
 }

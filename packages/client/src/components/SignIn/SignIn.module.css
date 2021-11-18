@@ -3,17 +3,15 @@
 }
 
 .registerForm {
-  max-width: 100%;
-  flex: 1;
   padding: 16px;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--secondary-bg-color);
-  color: var(--secondary-accent-color-light);
-}
 
-.formGroup {
-  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  max-width: 100%;
+
+  color: var(--secondary-accent-color-light);
+  background-color: var(--secondary-bg-color);
 }
 
 .display,
@@ -22,39 +20,6 @@
   width: 100%;
 }
 
-.input {
-  margin-top: 5px;
-  color: var(--secondary-accent-color-light);
-  z-index: 1;
-  border: none;
-  border-bottom: 2px solid var(--secondary-accent-color-light);
-  background-color: transparent;
-  font: inherit;
-  font-size: 18px;
-  padding: 10px 0;
-  margin-bottom: 10px;
-  outline: transparent;
-}
-
-.label {
-  color: var(--secondary-accent-color-light);
-  transition: 0.25s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-}
-
-.input:focus ~ .label,
-.input:valid ~ .label {
-  top: -20px;
-  left: 0;
-  color: #03e9f4;
-  font-size: 12px;
-  
-}
-
 .btnSubmit {
-  margin-top: 32px;
+  margin-left: auto;
 }

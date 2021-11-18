@@ -1,25 +1,22 @@
 .controls {
-  background-color: transparent;
   display: flex;
-  min-width: 100px;
   justify-content: space-between;
+  min-width: 100px;
+
+  background-color: transparent;
 }
 
 .controlsWrapper {
   margin: 0 auto;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
   flex: 1;
+  justify-content: space-between;
 }
-
-.btn {
-
-}
-
-
 
 .icon {
   font-size: 20px;
+
   color: var(--secondary-accent-color-light);
 }

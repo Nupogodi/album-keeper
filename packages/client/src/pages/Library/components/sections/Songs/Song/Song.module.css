@@ -1,6 +1,7 @@
 .link:hover {
-  cursor: pointer;
   text-decoration: underline;
+
+  cursor: pointer;
 }
 
 .link {
@@ -8,12 +9,15 @@
 }
 
 .songItem {
-  display: flex;
-  border-bottom: 1px solid var(--secondary-accent-color-medium);
-  align-items: center;
   padding: 5px 2px;
+
+  display: flex;
+  align-items: center;
   min-height: 50px;
+
   color: var(--secondary-accent-color-light);
+  border-bottom: 1px solid var(--secondary-accent-color-medium);
+
   transition: all 0.05s ease;
 }
 
@@ -27,11 +31,12 @@
 }
 
 .imgWrapper {
-  width: 40px;
-  padding: 3px;
   margin-right: 10px;
+  padding: 3px;
+
   display: flex;
   align-items: center;
+  width: 40px;
 }
 
 .imgWrapper > img {
@@ -39,8 +44,8 @@
 }
 
 .songDetails {
-  flex: 1;
   display: grid;
+  flex: 1;
   grid-template-columns: repeat(4, 1fr);
 }
 

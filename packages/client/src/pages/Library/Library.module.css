@@ -1,25 +1,12 @@
 .mainBg {
-  /* background:  var(--secondary-bg-color); */
-  /* background: var(--main-bg-color); */
-  background: url('assets/img/hero-image-3.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center bottom;
-  filter: sepia(0.25) grayscale(0.1);
-  min-height: 100vh;
   position: relative;
+
+  min-height: 100vh;
+
+  background: url("assets/img/hero-image-3.jpg");
+  background-repeat: no-repeat;
   background-attachment: fixed;
-}
-
-/* .mainBg::after {
-  content: '';
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.3);
-  position: absolute;
-} */
-
-.content {
+  background-position: center bottom;
+  background-size: cover;
+  filter: sepia(0.25) grayscale(0.1);
 }

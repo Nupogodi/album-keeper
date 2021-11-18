@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-//constants
+// constants
 import { API_ROUTES, SETTINGS_MENU_OPTIONS, ICON_TYPES } from 'util/constants';
 
-//api
+// api
 import api from 'util/api';
 
-//hooks
+// hooks
 import useRouter from 'hooks/useRouter';
 
-//components
+// components
 import SettingsMenu from 'components/SettingsMenu/SettingsMenu';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
@@ -21,9 +21,9 @@ import DefaultSvg from '../../../DefaultSvg/DefaultSvg';
 // styles
 import styles from './Album.module.css';
 
-const Album = ({ albumTitle, albumYear, artist, albumCover, albumId }) => {
+const Album = ({ albumTitle, albumYear, artist, albumId }) => {
   const router = useRouter();
-  let { url } = useRouteMatch();
+  const { url } = useRouteMatch();
   const [showSettings, setShowSettings] = useState(false);
   const [showIcon, setShowIcon] = useState(false);
   const { edit, remove } = SETTINGS_MENU_OPTIONS;
@@ -75,7 +75,7 @@ const Album = ({ albumTitle, albumYear, artist, albumCover, albumId }) => {
 
         <Link to={`${url}/${albumId}`}>
           <div className={styles.imgWrapper}>
-            <DefaultSvg width={200} height={200} fill={'transparent'} />
+            <DefaultSvg width={200} height={200} fill='transparent' />
           </div>
         </Link>
       </div>

@@ -2,26 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-//api
+// api
 import api from 'util/api';
 import {
   API_ROUTES,
   ICON_TYPES,
   BTN_STYLES,
   BTN_TYPES,
+  BTN_COLORS,
   SONG_GRID_VIEWS,
 } from 'util/constants';
 
-//components
-import SongGrid from '../../Songs/SongsGrid/SongsGrid';
+// components
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import DefaultImg from 'assets/img/default_album.jpg';
-import ArtistForm from '../ArtistEditForm/ArtistEditForm';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 import CustomModal from 'components/CustomModal/CustomModal';
 import CustomButton from 'components/CustomButton/CustomButton';
+import ArtistForm from '../ArtistEditForm/ArtistEditForm';
+import SongGrid from '../../Songs/SongsGrid/SongsGrid';
 
-//styles
+// styles
 import styles from './ArtistDetails.module.css';
 import 'index.css';
 
@@ -41,7 +42,6 @@ const ArtistDetails = () => {
           setArtist(response.data);
         } else {
           toast.error(response.data.error);
-          console.log(response);
         }
         setIsSubmitting(false);
       } catch (error) {
@@ -81,22 +81,21 @@ const ArtistDetails = () => {
                 ? DefaultImg
                 : artist.profile_image
             }
+            alt='Artist Cover'
           />
         </div>
         <div className={styles.detailsGroup}>
           <h4 className={styles.title}>{artist.artist_name}</h4>
           {artist.description && <p>{artist.description}</p>}
-          {artist.band_members !== undefined &&
-          artist.band_members.length > 0 ? (
+          {artist.band_members !== undefined
+           && artist.band_members.length > 0 ? (
             <div className={styles.bandMembers}>
               <h5 className={styles.subTitle}>Band Members</h5>
-              {artist.band_members.map((bandMember, index) => {
-                return (
-                  <p key={index} className={styles.bandMember}>
-                    {bandMember}
-                  </p>
-                );
-              })}
+              {artist.band_members.map((bandMember, index) => (
+                <p key={index} className={styles.bandMember}>
+                  {bandMember}
+                </p>
+              ))}
             </div>
           ) : null}
 
@@ -104,6 +103,7 @@ const ArtistDetails = () => {
             type={BTN_TYPES.button}
             action={toggleModal}
             btnStyle={BTN_STYLES.outlineDark}
+            btnColor={BTN_COLORS.dark}
           >
             <CustomIcon className={styles.icon} iconType={ICON_TYPES.edit} />
             Edit Artist

@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
-//api
+// api
 import api from 'util/api';
 
 // constants
-import { API_ROUTES, BTN_TYPES, BTN_STYLES } from 'util/constants';
+import { API_ROUTES, BTN_TYPES, BTN_STYLES, BTN_COLORS } from 'util/constants';
 
-//components
+// components
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import CustomButton from 'components/CustomButton/CustomButton';
 import Input from 'components/Input/Input';
 
-//styles
+// styles
 import styles from './AlbumForm.module.css';
 
 const AlbumForm = ({ onSuccess }) => {
@@ -77,8 +77,8 @@ const AlbumForm = ({ onSuccess }) => {
           id='artist'
           inputValue={data.artist}
           onChange={handleInputChange}
-          labelValue={'Artist'}
-          htmlFor={'artist'}
+          labelValue='Artist'
+          htmlFor='artist'
         />
 
         <Input
@@ -88,8 +88,8 @@ const AlbumForm = ({ onSuccess }) => {
           id='albumTitle'
           inputValue={data.albumTitle}
           onChange={handleInputChange}
-          labelValue={'Album Title'}
-          htmlFor={'albumTitle'}
+          labelValue='Album Title'
+          htmlFor='albumTitle'
         />
 
         <Input
@@ -100,13 +100,14 @@ const AlbumForm = ({ onSuccess }) => {
           id='releaseYear'
           inputValue={data.releaseYear}
           onChange={handleInputChange}
-          labelValue={'Release Year'}
-          htmlFor={'releaseYear'}
+          labelValue='Release Year'
+          htmlFor='releaseYear'
         />
         <CustomButton
           className={styles.btnSubmit}
           btnStyle={BTN_STYLES.fillLight}
           btnType={BTN_TYPES.submit}
+          btnColor={BTN_COLORS.dark}
         >
           {data.isSubmitting ? <LoadingSpinner /> : 'Add'}
         </CustomButton>

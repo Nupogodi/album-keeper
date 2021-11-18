@@ -151,7 +151,7 @@ export const BTN_STYLES = {
 export const BTN_COLORS = {
   light: 'light',
   dark: 'dark',
-}
+};
 
 export const BTN_TYPES = {
   submit: 'submit',
@@ -164,14 +164,13 @@ export const SORT_TYPES = {
   year: 'release_year',
 };
 
-
 export const ADD_ITEM_CONTEXT_TYPES = {
   SET_ACTIVE_FORM: 'SET_ACTIVE_FORM',
   SET_SEARCH_INPUT: 'SET_SEARCH_INPUT',
-}
+};
 
 export const ADD_ITEM_PATHNAME_TYPES = {
   albums: `${ROUTES.library.url}${LIBRARY_ROUTES.albums.url}`,
   artists: `${ROUTES.library.url}${LIBRARY_ROUTES.artists.url}`,
   songs: `${ROUTES.library.url}${LIBRARY_ROUTES.songs.url}`,
-}
+};

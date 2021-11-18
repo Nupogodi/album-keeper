@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
-//api
+// api
 import api from 'util/api';
 
 // constants
-import { API_ROUTES, BTN_TYPES, BTN_STYLES } from 'util/constants';
+import { API_ROUTES, BTN_TYPES, BTN_STYLES, BTN_COLORS } from 'util/constants';
 import { calculateSeconds } from 'util/calculations';
 
-//components
+// components
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import CustomButton from 'components/CustomButton/CustomButton';
 import Input from 'components/Input/Input';
 
-//styles
+// styles
 import styles from './SongForm.module.css';
 
 const SongForm = ({ onSuccess }) => {
@@ -51,7 +51,7 @@ const SongForm = ({ onSuccess }) => {
       songTitle: data.songTitle,
       songDuration: calculateSeconds(
         data.songDurationMinutes,
-        data.songDurationSeconds
+        data.songDurationSeconds,
       ),
       artistName: data.artistTitle,
       albumTitle: data.albumTitle,
@@ -80,79 +80,80 @@ const SongForm = ({ onSuccess }) => {
         <h3 className={styles.formTitle}>New Song</h3>
         <Input
           inputClassName={data.songTitle && styles.hasValue}
-          type='text'
-          name='songTitle'
-          id='songTitle'
+          type="text"
+          name="songTitle"
+          id="songTitle"
           inputValue={data.songTitle}
           onChange={handleInputChange}
-          labelValue={'Title'}
-          htmlFor={'songTitle'}
+          labelValue="Title"
+          htmlFor="songTitle"
         />
 
         <Input
-          step='1'
-          min='0'
+          step="1"
+          min="0"
           inputClassName={data.songDurationMinutes && styles.hasValue}
-          type='number'
-          name='songDurationMinutes'
-          id='songDurationMinutes'
+          type="number"
+          name="songDurationMinutes"
+          id="songDurationMinutes"
           inputValue={data.songDurationMinutes}
           onChange={handleInputChange}
-          labelValue={'Minutes'}
-          htmlFor={'songDurationMinutes'}
+          labelValue="Minutes"
+          htmlFor="songDurationMinutes"
         />
 
         <Input
-          step='1'
-          min='0'
+          step="1"
+          min="0"
           inputClassName={data.songDurationSeconds && styles.hasValue}
-          type='number'
-          name='songDurationSeconds'
-          id='songDurationSeconds'
+          type="number"
+          name="songDurationSeconds"
+          id="songDurationSeconds"
           inputValue={data.songDurationSeconds}
           onChange={handleInputChange}
-          labelValue={'Seconds'}
-          htmlFor={'songDurationSeconds'}
+          labelValue="Seconds"
+          htmlFor="songDurationSeconds"
         />
 
         <Input
           inputClassName={data.artistTitle && styles.hasValue}
-          type='text'
-          name='artistTitle'
-          id='artistTitle'
+          type="text"
+          name="artistTitle"
+          id="artistTitle"
           inputValue={data.artistTitle}
           onChange={handleInputChange}
-          labelValue={'Artist'}
-          htmlFor={'artistTitle'}
+          labelValue="Artist"
+          htmlFor="artistTitle"
         />
 
         <Input
           inputClassName={data.albumTitle && styles.hasValue}
-          type='text'
-          name='albumTitle'
-          id='albumTitle'
+          type="text"
+          name="albumTitle"
+          id="albumTitle"
           inputValue={data.albumTitle}
           onChange={handleInputChange}
-          labelValue={'Album'}
-          htmlFor={'albumTitle'}
+          labelValue="Album"
+          htmlFor="albumTitle"
         />
 
         <Input
           inputClassName={data.releaseYear && styles.hasValue}
-          type='number'
-          min='1900'
-          name='releaseYear'
-          id='releaseYear'
+          type="number"
+          min="1900"
+          name="releaseYear"
+          id="releaseYear"
           inputValue={data.releaseYear}
           onChange={handleInputChange}
-          labelValue={'Album Release Year'}
-          htmlFor={'releaseYear'}
+          labelValue="Album Release Year"
+          htmlFor="releaseYear"
         />
 
         <CustomButton
           className={styles.btnSubmit}
           btnStyle={BTN_STYLES.fillLight}
           btnType={BTN_TYPES.submit}
+          btnColor={BTN_COLORS.dark}
         >
           {data.isSubmitting ? <LoadingSpinner /> : 'Add'}
         </CustomButton>

@@ -1,19 +1,17 @@
-.songsGrid {
-}
-
 .songItem {
-  border-bottom: 1px solid var(--secondary-accent-color-medium);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--secondary-accent-color-medium);
 }
 
 .itemGroup {
-    display: flex;
-
+  display: flex;
 }
 
 .songTitle {
-    font-weight: 900;
+  font-weight: 900;
 }

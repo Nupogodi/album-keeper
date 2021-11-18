@@ -1,37 +1,29 @@
-
 .albumTitle {
-    font-size: 30px;
+  font-size: 30px;
 }
 
 .detailsHeader {
-    display: flex;
-    background: #f4f4f4;
+  display: flex;
+
+  background: #f4f4f4;
 }
 
 .imgWrapper {
-    max-width: 250px;
-    display: flex;
+  display: flex;
+  max-width: 250px;
 }
 
 .detailsBox {
-    margin-left: 32px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-}
+  margin-left: 32px;
+  padding: 10px;
 
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
 
 .albumDetails {
-    margin-bottom: 15px;
-    margin-top: 15px;
-}
-
-.textDetails {
-
-}
-
-.controls {
-
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

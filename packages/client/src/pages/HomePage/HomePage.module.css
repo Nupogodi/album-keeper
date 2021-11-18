@@ -1,38 +1,41 @@
 .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    place-items: center;
-    height: calc(100vh - var(--nav-height));
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+
+  height: calc(100vh - var(--nav-height));
 }
 
-.main-bg {
+.mainBg {
   width: 100%;
-
   min-height: 100vh;
-  background: url('assets/img/hero-image-1.jpg'),
+
+  background:
+    url("assets/img/hero-image-1.jpg"),
     linear-gradient(
       to right,
       var(--main-accent-color-light) 55%,
       var(--main-bg-color)
     );
-  background-size: cover;
-  background-position: center bottom;
   background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
   filter: sepia(0.25) grayscale(0.1);
 }
 
 .pageWrap {
-    flex: 1;
+  flex: 1;
 }
 
 .gridItem {
-  background-color: var(--main-bg-color);
-  color: var(--secondary-accent-light);
-  min-height: 75%;
-  min-width: 50%;
-  justify-self: end;
   display: flex;
   flex-direction: column;
+  min-width: 50%;
+  min-height: 75%;
+
+  color: var(--secondary-accent-light);
+  background-color: var(--main-bg-color);
+  justify-self: end;
 }
 
 .sectionRight {
@@ -40,21 +43,25 @@
 }
 
 .heroContent {
-  display: flex;
-  max-width: 350px;
   padding: 10px;
+
+  display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  max-width: 350px;
+
   font-size: 1rem;
   line-height: 1.4em;
+
+  opacity: 100%;
   color: #fff;
-  opacity: 1;
 }
 
 .tabs {
-  color: var(--secondary-accent-color-light);
   display: flex;
+
+  color: var(--secondary-accent-color-light);
   border-bottom: 2px solid var(--secondary-accent-color-light);
 }
 
@@ -62,8 +69,6 @@
   width: 50%;
   min-height: 30px;
 }
-
-
 
 .heading {
   font-size: 32px;
@@ -75,13 +80,15 @@
 }
 
 .welcomeBack {
+  margin: 50px auto;
+
   display: flex;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  color: var(--secondary-accent-color-light);
-  margin: 50px auto;
-  min-height: 200px;
   max-width: 400px;
-  background-color: rgba(0, 0, 0, 0.4);
+  min-height: 200px;
+
+  color: var(--secondary-accent-color-light);
+  background-color: rgb(0 0 0 / 40%);
 }

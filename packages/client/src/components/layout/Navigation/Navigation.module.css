@@ -9,13 +9,15 @@
 /*  Navbar */
 .nav {
   position: fixed;
-  width: 100%;
-  background: var(--main-bg-color);
   z-index: 10;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   min-height: var(--nav-height);
+
+  background: var(--main-bg-color);
   box-shadow: var(--box-shadow);
 }
 
@@ -24,23 +26,25 @@ li > *,
   color: var(--secondary-accent-color-light);
 }
 
-
 .navList {
-  list-style: none;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+
+  list-style: none;
 }
 
-
 .navItem {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-right: 10px;
-  min-width: 60px;
   padding-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+
   border-bottom: 2px solid transparent;
+
   transition: border 0.25s ease-out;
 }
 

@@ -1,42 +1,49 @@
-
 .formGroup {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 5px;
-    position: relative;
-  }
-  
-  .label {
-    color: var(--secondary-accent-color-light);
-    transition: 0.25s ease;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 20px 0;
-    font-size: 16px;
-  }
-  
-  .input {
-    margin-top: 5px;
-    color: var(--secondary-accent-color-light);
-    z-index: 1;
-    min-width: 100%;
-    border: none;
-    border-bottom: 2px solid var(--secondary-accent-color-light);
-    background-color: transparent;
-    font: inherit;
-    font-size: 18px;
-    padding: 10px 0;
-    margin-bottom: 10px;
-    outline: transparent;
-  }
-  
-  .input:focus + .label,
-  .input:-webkit-autofill + .label,
-  .hasValue + .label {
-    top: -20px;
-    left: 0;
-    color: #03e9f4;
-    font-size: 12px;
-  }
-  
+  position: relative;
+  margin-bottom: 10px;
+  padding: 5px;
+
+  width: 100%;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 0;
+
+  font-size: 16px;
+
+  color: var(--secondary-accent-color-light);
+
+  transition: 0.25s ease;
+}
+
+.input {
+  z-index: 1;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  padding: 10px 0;
+
+  min-width: 100%;
+
+  font: inherit;
+  font-size: 18px;
+
+  color: var(--secondary-accent-color-light);
+  border: none;
+  border-bottom: 2px solid var(--secondary-accent-color-light);
+  outline: transparent;
+  background-color: transparent;
+}
+
+.input:focus + .label,
+.input:-webkit-autofill + .label,
+.hasValue + .label {
+  top: -20px;
+  left: 0;
+
+  font-size: 12px;
+
+  color: #03e9f4;
+}

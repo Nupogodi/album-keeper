@@ -1,20 +1,22 @@
 import React, { useState, useEffect, memo } from 'react';
 import { toast } from 'react-toastify';
 
-//api
+// api
 import api from 'util/api';
 
 // constants
-import { API_ROUTES, ICON_TYPES, BTN_TYPES, BTN_STYLES } from 'util/constants';
+import {
+  API_ROUTES, ICON_TYPES, BTN_TYPES, BTN_STYLES, BTN_COLORS,
+} from 'util/constants';
 
-//components
+// components
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import LoadingSpinner from 'components/LoadingSpinner';
 import Input from 'components/Input/Input';
 import CustomButton from 'components/CustomButton/CustomButton';
 
-//styles
+// styles
 import styles from './ArtistEditForm.module.css';
 
 const ArtistForm = ({
@@ -25,13 +27,13 @@ const ArtistForm = ({
   description = '',
 }) => {
   const initialState = {
-    artistTitle: artistTitle,
-    bandMembers: bandMembers,
+    artistTitle,
+    bandMembers,
     newBandMember: '',
-    description: description,
+    description,
     isSubmitting: false,
     errorMessage: null,
-    artistId: artistId,
+    artistId,
   };
 
   const [data, setData] = useState(initialState);
@@ -65,7 +67,7 @@ const ArtistForm = ({
 
       const response = await api.put(
         `${API_ROUTES.artists.update}/${data.artistId}`,
-        body
+        body,
       );
 
       toast.success(response.data.msg);
@@ -94,37 +96,31 @@ const ArtistForm = ({
     setData({
       ...data,
       bandMembers: [
-        ...data.bandMembers.filter((member) => {
-          return member !== data.bandMembers[index];
-        }),
+        ...data.bandMembers.filter((member) => member !== data.bandMembers[index]),
       ],
     });
   };
 
-  const renderBandMembers = () => {
-    return data.bandMembers.map((bandMember, index) => {
-      return (
-        <div key={index} className={styles.bandMemberWrapper}>
-          <p className={styles.bandMember}>{bandMember}</p>
-          <ButtonWrapper
-            action={() => handleRemoveBandMember(index)}
-            className={styles.iconBtnMinus}
-            type="button"
-          >
-            <CustomIcon
-              iconType={ICON_TYPES.cancel}
-              className={styles.iconSmall}
-            />
-          </ButtonWrapper>
-        </div>
-      );
-    });
-  };
+  const renderBandMembers = () => data.bandMembers.map((bandMember, index) => (
+    <div key={index} className={styles.bandMemberWrapper}>
+      <p className={styles.bandMember}>{bandMember}</p>
+      <ButtonWrapper
+        action={() => handleRemoveBandMember(index)}
+        className={styles.iconBtnMinus}
+        type="button"
+      >
+        <CustomIcon
+          iconType={ICON_TYPES.cancel}
+          className={styles.iconSmall}
+        />
+      </ButtonWrapper>
+    </div>
+  ));
 
   return (
     <div className={styles.glassContainer}>
       <form className={styles.artistForm} onSubmit={handleSubmitArtist}>
-        <div className={styles.formHeader}></div>
+        <div className={styles.formHeader} />
         <h3 className={styles.formTitle}>Edit Artist</h3>
         <div className={styles.formBody}>
           <Input
@@ -133,8 +129,8 @@ const ArtistForm = ({
             id="artistTitle"
             inputValue={data.artistTitle}
             onChange={handleInputChange}
-            labelValue={'Title'}
-            htmlFor={'artistTitle'}
+            labelValue="Title"
+            htmlFor="artistTitle"
           />
 
           <Input
@@ -143,8 +139,8 @@ const ArtistForm = ({
             id="description"
             inputValue={data.description}
             onChange={handleInputChange}
-            labelValue={'Description'}
-            htmlFor={'description'}
+            labelValue="Description"
+            htmlFor="description"
           />
 
           <div className={styles.relative}>
@@ -154,8 +150,8 @@ const ArtistForm = ({
               id="newBandMember"
               inputValue={data.newBandMember}
               onChange={handleInputChange}
-              labelValue={'Band Members'}
-              htmlFor={'newBandMember'}
+              labelValue="Band Members"
+              htmlFor="newBandMember"
             />
             <ButtonWrapper
               action={handleAddBandMember}
@@ -179,6 +175,7 @@ const ArtistForm = ({
             className={`${styles.btn} ${styles.clearBtn}`}
             btnType={BTN_TYPES.button}
             btnStyle={BTN_STYLES.outlineDark}
+            btnColor={BTN_COLORS.dark}
           >
             Cancel
           </CustomButton>
@@ -186,6 +183,7 @@ const ArtistForm = ({
             className={styles.btn}
             btnType={BTN_TYPES.submit}
             btnStyle={BTN_STYLES.outlineDark}
+            btnColor={BTN_COLORS.dark}
           >
             {data.isSubmitting ? <LoadingSpinner /> : 'Save'}
           </CustomButton>

@@ -1,38 +1,37 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { useRouteMatch} from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-//constants
+// constants
 import {
   API_ROUTES,
   ADD_ITEM_PATHNAME_TYPES,
 } from 'util/constants';
 
-//api
+// api
 import api from 'util/api';
 
-//context
+// context
 import AddItemContext from 'context/addItem/addItemContext';
 
-//components
-import Artist from '../Artist/Artist';
-import ArtistForm from '../ArtistForm/ArtistForm';
+// components
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import CustomModal from 'components/CustomModal/CustomModal';
 
-//dependecies
+// dependecies
 import Fuse from 'fuse.js';
+import ArtistForm from '../ArtistForm/ArtistForm';
+import Artist from '../Artist/Artist';
 
-//styles
+// styles
 import styles from './ArtistsGrid.module.css';
 import 'index.css';
 
-const ArtistsGrid = ({ children }) => {
+const ArtistsGrid = () => {
   const [artists, setArtists] = useState([]);
   const [filteredArtists, setFilteredArtists] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(null);
   const { path } = useRouteMatch();
   const addItemContext = useContext(AddItemContext);
   const {
@@ -72,9 +71,9 @@ const ArtistsGrid = ({ children }) => {
     setFilteredArtists(artists);
 
     if (
-      path === ADD_ITEM_PATHNAME_TYPES.artists &&
-      !isSubmitting &&
-      filterValue !== ''
+      path === ADD_ITEM_PATHNAME_TYPES.artists
+      && !isSubmitting
+      && filterValue !== ''
     ) {
       const options = {
         keys: ['artist_name'],
@@ -84,9 +83,7 @@ const ArtistsGrid = ({ children }) => {
       const result = fuse.search(filterValue);
 
       setFilteredArtists(
-        result.map((artist) => {
-          return artist.item;
-        })
+        result.map((artist) => artist.item),
       );
     }
   }, [filterValue, artists]);
@@ -115,17 +112,15 @@ const ArtistsGrid = ({ children }) => {
       )}
       <div className={styles.artistsGrid}>
         {filteredArtists?.length > 0
-          ? filteredArtists.map((artist) => {
-              return (
-                <Artist
-                  key={artist._id}
-                  artistId={artist._id}
-                  artistName={artist.artist_name}
-                  image={artist.artist_image}
-                  songList={artist.song_list}
-                />
-              );
-            })
+          ? filteredArtists.map((artist) => (
+            <Artist
+              key={artist._id}
+              artistId={artist._id}
+              artistName={artist.artist_name}
+              image={artist.artist_image}
+              songList={artist.song_list}
+            />
+          ))
           : 'No artists'}
       </div>
     </div>

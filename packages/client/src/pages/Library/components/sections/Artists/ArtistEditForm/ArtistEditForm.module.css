@@ -6,13 +6,12 @@
   margin-bottom: 20px;
 }
 
-
-
 .iconBtnPlus {
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
   position: absolute;
+  top: 50%;
+  right: 10px;
+
+  transform: translateY(-50%);
 }
 
 .iconBtnMinus {
@@ -20,7 +19,6 @@
   align-items: center;
   justify-content: center;
 }
-
 
 .icon {
   font-size: 18px;
@@ -39,15 +37,21 @@
 }
 
 .bandMemberWrapper {
+  margin-bottom: 2px;
+
   display: flex;
   align-items: center;
-  margin-bottom: 2px;
 }
 
 .bandMember {
+  margin-right: 5px;
+
   font-size: 16px;
   font-weight: normal;
-  margin-right: 5px;
+}
+
+.btn {
+  margin-right: 8px;
 }
 
 /* form footer */

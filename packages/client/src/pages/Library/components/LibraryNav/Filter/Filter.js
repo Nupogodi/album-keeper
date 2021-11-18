@@ -1,16 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-import { BsSearch } from 'react-icons/bs';
-
-//components
-
-//context
+// context
 import AddItemContext from 'context/addItem/addItemContext';
 
-//styles
+// styles
 import styles from './Filter.module.css';
 
-const Filter = ({ showItem }) => {
+const Filter = () => {
   const initialState = {
     searchInput: '',
     isSubmitting: false,
@@ -22,8 +18,7 @@ const Filter = ({ showItem }) => {
 
   useEffect(() => {
     addItemContext.setFilterValue(data.searchInput);
-
-  }, [data.searchInput])
+  }, [data.searchInput]);
 
   const handleChange = (e) => {
     setData({

@@ -1,13 +1,15 @@
-import React, { useState, useCallback, useContext, useEffect } from 'react';
+import React, {
+  useState, useCallback, useContext, useEffect,
+} from 'react';
 import { useRouteMatch, useLocation, Link } from 'react-router-dom';
 
-//constants
+// constants
 import { LIBRARY_ROUTES, ADD_ITEM_PATHNAME_TYPES } from 'util/constants';
 
-//context
+// context
 import AddItemContext from 'context/addItem/addItemContext';
 
-//components
+// components
 import Filter from './Filter/Filter';
 import ViewControls from './ViewControls/ViewControls';
 
@@ -18,9 +20,9 @@ const LibraryNav = () => {
   const addItemContext = useContext(AddItemContext);
   const [showItem, setShowItem] = useState(false);
 
-  let { url } = useRouteMatch();
+  const { url } = useRouteMatch();
 
-  let { pathname } = useLocation();
+  const { pathname } = useLocation();
 
   const onAddItem = useCallback(() => {
     addItemContext.setCurrentActiveFormPathname(pathname);
@@ -35,16 +37,18 @@ const LibraryNav = () => {
   }, [pathname]);
 
   return (
-    <div className='page-fixer'>
+    <div className="pageFixer">
       <div className={styles.libraryNav}>
         <ul className={styles.linksWrapper}>
-          {Object.entries(LIBRARY_ROUTES).map(([key, value]) => {
-            return (
-              <Link key={key} className={styles.link} to={`${url}${value.url}`}>
-                <li className={styles.linkItem}> {value.title} </li>
-              </Link>
-            );
-          })}
+          {Object.entries(LIBRARY_ROUTES).map(([key, value]) => (
+            <Link key={key} className={styles.link} to={`${url}${value.url}`}>
+              <li className={styles.linkItem}>
+                {' '}
+                {value.title}
+                {' '}
+              </li>
+            </Link>
+          ))}
         </ul>
         <ViewControls showItem={showItem} onAddItem={onAddItem} />
         <Filter showItem={showItem} />

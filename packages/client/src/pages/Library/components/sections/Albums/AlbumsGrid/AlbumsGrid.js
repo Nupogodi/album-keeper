@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-//constants
+// constants
 import {
   API_ROUTES,
   ADD_ITEM_PATHNAME_TYPES,
@@ -11,15 +11,13 @@ import {
   BTN_STYLES,
 } from 'util/constants';
 
-//api
+// api
 import api from 'util/api';
 
-//context
+// context
 import AddItemContext from 'context/addItem/addItemContext';
 
-//components
-import Album from '../Album/Album';
-import AlbumForm from '../AlbumForm/AlbumForm';
+// components
 import CustomModal from 'components/CustomModal/CustomModal';
 import LoadingSpinner from 'components/LoadingSpinner/index';
 import CustomIcon from 'components/CustomIcon/CustomIcon';
@@ -27,15 +25,17 @@ import CustomButton from 'components/CustomButton/CustomButton';
 
 import DefaultImg from 'assets/img/default_album.jpg';
 
-//dependecies
+// dependecies
 import Fuse from 'fuse.js';
+import AlbumForm from '../AlbumForm/AlbumForm';
+import Album from '../Album/Album';
 
 // styles
 import styles from './AlbumsGrid.module.css';
-//global
+// global
 import 'index.css';
 
-const AlbumGrid = ({ children }) => {
+const AlbumGrid = () => {
   const [albums, setAlbums] = useState([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -78,9 +78,9 @@ const AlbumGrid = ({ children }) => {
     setFilteredAlbums(albums);
 
     if (
-      path === ADD_ITEM_PATHNAME_TYPES.albums &&
-      !isSubmitting &&
-      filterValue !== ''
+      path === ADD_ITEM_PATHNAME_TYPES.albums
+      && !isSubmitting
+      && filterValue !== ''
     ) {
       const options = {
         keys: ['album_title'],
@@ -90,9 +90,7 @@ const AlbumGrid = ({ children }) => {
       const result = fuse.search(filterValue);
 
       setFilteredAlbums(
-        result.map((album) => {
-          return album.item;
-        })
+        result.map((album) => album.item),
       );
     }
   }, [filterValue, albums]);
@@ -122,25 +120,24 @@ const AlbumGrid = ({ children }) => {
 
       <div className={styles.grid}>
         {filteredAlbums.length > 0 ? (
-          filteredAlbums.map((album) => {
-            return (
-              <Album
-                albumCover={DefaultImg}
-                key={album._id}
-                albumId={album._id}
-                albumTitle={album.album_title}
-                albumYear={album.release_year}
-                artist={album.artist.artist_name}
-              />
-            );
-          })
+          filteredAlbums.map((album) => (
+            <Album
+              albumCover={DefaultImg}
+              key={album._id}
+              albumId={album._id}
+              albumTitle={album.album_title}
+              albumYear={album.release_year}
+              artist={album.artist.artist_name}
+            />
+          ))
         ) : (
           <CustomButton
             btnStyle={BTN_STYLES.fillDark}
             btnType={BTN_TYPES.button}
             action={toggleModal}
           >
-            Add New Album{' '}
+            Add New Album
+            {' '}
             <CustomIcon iconType={ICON_TYPES.plus} className={styles.icon} />
           </CustomButton>
         )}

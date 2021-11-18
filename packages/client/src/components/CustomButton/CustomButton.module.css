@@ -1,44 +1,48 @@
 .btn {
-  display: block;
-  border: none;
-  appearance: none;
-  color: inherit;
-  font-family: inherit;
-  cursor: pointer;
-  font: inherit;
   padding: 5px;
-  max-width: 150px;
-  text-transform: uppercase;
+
+  display: block;
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 150px;
+
+  font: inherit;
+  font-family: inherit;
+  text-transform: uppercase;
+
+  color: inherit;
+  border: none;
   border-radius: 3px;
+
+  cursor: pointer;
+  appearance: none;
 }
 
 /* Btn Styles */
 .outlineLight {
-  background: none;
-  border: 2px solid var(--secondary-accent-color-light);
   color: var(--main-bg-color);
+  border: 2px solid var(--secondary-accent-color-light);
+  background: none;
 }
 
 .outlineDark {
-  border: 2px solid var(--main-bg-color);
   color: var(--main-bg-color);
+  border: 2px solid var(--main-bg-color);
 }
 
 .fillLight {
-  background: var(--secondary-accent-color-light);
   color: var(--main-bg-color);
+  background: var(--secondary-accent-color-light);
 }
+
 .fillDark {
-  background: var(--main-bg-color);
   color: var(--secondary-accent-color-light);
+  background: var(--main-bg-color);
 }
-
-
 
 .light {
+  color: #fff;
 }
 
 .dark {

@@ -1,4 +1,6 @@
-import React, { useReducer, useEffect, useContext, createContext } from 'react';
+import React, {
+  useReducer, useEffect, useContext, createContext,
+} from 'react';
 import useRouter from 'hooks/useRouter';
 import api from 'util/api';
 import { API_ROUTES } from 'util/constants';
@@ -9,7 +11,6 @@ const initialState = {
 };
 
 // constants
-const SET_LOADING = 'SET_LOADING';
 const LOG_IN = 'LOG_IN';
 const LOG_OUT = 'LOG_OUT';
 
@@ -53,9 +54,7 @@ export function ProvideAuth({ children }) {
 
 // Hook for child components to get the auth object ...
 // ... and re-render when it changes.
-export const useAuth = () => {
-  return useContext(authContext);
-};
+export const useAuth = () => useContext(authContext);
 
 // Provider hook that creates auth object and handles state
 export function useProvideAuth() {
@@ -65,8 +64,8 @@ export function useProvideAuth() {
   const signin = async (username, password) => {
     try {
       const response = await api.post(API_ROUTES.auth.signIn, {
-        username: username,
-        password: password,
+        username,
+        password,
       });
       localStorage.setItem('AlbumKeeperUser', JSON.stringify(response.data));
       dispatch({
@@ -87,8 +86,8 @@ export function useProvideAuth() {
   const signup = async (username, password) => {
     try {
       await api.post(API_ROUTES.auth.register, {
-        username: username,
-        password: password,
+        username,
+        password,
       });
       return await signin(username, password);
     } catch (error) {
@@ -108,13 +107,10 @@ export function useProvideAuth() {
     router.push('/');
   };
 
-  const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem('AlbumKeeperUser'));
-  };
+  const getCurrentUser = () => JSON.parse(localStorage.getItem('AlbumKeeperUser'));
 
   useEffect(() => {
-    const savedUser =
-      JSON.parse(localStorage.getItem('AlbumKeeperUser')) || false;
+    const savedUser = JSON.parse(localStorage.getItem('AlbumKeeperUser')) || false;
     if (savedUser) {
       dispatch({
         type: LOG_IN,

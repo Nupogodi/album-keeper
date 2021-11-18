@@ -1,13 +1,15 @@
 :root {
   --main-bg-color: #222;
-  --secondary-bg-color: #333;
   --main-accent-color-light: #d22;
   --main-accent-color-medium: #c00;
   --main-accent-color-dark: #900;
+  
+  --secondary-bg-color: #333;
   --secondary-accent-color-light: #eee;
-  --secondary-accent-color-medium:  #808080;
-  --secondary-accent-color-color-dark-hover: rgba(0, 0, 0, 0.75);
+  --secondary-accent-color-medium: #808080;
+  --secondary-accent-color-dark-hover: rgb(0 0 0 / 75%);
   --secondary-accent-color-success: forestgreen;
-  --box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  --box-shadow: rgb(100 100 111 / 20%) 0 7px 29px 0;
   --nav-height: 75px;
 }

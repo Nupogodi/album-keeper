@@ -1,27 +1,31 @@
 .libraryNav {
-  border-bottom: 1px solid var(--secondary-accent-color-medium);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding-top: 10px;
-}
 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom: 1px solid var(--secondary-accent-color-medium);
+}
 
 /* list */
 .linksWrapper {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 /* Link tag */
 .link {
-  color: var(--secondary-accent-color-light);
-  cursor: pointer;
   text-decoration: none;
   text-align: center;
-  transition: all 0.2s ease-in-out;
+
+  color: var(--secondary-accent-color-light);
   border-bottom: 2px solid transparent;
+
+  transition: all 0.2s ease-in-out;
+
+  cursor: pointer;
 }
 
 .link:hover {
@@ -30,9 +34,11 @@
 
 /* List item */
 .linkItem {
-  text-align: center;
-  list-style: none;
-  padding: 5px;
-  text-transform: uppercase;
   margin: 0 auto;
+  padding: 5px;
+
+  text-transform: uppercase;
+  text-align: center;
+
+  list-style: none;
 }

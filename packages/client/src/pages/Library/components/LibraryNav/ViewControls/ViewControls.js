@@ -1,14 +1,14 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
-//constants
+// constants
 import { ICON_TYPES } from 'util/constants';
 
-//components
+// components
 import CustomIcon from 'components/CustomIcon/CustomIcon';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 
-//styles
+// styles
 import styles from './ViewControls.module.css';
 
 const ViewControls = ({ onAddItem, showItem }) => {
@@ -17,11 +17,11 @@ const ViewControls = ({ onAddItem, showItem }) => {
   return (
     <div className={styles.controls}>
       <div className={styles.controlsWrapper}>
-        <ButtonWrapper btnType='button' action={() => history.goBack()}>
+        <ButtonWrapper btnType="button" action={() => history.goBack()}>
           <CustomIcon iconType={ICON_TYPES.backArrow} className={styles.icon} />
         </ButtonWrapper>
         <ButtonWrapper
-          btnType='button'
+          btnType="button"
           action={onAddItem}
           className={styles.btn}
         >

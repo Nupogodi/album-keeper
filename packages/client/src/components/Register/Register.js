@@ -1,8 +1,8 @@
-import React, {  useState } from 'react';
+import React, { useState } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 
-//constants
+// constants
 import { BTN_STYLES, BTN_TYPES } from 'util/constants';
 
 // auth and rerouting
@@ -10,10 +10,11 @@ import useRouter from 'hooks/useRouter';
 import { useProvideAuth } from 'hooks/useAuth';
 import { setAuthToken } from 'util/api';
 
-//components
+// components
 import CustomButton from 'components/CustomButton/CustomButton';
+import Input from 'components/Input/Input';
 
-//styles
+// styles
 import styles from './Register.module.css';
 import 'index.css';
 
@@ -37,12 +38,8 @@ const Register = () => {
   };
 
   const handleSignup = async (e) => {
-    const form = e.currentTarget;
     e.preventDefault();
     e.stopPropagation();
-
-    if (form.checkValidity() === false) {
-    }
 
     setData({
       ...data,
@@ -71,32 +68,28 @@ const Register = () => {
   return (
     <form onSubmit={handleSignup} className={styles.registerForm}>
       <h2 className={styles.title}>Register</h2>
-      <div className={styles.formGroup}>
-        <input
-          className={`${styles.input} ${data.username && styles.hasValue}`}
-          value={data.username}
-          type='text'
-          name='username'
-          id='username'
-          onChange={handleChange}
-        />
-        <label className={styles.label} htmlFor='username'>
-          Username
-        </label>
-      </div>
-      <div className={styles.formGroup}>
-        <input
-          className={`${styles.input} ${data.password && styles.hasValue}`}
-          value={data.password}
-          type='password'
-          name='password'
-          id='password'
-          onChange={handleChange}
-        />
-        <label className={styles.label} htmlFor='password'>
-          Password
-        </label>
-      </div>
+      <Input
+        inputClassName={data.username && styles.hasValue}
+        inputValue={data.username}
+        type='text'
+        name='username'
+        id='username'
+        onChange={handleChange}
+        labelValue='Username'
+        htmlFor='username'
+      />
+
+      <Input
+        inputClassName={data.password && styles.hasValue}
+        inputValue={data.password}
+        type='password'
+        name='password'
+        id='password'
+        onChange={handleChange}
+        labelValue='Password'
+        htmlFor='password'
+      />
+
       <CustomButton
         btnType={BTN_TYPES.button}
         btnStyle={BTN_STYLES.outlineLight}

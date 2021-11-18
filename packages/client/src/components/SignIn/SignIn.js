@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
-//hooks
+// hooks
 import { useProvideAuth } from 'hooks/useAuth';
 import useRouter from 'hooks/useRouter';
 import { setAuthToken } from 'util/api';
 
-//constants
-import {BTN_TYPES, BTN_STYLES} from 'util/constants';
+// constants
+import { BTN_TYPES, BTN_STYLES, BTN_COLORS } from 'util/constants';
 
-//components
+// components
 import CustomButton from 'components/CustomButton/CustomButton';
+import Input from 'components/Input/Input';
 
-
-//styles
+// styles
 import styles from './SignIn.module.css';
 
 const initialState = {
@@ -54,9 +54,8 @@ const SignIn = () => {
       setAuthToken(response.token);
       router.push('/');
 
-      toast.success(`Welcome back, ${response.data.username}!`)
+      toast.success(`Welcome back, ${response.data.username}!`);
     } catch (error) {
-      console.log(error.response);
       setData({
         ...data,
         isSubmitting: false,
@@ -66,36 +65,38 @@ const SignIn = () => {
   };
 
   return (
-      <form onSubmit={handleSignin} className={styles.registerForm}>
-        <h2 className={styles.title}>Sign in</h2>
-        <div className={styles.formGroup}>
-          <input
-            className={styles.input}
-            value={data.username}
-            type='text'
-            name='username'
-            onChange={handleInputChange}
-          />
-          <label className={styles.label} htmlFor='username'>
-            Username
-          </label>
-        </div>
-        <div className={styles.formGroup}>
-          <input
-            className={styles.input}
-            value={data.password}
-            type='password'
-            name='password'
-            onChange={handleInputChange}
-          />
-          <label className={styles.label} htmlFor='password'>
-            Password
-          </label>
-        </div>
-        <CustomButton action={handleSignin} btnType={BTN_TYPES.submit} btnStyle={BTN_STYLES.outlineLight} className={styles.btnSubmit}>
-          Submit
-        </CustomButton>
-      </form>
+    <form onSubmit={handleSignin} className={styles.registerForm}>
+      <h2 className={styles.title}>Sign in</h2>
+      <Input
+        inputClassName={styles.input}
+        value={data.username}
+        type='text'
+        name='username'
+        onChange={handleInputChange}
+        labelValue='Username'
+        htmlFor='username'
+      />
+
+      <Input
+        inputClassName={styles.input}
+        value={data.password}
+        type='password'
+        name='password'
+        onChange={handleInputChange}
+        labelValue='Password'
+        htmlFor='password'
+      />
+
+      <CustomButton
+        action={handleSignin}
+        btnType={BTN_TYPES.submit}
+        btnStyle={BTN_STYLES.outlineLight}
+        btnColor={BTN_COLORS.light}
+        className={styles.btnSubmit}
+      >
+        Submit
+      </CustomButton>
+    </form>
   );
 };
 

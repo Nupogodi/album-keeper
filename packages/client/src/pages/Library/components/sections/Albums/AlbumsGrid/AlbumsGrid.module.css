@@ -1,27 +1,29 @@
 .grid {
+  margin-right: auto;
+  margin-left: auto;
   padding-top: 15px;
   padding-right: 15px;
   padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   width: 100%;
   max-width: 1176px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-gap: 16px;
-  justify-content: center;
-  align-items: center;
 }
 
-
 .btn {
-  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: none;
   background-color: inherit;
+
   cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  appearance: none;
 }
 
 .icon:active {
@@ -31,42 +33,3 @@
 .icon {
   font-size: 20px;
 }
-
-/* Original */
-/* 
-
-.grid {
-    padding-top: 15px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    max-width: 1176px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 16px;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-.btn {
-    appearance: none;
-    border: none;
-    background-color: inherit;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.icon:active {
-    background-color: #54f;
-}
-
-
-.icon {
-    font-size: 20px;
-} */

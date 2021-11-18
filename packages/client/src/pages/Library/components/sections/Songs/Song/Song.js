@@ -30,7 +30,7 @@ const Song = ({
     return (
       <div className={styles.songItem}>
         <div className={styles.imgWrapper}>
-          <img src={albumCover === undefined ? DefaultImg : albumCover} />
+          <img src={albumCover === undefined ? DefaultImg : albumCover} alt='Album Cover' />
         </div>
         <div className={styles.songDetails}>
           <h4 className={(styles.songTitle, styles.songDetail)}>{songTitle}</h4>
@@ -56,7 +56,7 @@ const Song = ({
         </div>
       </div>
     );
-  } else if (view === albumView) {
+  } if (view === albumView) {
     return (
       <div className={styles.songItem}>
         <p className={styles.songIndex}>{index}</p>

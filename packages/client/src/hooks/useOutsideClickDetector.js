@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 
 const useOutsideClickDetector = (ref, outsideClickAction) => {
   useEffect(() => {
@@ -7,9 +7,9 @@ const useOutsideClickDetector = (ref, outsideClickAction) => {
      */
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {
-        outsideClickAction()
+        outsideClickAction();
       }
-    }
+    };
 
     // Bind the event listener
     document.addEventListener('mousedown', handleClickOutside);

@@ -1,44 +1,49 @@
 .artist {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    transition: all 0.05s ease;
-    cursor: pointer;
-    border-bottom: 1px solid var(--secondary-accent-color-medium)
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-bottom: 1px solid var(--secondary-accent-color-medium);
+
+  transition: all 0.05s ease;
+
+  cursor: pointer;
 }
 
 .artist:hover {
-    background-color: rgba(0, 0, 0, 0.781);
-    color: var(--secondary-accent-color-light);
+  color: var(--secondary-accent-color-light);
+  background-color: rgb(0 0 0 / 78.1%);
 }
 
 .artist:hover .subDetail {
-    color: var(--secondary-accent-color-light);
+  color: var(--secondary-accent-color-light);
 }
 
-
 .imgWrapper {
-    display: flex;
-    width: 50px;
+  display: flex;
+  width: 50px;
 }
 
 .imgWrapper > img {
-    border-radius: 50%;
-
+  border-radius: 50%;
 }
 
 .details {
-    flex: 1;
-    margin-left: 10px;
+  margin-left: 10px;
+
+  flex: 1;
 }
 
 .title {
-    font-weight: 900;
-    margin-bottom: 4px;
-    color: var(--secondary-accent-color-light);
+  margin-bottom: 4px;
+
+  font-weight: 900;
+
+  color: var(--secondary-accent-color-light);
 }
 
 .subDetail {
-    color: var(--secondary-accent-color-medium);
+  color: var(--secondary-accent-color-medium);
 }

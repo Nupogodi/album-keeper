@@ -2,37 +2,37 @@ import React, { useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-//api
+// api
 import api from 'util/api';
 import {
   API_ROUTES,
   SONG_GRID_VIEWS,
   BTN_STYLES,
   BTN_TYPES,
+  BTN_COLORS,
 } from 'util/constants';
 
-//calculations
+// calculations
 import { AlbumLength } from 'util/calculations';
 
-//components
+// components
 import LoadingSpinner from 'components/LoadingSpinner/index';
-import SongGrid from '../../Songs/SongsGrid/SongsGrid';
-import AlbumEditForm from '../AlbumEditForm/AlbumEditForm';
 import DefaultImg from 'assets/img/default_album.jpg';
 import CustomModal from 'components/CustomModal/CustomModal';
 import CustomButton from 'components/CustomButton/CustomButton';
+import AlbumEditForm from '../AlbumEditForm/AlbumEditForm';
+import SongGrid from '../../Songs/SongsGrid/SongsGrid';
 
-//styles
+// styles
 import styles from './AlbumDetails.module.css';
 
-//global styles
+// global styles
 import 'index.css';
 
-const AlbumDetails = (props) => {
+const AlbumDetails = () => {
   const { id } = useRouteMatch().params;
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [editingMode, setEditingMode] = useState(false);
   const [album, setAlbum] = useState({});
 
   useEffect(() => {
@@ -45,7 +45,6 @@ const AlbumDetails = (props) => {
           setAlbum(response.data);
         } else {
           toast.error(response.data.error);
-          console.log(response);
         }
         setIsSubmitting(false);
       } catch (error) {
@@ -70,15 +69,12 @@ const AlbumDetails = (props) => {
 
   if (isSubmitting) return <LoadingSpinner />;
 
-  const { album_title, description, artist, release_year, song_list } = album;
+  const { album_title, artist, release_year, song_list } = album;
   return (
     <div>
       {modalOpen && (
         <CustomModal modalOpen={modalOpen} toggleModal={toggleModal}>
-          <AlbumEditForm
-            onSuccess={handleSuccess}
-            album={album}
-          />
+          <AlbumEditForm onSuccess={handleSuccess} album={album} />
         </CustomModal>
       )}
       <div className={styles.detailsHeader}>
@@ -87,12 +83,12 @@ const AlbumDetails = (props) => {
         </div>
         <div className={styles.detailsBox}>
           <h3 className={styles.albumTitle}>{album_title}</h3>
-            <p className={styles.textDetails}>{album.description}</p>
+          <p className={styles.textDetails}>{album.description}</p>
           <div className={styles.albumDetails}>
             {artist && (
-              <p
-                className={styles.textDetails}
-              >{`Album • ${artist.artist_name} ${release_year}`}</p>
+              <p className={styles.textDetails}>
+                {`Album • ${artist.artist_name} ${release_year}`}
+              </p>
             )}
             <p className={styles.textDetails}>
               {song_list && <AlbumLength songsArr={song_list} />}
@@ -102,9 +98,10 @@ const AlbumDetails = (props) => {
             <CustomButton
               btnType={BTN_TYPES.button}
               btnStyle={BTN_STYLES.outlineDark}
+              btnColor={BTN_COLORS.dark}
               action={toggleModal}
               text='Edit Album'
-            ></CustomButton>
+            />
           </div>
         </div>
       </div>

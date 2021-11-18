@@ -1,49 +1,52 @@
-
-
 .settingsBody {
-    position: absolute;
-    background-color: rgb(26, 23, 23);
-    color: #f4f4f4;
-    right: -150px;
-    top: 50px;
-    padding: 10px 0;
-    min-width: 150px;
-    z-index: 3;
-    border:1px solid rgba(255,255,255,0.3)
+  position: absolute;
+  top: 50px;
+  right: -150px;
+  z-index: 43;
+  padding: 10px 0;
+
+  min-width: 150px;
+
+  color: #f4f4f4;
+  border: 1px solid rgb(255 255 255 / 30%);
+  background-color: rgb(26 23 23);
 }
 
 .btnWrapper {
-    display: block;
-    border: none;
-    appearance: none;
-    color: inherit;
-    font-family: inherit;
-    cursor: pointer;
-    font: inherit;
-    background: none;
-   
+  display: block;
+
+  font: inherit;
+  font-family: inherit;
+
+  color: inherit;
+  border: none;
+  background: none;
+
+  cursor: pointer;
+  appearance: none;
 }
 
 .controlItem {
-    padding: 5px;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.3s ease-in-out;
-    min-height: 40px;
-    width: 100%;
+  padding: 5px;
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 40px;
+
+  transition: background-color 0.3s ease-in-out;
 }
 
 .controlItem:hover {
-    background-color: rgba(255,255,255,0.1);
-}
-.controlItem:active {
-    background-color: rgba(255,255,255,0.2);
+  background-color: rgb(255 255 255 / 10%);
 }
 
+.controlItem:active {
+  background-color: rgb(255 255 255 / 20%);
+}
 
 .icon {
-    margin-right: 5px;
-    font-size: 20px;
+  margin-right: 5px;
+
+  font-size: 20px;
 }
-
-

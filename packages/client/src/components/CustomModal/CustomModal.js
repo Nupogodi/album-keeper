@@ -5,8 +5,8 @@ import modalStyles from './CustomModal.module.css';
 
 Modal.setAppElement('#root');
 
-const CustomModal = ({children, ...props}) => {
-  const {modalOpen, toggleModal} = props;
+const CustomModal = ({ children, ...props }) => {
+  const { modalOpen, toggleModal } = props;
 
   const {
     overlayBase,
