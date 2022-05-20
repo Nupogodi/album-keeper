@@ -1,31 +1,32 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-         "react-hooks"
-    ],
-    "rules": {
-        "linebreak-style": 0,
-        "react/prop-types": "off",
-        "react/jsx-filename-extension": "off",
-        "no-underscore-dangle": "off",
-        "camelcase": "off",
-        "jsx-quotes": "off",
-        "react/destructuring-assignment": "off",
-        "react/button-has-type": "off"
-
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react-hooks"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "moduleDirectory": ["node_modules", "src/"]
+      }
     }
+  },
+  "rules": {
+    "linebreak-style": 0,
+    "react/prop-types": "off",
+    "react/jsx-filename-extension": "off",
+    "no-underscore-dangle": "off",
+    "camelcase": "off",
+    "jsx-quotes": "off",
+    "react/destructuring-assignment": "off",
+    "react/button-has-type": "off"
+  }
 }

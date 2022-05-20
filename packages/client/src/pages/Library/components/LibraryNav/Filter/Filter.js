@@ -38,6 +38,7 @@ const Filter = () => {
           name='searchInput'
           id='searchInput'
         />
+        {/* eslint-disable-next-line */}
         <label className='label' htmlFor='searchInput'>
           Search
         </label>

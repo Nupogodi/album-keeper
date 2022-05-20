@@ -19,9 +19,9 @@ import AddItemContext from 'context/addItem/addItemContext';
 
 // components
 import CustomModal from 'components/CustomModal/CustomModal';
-import LoadingSpinner from 'components/LoadingSpinner/index';
-import CustomIcon from 'components/CustomIcon/CustomIcon';
-import CustomButton from 'components/CustomButton/CustomButton';
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
+import Icon from 'components/Icon/Icon';
+import Button from 'components/Button/Button';
 
 import DefaultImg from 'assets/img/default_album.jpg';
 
@@ -32,8 +32,6 @@ import Album from '../Album/Album';
 
 // styles
 import styles from './AlbumsGrid.module.css';
-// global
-import 'index.css';
 
 const AlbumGrid = () => {
   const [albums, setAlbums] = useState([]);
@@ -47,6 +45,12 @@ const AlbumGrid = () => {
     currentActiveFormPathname,
     filterValue,
   } = addItemContext;
+
+  const toggleModal = () => {
+    setCurrentActiveFormPathname(null);
+    setModalOpen(!modalOpen);
+  };
+
   useEffect(() => {
     const getAlbums = async () => {
       setIsSubmitting(true);
@@ -60,6 +64,7 @@ const AlbumGrid = () => {
         setIsSubmitting(false);
       } catch (error) {
         setIsSubmitting(false);
+        // eslint-disable-next-line
         console.log(error);
         toast.error(error.response.error);
       }
@@ -78,9 +83,9 @@ const AlbumGrid = () => {
     setFilteredAlbums(albums);
 
     if (
-      path === ADD_ITEM_PATHNAME_TYPES.albums
-      && !isSubmitting
-      && filterValue !== ''
+      path === ADD_ITEM_PATHNAME_TYPES.albums &&
+      !isSubmitting &&
+      filterValue !== ''
     ) {
       const options = {
         keys: ['album_title'],
@@ -89,9 +94,7 @@ const AlbumGrid = () => {
       const fuse = new Fuse(albums, options);
       const result = fuse.search(filterValue);
 
-      setFilteredAlbums(
-        result.map((album) => album.item),
-      );
+      setFilteredAlbums(result.map((album) => album.item));
     }
   }, [filterValue, albums]);
 
@@ -99,11 +102,6 @@ const AlbumGrid = () => {
     setAlbums([...albums, album]);
 
     toggleModal();
-  };
-
-  const toggleModal = () => {
-    setCurrentActiveFormPathname(null);
-    setModalOpen(!modalOpen);
   };
 
   if (isSubmitting) {
@@ -131,15 +129,14 @@ const AlbumGrid = () => {
             />
           ))
         ) : (
-          <CustomButton
+          <Button
             btnStyle={BTN_STYLES.fillDark}
             btnType={BTN_TYPES.button}
-            action={toggleModal}
+            onClick={toggleModal}
           >
-            Add New Album
-            {' '}
-            <CustomIcon iconType={ICON_TYPES.plus} className={styles.icon} />
-          </CustomButton>
+            Add New Album{' '}
+            <Icon iconType={ICON_TYPES.plus} className={styles.icon} />
+          </Button>
         )}
       </div>
     </div>

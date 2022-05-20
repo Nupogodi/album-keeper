@@ -16,18 +16,15 @@ import {
 import { AlbumLength } from 'util/calculations';
 
 // components
-import LoadingSpinner from 'components/LoadingSpinner/index';
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import DefaultImg from 'assets/img/default_album.jpg';
 import CustomModal from 'components/CustomModal/CustomModal';
-import CustomButton from 'components/CustomButton/CustomButton';
+import Button from 'components/Button/Button';
 import AlbumEditForm from '../AlbumEditForm/AlbumEditForm';
 import SongGrid from '../../Songs/SongsGrid/SongsGrid';
 
 // styles
 import styles from './AlbumDetails.module.css';
-
-// global styles
-import 'index.css';
 
 const AlbumDetails = () => {
   const { id } = useRouteMatch().params;
@@ -49,6 +46,7 @@ const AlbumDetails = () => {
         setIsSubmitting(false);
       } catch (error) {
         setIsSubmitting(false);
+        // eslint-disable-next-line
         console.log(error);
         toast.error(error.response.error);
       }
@@ -61,8 +59,8 @@ const AlbumDetails = () => {
     setModalOpen(!modalOpen);
   };
 
-  const handleSuccess = (album) => {
-    setAlbum(album);
+  const handleSuccess = (albumObj) => {
+    setAlbum(albumObj);
 
     toggleModal();
   };
@@ -95,7 +93,7 @@ const AlbumDetails = () => {
             </p>
           </div>
           <div className={styles.controls}>
-            <CustomButton
+            <Button
               btnType={BTN_TYPES.button}
               btnStyle={BTN_STYLES.outlineDark}
               btnColor={BTN_COLORS.dark}

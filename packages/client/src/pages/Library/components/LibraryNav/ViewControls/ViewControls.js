@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { ICON_TYPES } from 'util/constants';
 
 // components
-import CustomIcon from 'components/CustomIcon/CustomIcon';
+import Icon from 'components/Icon/Icon';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 
 // styles
@@ -17,16 +17,16 @@ const ViewControls = ({ onAddItem, showItem }) => {
   return (
     <div className={styles.controls}>
       <div className={styles.controlsWrapper}>
-        <ButtonWrapper btnType="button" action={() => history.goBack()}>
-          <CustomIcon iconType={ICON_TYPES.backArrow} className={styles.icon} />
+        <ButtonWrapper btnType='button' action={() => history.goBack()}>
+          <Icon iconType={ICON_TYPES.backArrow} className={styles.icon} />
         </ButtonWrapper>
         <ButtonWrapper
-          btnType="button"
+          btnType='button'
           action={onAddItem}
           className={styles.btn}
         >
           {showItem && (
-            <CustomIcon iconType={ICON_TYPES.plus} className={styles.icon} />
+            <Icon iconType={ICON_TYPES.plus} className={styles.icon} />
           )}
         </ButtonWrapper>
       </div>

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useAuth } from 'hooks/useAuth';
 import useRouter from 'hooks/useRouter';
 
+// eslint-disable-next-line import/prefer-default-export
 export function useRequireAuth(redirectUrl = '/signin') {
   const auth = useAuth();
   const router = useRouter();

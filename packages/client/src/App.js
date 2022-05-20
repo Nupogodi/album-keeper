@@ -1,22 +1,25 @@
 import React from 'react';
-import {
-  BrowserRouter, Route, Switch, Redirect,
-} from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-// constants
-import { ROUTES } from 'util/constants';
 
-// components
+// Constants
+import { ROUTES, AUTH_ROUTES } from 'util/constants';
+
+// Pages
 import HomePage from 'pages/HomePage/HomePage';
 import Library from 'pages/Library/Library';
-import ErrorBoundary from 'components/ErrorBoundary';
+import AuthPage from 'pages/Auth/Auth';
 
-// hooks
+// Hooks
 import { useAuth } from 'hooks/useAuth';
 
-// components
+// Components
 import Navigation from 'components/layout/Navigation/Navigation';
+import Footer from 'components/layout/Footer/Footer';
+import ErrorBoundary from 'components/ErrorBoundary';
 
+// Styles
+import styles from './App.module.css';
 import 'assets/styles/main.css';
 
 const App = () => {
@@ -25,23 +28,33 @@ const App = () => {
   } = useAuth();
 
   return (
-    <div>
+    <div className={styles.App}>
+      <ToastContainer />
       <ErrorBoundary>
-        <ToastContainer />
         <BrowserRouter>
-          <Navigation />
-          <Switch>
-            <Route exact path={ROUTES.home.url}>
-              <HomePage />
-            </Route>
-            <Route path={ROUTES.library.url}>
-              {isAuthenticated ? (
-                <Library />
-              ) : (
-                <Redirect to={ROUTES.home.url} />
-              )}
-            </Route>
-          </Switch>
+          <nav className={styles.nav}>
+            <Navigation />
+          </nav>
+          <main className={`${styles.content}`}>
+            <Switch>
+              <Route exact path={ROUTES.home.url}>
+                <HomePage />
+              </Route>
+              <Route exact path={AUTH_ROUTES.signIn.url}>
+                <AuthPage />
+              </Route>
+              <Route path={ROUTES.library.url}>
+                {isAuthenticated ? (
+                  <Library />
+                ) : (
+                  <Redirect to={ROUTES.home.url} />
+                )}
+              </Route>
+            </Switch>
+          </main>
+          <footer className={styles.footer}>
+            <Footer />
+          </footer>
         </BrowserRouter>
       </ErrorBoundary>
     </div>

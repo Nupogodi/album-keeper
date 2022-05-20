@@ -1,13 +1,14 @@
-.mainBg {
-  position: relative;
+.authPage {
+  padding: 5rem;
 
   flex: 1;
+  width: 100%;
   min-height: 100vh;
 
-  background: url("assets/img/hero-image-3.jpg");
+  background-image: url("assets/img/hero-image-5.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center bottom;
   background-size: cover;
-  filter: sepia(0.25) grayscale(0.1);
+  filter: grayscale(0.4);
 }

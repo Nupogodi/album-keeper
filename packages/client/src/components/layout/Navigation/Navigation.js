@@ -9,32 +9,38 @@ import { useAuth, useProvideAuth } from 'hooks/useAuth';
 
 // components
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
+import Container from 'components/wrappers/Container/Container';
 
-// styles
+// Styles
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
   const { signout } = useProvideAuth();
-
   const {
     state: { isAuthenticated },
   } = useAuth();
 
+  // Mobile Nav Drawer
+  // const [openDrawer, setOpenDrawer] = useState(false);
+
   return (
-    <>
-      <nav className={styles.nav}>
-        <NavLink className={styles.link} exact to="/">
+    <nav className={`${styles.nav} radShadow surface4`}>
+      <Container className={styles.flexContainer}>
+        <NavLink className={styles.link} exact to={ROUTES.home.url}>
           <h2 className={styles.logo}>Album Keeper</h2>
         </NavLink>
         <ul className={styles.navList}>
+          {/* eslint-disable-next-line */}
           {Object.entries({ ...ROUTES, ...AUTH_ROUTES }).map(([key, value]) => {
             if (
-              (!isAuthenticated
-                && value.private
-                && value.hasOwnProperty('private'))
-              || (isAuthenticated
-                && !value.private
-                && value.hasOwnProperty('private'))
+              (!isAuthenticated &&
+                value.private &&
+                // eslint-disable-next-line
+                value.hasOwnProperty('private')) ||
+              (isAuthenticated &&
+                !value.private &&
+                // eslint-disable-next-line
+                value.hasOwnProperty('private'))
             ) {
               return null;
             }
@@ -44,7 +50,7 @@ const Navigation = () => {
                 <li className={styles.navItem} key={key}>
                   <ButtonWrapper
                     className={`${styles.link} ${styles.btnOutline}`}
-                    action={() => signout()}
+                    onClick={() => signout()}
                   >
                     {value.title}
                   </ButtonWrapper>
@@ -61,8 +67,8 @@ const Navigation = () => {
             );
           })}
         </ul>
-      </nav>
-    </>
+      </Container>
+    </nav>
   );
 };
 

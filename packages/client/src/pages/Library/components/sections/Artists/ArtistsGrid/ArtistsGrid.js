@@ -3,10 +3,7 @@ import { useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 // constants
-import {
-  API_ROUTES,
-  ADD_ITEM_PATHNAME_TYPES,
-} from 'util/constants';
+import { API_ROUTES, ADD_ITEM_PATHNAME_TYPES } from 'util/constants';
 
 // api
 import api from 'util/api';
@@ -15,7 +12,7 @@ import api from 'util/api';
 import AddItemContext from 'context/addItem/addItemContext';
 
 // components
-import LoadingSpinner from 'components/LoadingSpinner/index';
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import CustomModal from 'components/CustomModal/CustomModal';
 
 // dependecies
@@ -25,7 +22,6 @@ import Artist from '../Artist/Artist';
 
 // styles
 import styles from './ArtistsGrid.module.css';
-import 'index.css';
 
 const ArtistsGrid = () => {
   const [artists, setArtists] = useState([]);
@@ -53,6 +49,7 @@ const ArtistsGrid = () => {
         setIsSubmitting(false);
       } catch (error) {
         setIsSubmitting(false);
+        // eslint-disable-next-line
         console.log(error);
         toast.error(error.response.error);
       }
@@ -60,6 +57,11 @@ const ArtistsGrid = () => {
 
     getArtists();
   }, []);
+
+  const toggleModal = () => {
+    setCurrentActiveFormPathname(null);
+    setModalOpen(!modalOpen);
+  };
 
   useEffect(() => {
     if (currentActiveFormPathname === ADD_ITEM_PATHNAME_TYPES.artists) {
@@ -71,9 +73,9 @@ const ArtistsGrid = () => {
     setFilteredArtists(artists);
 
     if (
-      path === ADD_ITEM_PATHNAME_TYPES.artists
-      && !isSubmitting
-      && filterValue !== ''
+      path === ADD_ITEM_PATHNAME_TYPES.artists &&
+      !isSubmitting &&
+      filterValue !== ''
     ) {
       const options = {
         keys: ['artist_name'],
@@ -82,16 +84,9 @@ const ArtistsGrid = () => {
       const fuse = new Fuse(artists, options);
       const result = fuse.search(filterValue);
 
-      setFilteredArtists(
-        result.map((artist) => artist.item),
-      );
+      setFilteredArtists(result.map((artist) => artist.item));
     }
   }, [filterValue, artists]);
-
-  const toggleModal = () => {
-    setCurrentActiveFormPathname(null);
-    setModalOpen(!modalOpen);
-  };
 
   const handleSuccess = (artist) => {
     setArtists([...artists, artist]);
@@ -113,14 +108,14 @@ const ArtistsGrid = () => {
       <div className={styles.artistsGrid}>
         {filteredArtists?.length > 0
           ? filteredArtists.map((artist) => (
-            <Artist
-              key={artist._id}
-              artistId={artist._id}
-              artistName={artist.artist_name}
-              image={artist.artist_image}
-              songList={artist.song_list}
-            />
-          ))
+              <Artist
+                key={artist._id}
+                artistId={artist._id}
+                artistName={artist.artist_name}
+                image={artist.artist_image}
+                songList={artist.song_list}
+              />
+            ))
           : 'No artists'}
       </div>
     </div>

@@ -27,12 +27,14 @@ if (token) {
 api.interceptors.request.use(
   (config) => {
     if (token) {
+      // eslint-disable-next-line
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
   (error) => Promise.reject(error)
 );
+// eslint-disable-next-line
 export const setAuthToken = (token) => {
   if (token) {
     // applying token
@@ -50,6 +52,7 @@ api.interceptors.response.use(
       toast.error(error.response.data.error);
     } else if (error.response.status === 401) {
       toast.error('Unauthorized');
+      // eslint-disable-next-line
       console.log(error.response.data.error);
     }
     if (error.response.status === 500) {

@@ -8,6 +8,7 @@ const DefaultSvg = (props) => (
     height="700.000000pt"
     viewBox="0 0 700.000000 700.000000"
     preserveAspectRatio="xMidYMid meet"
+    // eslint-disable-next-line react/jsx-props-no-spreading
     {...props}
   >
     <g

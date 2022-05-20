@@ -4,8 +4,6 @@ import ReactDOM from 'react-dom';
 // state
 import { ProvideAuth } from 'hooks/useAuth';
 
-import './index.css';
-
 // components
 import App from 'App';
 
@@ -15,5 +13,5 @@ ReactDOM.render(
       <App />
     </ProvideAuth>
   </React.StrictMode>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );

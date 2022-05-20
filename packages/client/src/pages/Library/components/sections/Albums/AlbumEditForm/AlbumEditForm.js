@@ -8,8 +8,8 @@ import { API_ROUTES, BTN_TYPES, BTN_STYLES, BTN_COLORS } from 'util/constants';
 import api from 'util/api';
 
 // components
-import LoadingSpinner from 'components/LoadingSpinner/index';
-import CustomButton from 'components/CustomButton/CustomButton';
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
+import Button from 'components/Button/Button';
 import Input from 'components/Input/Input';
 
 // styles
@@ -49,7 +49,6 @@ const AlbumEditForm = ({ onSuccess, album }) => {
         `${API_ROUTES.albums.update}/${album._id}`,
         body
       );
-      console.log(response);
       if (response.data) {
         toast.success(response.data.msg);
         onSuccess(response.data.album);
@@ -60,7 +59,7 @@ const AlbumEditForm = ({ onSuccess, album }) => {
       setIsSubmitting(false);
     } catch (error) {
       setIsSubmitting(false);
-
+      // eslint-disable-next-line
       console.log(error);
       toast.error(error.response.error);
     }
@@ -105,15 +104,15 @@ const AlbumEditForm = ({ onSuccess, album }) => {
           />
         </div>
         <div className={styles.formFooter}>
-          <CustomButton
+          <Button
             btnType={BTN_TYPES.button}
             btnStyle={BTN_STYLES.outlineDark}
             btnColor={BTN_COLORS.dark}
             action={onSuccess}
           >
             Cancel
-          </CustomButton>
-          <CustomButton
+          </Button>
+          <Button
             btnType={BTN_TYPES.button}
             btnStyle={BTN_STYLES.fillLight}
             btnColor={BTN_COLORS.dark}
@@ -121,7 +120,7 @@ const AlbumEditForm = ({ onSuccess, album }) => {
             action={handleFormSubmit}
           >
             {isSubmitting ? <LoadingSpinner /> : 'Save'}
-          </CustomButton>
+          </Button>
         </div>
       </form>
     </div>

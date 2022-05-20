@@ -6,23 +6,22 @@ import DefaultImg from 'assets/img/default_album.jpg';
 
 // styles
 import styles from './Artist.module.css';
-import 'index.css';
 
-const Artist = ({
-  artistName, image, songList, artistId,
-}) => {
+const Artist = ({ artistName, image, songList, artistId }) => {
   const { url } = useRouteMatch();
   return (
     <Link to={`${url}/${artistId}`}>
       <div className={styles.artist}>
         <div className={styles.imgWrapper}>
-          <img src={image === undefined ? DefaultImg : image} alt="Artist cover m" />
+          <img
+            src={image === undefined ? DefaultImg : image}
+            alt='Artist cover m'
+          />
         </div>
         <div className={styles.details}>
           <h4 className={styles.title}>{artistName}</h4>
           <p className={styles.subDetail}>
-            {songList.length}
-            {' '}
+            {songList.length}{' '}
             {songList.length > 0 || songList.length === 0 ? 'songs' : 'song'}
           </p>
         </div>

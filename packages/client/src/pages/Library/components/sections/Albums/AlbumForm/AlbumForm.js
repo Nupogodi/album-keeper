@@ -8,8 +8,8 @@ import api from 'util/api';
 import { API_ROUTES, BTN_TYPES, BTN_STYLES, BTN_COLORS } from 'util/constants';
 
 // components
-import LoadingSpinner from 'components/LoadingSpinner/index';
-import CustomButton from 'components/CustomButton/CustomButton';
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
+import Button from 'components/Button/Button';
 import Input from 'components/Input/Input';
 
 // styles
@@ -51,7 +51,6 @@ const AlbumForm = ({ onSuccess }) => {
 
     try {
       const response = await api.post(API_ROUTES.albums.post, body);
-      console.log(response);
 
       toast.success(response.data.msg);
       onSuccess(response.data.album);
@@ -61,6 +60,7 @@ const AlbumForm = ({ onSuccess }) => {
         isSubmitting: false,
         errorMessage: error ? error.message || error.statusText : null,
       });
+      // eslint-disable-next-line
       console.log(error);
       toast.error(error.response.error);
     }
@@ -103,14 +103,14 @@ const AlbumForm = ({ onSuccess }) => {
           labelValue='Release Year'
           htmlFor='releaseYear'
         />
-        <CustomButton
+        <Button
           className={styles.btnSubmit}
           btnStyle={BTN_STYLES.fillLight}
           btnType={BTN_TYPES.submit}
           btnColor={BTN_COLORS.dark}
         >
           {data.isSubmitting ? <LoadingSpinner /> : 'Add'}
-        </CustomButton>
+        </Button>
       </form>
     </div>
   );

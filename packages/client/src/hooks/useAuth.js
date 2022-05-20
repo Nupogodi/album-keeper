@@ -1,9 +1,7 @@
-import React, {
-  useReducer, useEffect, useContext, createContext,
-} from 'react';
+import React, { useReducer, useEffect, useContext, createContext } from 'react';
 import useRouter from 'hooks/useRouter';
 import api from 'util/api';
-import { API_ROUTES } from 'util/constants';
+import { API_ROUTES, ROUTES } from 'util/constants';
 
 const initialState = {
   isAuthenticated: null,
@@ -72,8 +70,10 @@ export function useProvideAuth() {
         type: LOG_IN,
         payload: response.data,
       });
+      router.push(ROUTES.library.url);
       return response;
     } catch (error) {
+      // eslint-disable-next-line
       console.log(error);
       if (error.response) {
         throw new Error(error.response.data.error);
@@ -89,8 +89,10 @@ export function useProvideAuth() {
         username,
         password,
       });
+      router.push(ROUTES.library.url);
       return await signin(username, password);
     } catch (error) {
+      // eslint-disable-next-line
       console.log(error);
       if (error.response) {
         throw new Error(error.response.data.error);
@@ -104,13 +106,15 @@ export function useProvideAuth() {
     dispatch({
       type: LOG_OUT,
     });
-    router.push('/');
+    router.push(ROUTES.home.url);
   };
 
-  const getCurrentUser = () => JSON.parse(localStorage.getItem('AlbumKeeperUser'));
+  const getCurrentUser = () =>
+    JSON.parse(localStorage.getItem('AlbumKeeperUser'));
 
   useEffect(() => {
-    const savedUser = JSON.parse(localStorage.getItem('AlbumKeeperUser')) || false;
+    const savedUser =
+      JSON.parse(localStorage.getItem('AlbumKeeperUser')) || false;
     if (savedUser) {
       dispatch({
         type: LOG_IN,

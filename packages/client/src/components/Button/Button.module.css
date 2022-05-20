@@ -1,0 +1,51 @@
+.btn {
+  padding: 5px;
+  padding: 0 1rem;
+
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 150px;
+  min-height: 2.25rem;
+
+  font: inherit;
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  color: var(--color-dark);
+  color: inherit;
+  border-radius: 20px;
+  background-color: var(--color-light);
+
+  transition: background-color 0.4s ease-in-out;
+
+  cursor: pointer;
+  appearance: none;
+}
+
+.btn:hover {
+  color: var(--color-light);
+  background-color: var(--color-accent);
+}
+
+/* Btn Styles */
+
+/* .outlineLight {
+}
+
+.outlineDark {
+}
+
+.fillLight {
+}
+
+.fillDark {
+}
+
+.light {
+}
+
+.dark {
+} */

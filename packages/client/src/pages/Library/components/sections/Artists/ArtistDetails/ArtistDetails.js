@@ -14,17 +14,16 @@ import {
 } from 'util/constants';
 
 // components
-import LoadingSpinner from 'components/LoadingSpinner/index';
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import DefaultImg from 'assets/img/default_album.jpg';
-import CustomIcon from 'components/CustomIcon/CustomIcon';
+import Icon from 'components/Icon/Icon';
 import CustomModal from 'components/CustomModal/CustomModal';
-import CustomButton from 'components/CustomButton/CustomButton';
+import Button from 'components/Button/Button';
 import ArtistForm from '../ArtistEditForm/ArtistEditForm';
 import SongGrid from '../../Songs/SongsGrid/SongsGrid';
 
 // styles
 import styles from './ArtistDetails.module.css';
-import 'index.css';
 
 const ArtistDetails = () => {
   const { id } = useRouteMatch().params;
@@ -46,6 +45,7 @@ const ArtistDetails = () => {
         setIsSubmitting(false);
       } catch (error) {
         setIsSubmitting(false);
+        // eslint-disable-next-line
         console.log(error);
         toast.error(error.response.error);
       }
@@ -87,11 +87,12 @@ const ArtistDetails = () => {
         <div className={styles.detailsGroup}>
           <h4 className={styles.title}>{artist.artist_name}</h4>
           {artist.description && <p>{artist.description}</p>}
-          {artist.band_members !== undefined
-           && artist.band_members.length > 0 ? (
+          {artist.band_members !== undefined &&
+          artist.band_members.length > 0 ? (
             <div className={styles.bandMembers}>
               <h5 className={styles.subTitle}>Band Members</h5>
               {artist.band_members.map((bandMember, index) => (
+                // eslint-disable-next-line
                 <p key={index} className={styles.bandMember}>
                   {bandMember}
                 </p>
@@ -99,15 +100,15 @@ const ArtistDetails = () => {
             </div>
           ) : null}
 
-          <CustomButton
+          <Button
             type={BTN_TYPES.button}
             action={toggleModal}
             btnStyle={BTN_STYLES.outlineDark}
             btnColor={BTN_COLORS.dark}
           >
-            <CustomIcon className={styles.icon} iconType={ICON_TYPES.edit} />
+            <Icon className={styles.icon} iconType={ICON_TYPES.edit} />
             Edit Artist
-          </CustomButton>
+          </Button>
         </div>
       </div>
 

@@ -1,15 +1,32 @@
 :root {
-  --main-bg-color: #222;
+  --color-dark: #1a1a1a;
+  --color-light: #eee;
+  --color-accent: #f3ce2f;
+  --color-bg-light: #eee9d6;
+  --color-bg-medium: #4e4e4e;
+  --color-bg-dark: #1a1a1a;
+  --main-bg-color: #1a1a1a;
   --main-accent-color-light: #d22;
   --main-accent-color-medium: #c00;
   --main-accent-color-dark: #900;
-  
   --secondary-bg-color: #333;
   --secondary-accent-color-light: #eee;
   --secondary-accent-color-medium: #808080;
   --secondary-accent-color-dark-hover: rgb(0 0 0 / 75%);
   --secondary-accent-color-success: forestgreen;
-
   --box-shadow: rgb(100 100 111 / 20%) 0 7px 29px 0;
-  --nav-height: 75px;
+  --nav-height: 60px;
+
+  /*  Typography */
+  --scale: 1.1;
+  --size-l-1: calc(1rem * var(--scale));
+  --size-l-2: calc(var(--size-l-1) * var(--scale));
+  --size-l-3: calc(var(--size-l-2) * var(--scale));
+  --size-l-4: calc(var(--size-l-3) * var(--scale));
+  --size-l-5: calc(var(--size-l-4) * var(--scale));
+  --size-l-6: calc(var(--size-l-5) * var(--scale));
+  --size-l-7: calc(var(--size-l-6) * var(--scale));
+  --size-s-1: calc(1rem / var(--scale));
+  --size-s-2: calc(var(--size-s-1) / var(--scale));
+  --size-s-3: calc(var(--size-s-2) / var(--scale));
 }

@@ -2,6 +2,18 @@
 
 html {
   font-family: "Alegreya Sans", sans-serif;
+
+  /* line-height: 1.6; */
+}
+
+a {
+  text-decoration: none;
+
+  color: #000;
+}
+
+ul {
+  list-style: none;
 }
 
 img {
@@ -30,48 +42,53 @@ img {
   z-index: 10;
 }
 
-/* inputs & labels */
+/*  Typography */
 
-.formGroup {
-  position: relative;
+h1 {
+  font-size: var(--size-l-5);
 }
 
-.input {
-  z-index: 1;
-  margin-top: 5px;
-  margin-bottom: 10px;
-  padding: 10px 0;
-
-  font: inherit;
-  font-size: 18px;
-
-  color: var(--secondary-accent-color-light);
-  border: none;
-  border-bottom: 2px solid var(--secondary-accent-color-light);
-  outline: transparent;
-  background-color: transparent;
+h2 {
+  font-size: var(--size-l-4);
 }
 
-.label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 20px 0;
-
-  font-size: 16px;
-
-  color: var(--secondary-accent-color-light);
-
-  transition: 0.25s ease;
+h3 {
+  font-size: var(--size-l-3);
 }
 
-.input:focus + .label,
-.input:-webkit-autofill + .label,
-.hasValue + .label {
-  top: -20px;
-  left: 0;
+h4 {
+  font-size: var(--size-l-2);
+}
 
-  font-size: 12px;
+h5 {
+  font-size: var(--size-l-1);
+}
 
-  color: #03e9f4;
+h6 {
+  font-size: 1rem;
+}
+
+.large {
+  font-size: var(--size-l-1);
+}
+
+.larger {
+  font-size: var(--size-l-2);
+}
+
+.largest {
+  font-size: var(--size-l-3);
+}
+
+small,
+.small {
+  font-size: var(--size-s-1);
+}
+
+.smaller {
+  font-size: var(--size-s-2);
+}
+
+.smallest {
+  font-size: var(--size-s-3);
 }

@@ -14,7 +14,7 @@ import useRouter from 'hooks/useRouter';
 // components
 import SettingsMenu from 'components/SettingsMenu/SettingsMenu';
 import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
-import CustomIcon from 'components/CustomIcon/CustomIcon';
+import Icon from 'components/Icon/Icon';
 
 import DefaultSvg from '../../../DefaultSvg/DefaultSvg';
 
@@ -41,6 +41,7 @@ const Album = ({ albumTitle, albumYear, artist, albumId }) => {
       );
       toast.success(response.data.msg);
     } catch (error) {
+      // eslint-disable-next-line
       console.log(error);
       toast.error(error.response.error);
     }
@@ -66,10 +67,7 @@ const Album = ({ albumTitle, albumYear, artist, albumId }) => {
             action={toggleShowSettings}
             className={styles.iconBtnWrapper}
           >
-            <CustomIcon
-              className={styles.editIcon}
-              iconType={ICON_TYPES.threeDots}
-            />
+            <Icon className={styles.editIcon} iconType={ICON_TYPES.threeDots} />
           </ButtonWrapper>
         )}
 

@@ -3,7 +3,11 @@ import { useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 // constants
-import { SONG_GRID_VIEWS, API_ROUTES, ADD_ITEM_PATHNAME_TYPES } from 'util/constants';
+import {
+  SONG_GRID_VIEWS,
+  API_ROUTES,
+  ADD_ITEM_PATHNAME_TYPES,
+} from 'util/constants';
 
 // context
 import AddItemContext from 'context/addItem/addItemContext';
@@ -12,7 +16,7 @@ import AddItemContext from 'context/addItem/addItemContext';
 import api from 'util/api';
 
 // components
-import LoadingSpinner from 'components/LoadingSpinner/index';
+import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import CustomModal from 'components/CustomModal/CustomModal';
 
 // dependecies
@@ -30,7 +34,11 @@ const SongsGrid = ({ view, songList }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const { path } = useRouteMatch();
   const addItemContext = useContext(AddItemContext);
-  const { setCurrentActiveFormPathname, currentActiveFormPathname, filterValue } = addItemContext;
+  const {
+    setCurrentActiveFormPathname,
+    currentActiveFormPathname,
+    filterValue,
+  } = addItemContext;
 
   useEffect(() => {
     if (view === SONG_GRID_VIEWS.songsPageView) {
@@ -47,6 +55,7 @@ const SongsGrid = ({ view, songList }) => {
           setIsSubmitting(false);
         } catch (error) {
           setIsSubmitting(false);
+          // eslint-disable-next-line
           console.log(error);
           toast.error(error.response.error);
         }
@@ -55,6 +64,11 @@ const SongsGrid = ({ view, songList }) => {
       getSongs();
     }
   }, []);
+
+  const toggleModal = () => {
+    setCurrentActiveFormPathname(null);
+    setModalOpen(!modalOpen);
+  };
 
   useEffect(() => {
     if (currentActiveFormPathname === ADD_ITEM_PATHNAME_TYPES.songs) {
@@ -66,9 +80,9 @@ const SongsGrid = ({ view, songList }) => {
     setFilteredSongListToRender(songListToRender);
 
     if (
-      path === ADD_ITEM_PATHNAME_TYPES.songs
-      && !isSubmitting
-      && filterValue !== ''
+      path === ADD_ITEM_PATHNAME_TYPES.songs &&
+      !isSubmitting &&
+      filterValue !== ''
     ) {
       const options = {
         keys: ['song_title'],
@@ -77,16 +91,9 @@ const SongsGrid = ({ view, songList }) => {
       const fuse = new Fuse(songListToRender, options);
       const result = fuse.search(filterValue);
 
-      setFilteredSongListToRender(
-        result.map((song) => song.item),
-      );
+      setFilteredSongListToRender(result.map((song) => song.item));
     }
   }, [filterValue, songListToRender]);
-
-  const toggleModal = () => {
-    setCurrentActiveFormPathname(null);
-    setModalOpen(!modalOpen);
-  };
 
   const handleSuccess = (song) => {
     setSongListToRender([...songListToRender, song]);
@@ -108,19 +115,19 @@ const SongsGrid = ({ view, songList }) => {
       <div className={styles.songsGrid}>
         {filteredSongListToRender?.length > 0
           ? filteredSongListToRender.map((song, index) => (
-            <Song
-              view={view}
-              key={song._id}
-              songTitle={song?.song_title}
-              artistName={song?.artist?.artist_name}
-              artistId={song?.artist?._id}
-              albumTitle={song?.album?.album_title}
-              albumId={song?.album?._id}
-              albumCover={song?.album?.album_cover}
-              songDuration={song?.song_duration}
-              index={index + 1}
-            />
-          ))
+              <Song
+                view={view}
+                key={song._id}
+                songTitle={song?.song_title}
+                artistName={song?.artist?.artist_name}
+                artistId={song?.artist?._id}
+                albumTitle={song?.album?.album_title}
+                albumId={song?.album?._id}
+                albumCover={song?.album?.album_cover}
+                songDuration={song?.song_duration}
+                index={index + 1}
+              />
+            ))
           : null}
       </div>
     </div>

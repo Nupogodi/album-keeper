@@ -3,6 +3,7 @@ import {
   MdDeleteOutline,
   MdPersonAdd,
   MdOutlineCancel,
+  MdOutlineNightlight,
 } from 'react-icons/md';
 import { RiMusicLine, RiAlbumLine } from 'react-icons/ri';
 import { BsMusicNoteList, BsPersonCircle } from 'react-icons/bs';
@@ -10,8 +11,11 @@ import {
   AiOutlinePlusCircle,
   AiOutlineMinusCircle,
   AiOutlineArrowLeft,
+  AiOutlineArrowDown,
 } from 'react-icons/ai';
 import { HiDotsVertical } from 'react-icons/hi';
+import { WiDaySunny } from 'react-icons/wi';
+import { FaEllipsisV, FaSpinner } from 'react-icons/fa';
 
 export const API_URL = 'http://localhost:5000/api/';
 
@@ -57,8 +61,8 @@ export const ROUTES = {
 };
 
 export const AUTH_ROUTES = {
-  register: { url: '/signup', title: 'Register', private: false },
-  signIn: { url: '/signin', title: 'Sign in', private: false },
+  register: { url: '/auth', title: 'Register', private: false },
+  signIn: { url: '/auth', title: 'Sign in', private: false },
   signOut: { url: '/signout', title: 'Sign out', private: true },
 };
 
@@ -111,6 +115,13 @@ export const SONG_GRID_VIEWS = {
   songsPageView: 'SongsPageView',
 };
 
+// SVG Color Scheme
+export const SVG_COLOR_SCHEME = {
+  light: '#FFF',
+  dark: '#1A1A1A',
+  accent: '#FECE2F',
+};
+
 export const ICONS = {
   edit: MdOutlineEdit,
   remove: MdDeleteOutline,
@@ -120,10 +131,15 @@ export const ICONS = {
   addPlaylist: BsMusicNoteList,
   threeDots: HiDotsVertical,
   backArrow: AiOutlineArrowLeft,
+  downArrow: AiOutlineArrowDown,
   plus: AiOutlinePlusCircle,
   minus: AiOutlineMinusCircle,
   cancel: MdOutlineCancel,
   user: BsPersonCircle,
+  moon: MdOutlineNightlight,
+  sun: WiDaySunny,
+  loadingSpinner: FaSpinner,
+  ellipsis: FaEllipsisV,
 };
 
 export const ICON_TYPES = {
@@ -135,10 +151,14 @@ export const ICON_TYPES = {
   addPlaylist: 'addPlaylist',
   threeDots: 'threeDots',
   backArrow: 'backArrow',
+  downArrow: 'downArrow',
+  loadingSpinner: 'loadingSpinner',
   plus: 'plus',
   minus: 'minus',
   cancel: 'cancel',
   user: 'user',
+  moon: 'moon',
+  sun: 'sun',
 };
 
 export const BTN_STYLES = {
@@ -173,4 +193,19 @@ export const ADD_ITEM_PATHNAME_TYPES = {
   albums: `${ROUTES.library.url}${LIBRARY_ROUTES.albums.url}`,
   artists: `${ROUTES.library.url}${LIBRARY_ROUTES.artists.url}`,
   songs: `${ROUTES.library.url}${LIBRARY_ROUTES.songs.url}`,
+};
+
+// Color Theme
+export const lightTheme = {
+  body: '#E2E2E2',
+  text: '#363537',
+  toggleBorder: '#FFF',
+  gradient: 'linear-gradient(#39598A, #79D7ED)',
+};
+
+export const darkTheme = {
+  body: '#363537',
+  text: '#FAFAFA',
+  toggleBorder: '#6B8096',
+  gradient: 'linear-gradient(#091236, #1E215D)',
 };

@@ -23,6 +23,7 @@ const Song = ({
   songDuration,
   index,
   view = SONG_GRID_VIEWS.generalView,
+// eslint-disable-next-line consistent-return
 }) => {
   const { generalView, albumView, songsPageView } = SONG_GRID_VIEWS;
 

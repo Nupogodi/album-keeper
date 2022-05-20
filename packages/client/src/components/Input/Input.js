@@ -8,31 +8,24 @@ const Input = ({
   name,
   id,
   onChange,
-  min,
-  max,
-  htmlFor,
-  inputClassName,
   inputValue,
   labelValue,
-  step,
+  disabled,
+  htmlFor,
 }) => (
   <div className={styles.formGroup}>
+    <label className={`${styles.label} smaller`} htmlFor={htmlFor}>
+      {labelValue}
+    </label>
     <input
-      className={`${styles.input} ${inputClassName} ${
-        !!inputValue && styles.hasValue
-      }`}
       type={type}
+      disabled={disabled}
+      className={styles.input}
       value={inputValue}
       name={name}
       id={id}
       onChange={onChange}
-      min={min}
-      max={max}
-      step={step}
     />
-    <label className={styles.label} htmlFor={htmlFor}>
-      {labelValue}
-    </label>
   </div>
 );
 

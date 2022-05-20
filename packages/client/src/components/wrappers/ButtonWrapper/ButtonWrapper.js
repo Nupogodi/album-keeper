@@ -4,7 +4,7 @@ import React from 'react';
 import styles from './ButtonWrapper.module.css';
 
 const ButtonWrapper = ({
-  action,
+  onClick,
   className = '',
   type = 'button',
   children,
@@ -13,7 +13,7 @@ const ButtonWrapper = ({
     type={type}
     style={styles}
     className={`${className} ${styles.defaultStyles}`}
-    onClick={action}
+    onClick={onClick}
   >
     {children}
   </button>
