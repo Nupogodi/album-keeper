@@ -87,13 +87,6 @@
   color: var(--color-accent);
 }
 
-.button {
-  margin: auto;
-  margin-top: 1.5rem;
-
-  /* margin-left: auto; */
-}
-
 .subtitle {
   margin: 1rem 0;
 

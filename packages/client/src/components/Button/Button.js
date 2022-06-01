@@ -6,8 +6,12 @@ import btnStyles from './Button.module.css';
 const Button = ({
   btnType = 'button',
   text,
-  btnStyle = 'outline',
+  btnStyle,
   btnColor = 'light',
+  outline = false,
+  fullWidth = false,
+  float = false,
+  margin = false,
   onClick,
   className = {},
   children,
@@ -16,11 +20,13 @@ const Button = ({
     value={text}
     type={btnType}
     onClick={onClick}
-    className={`${btnStyles[btnStyle]} ${btnStyles[btnColor]} ${btnStyles.btn} ${className}`}
+    className={`${btnStyles[btnStyle]} ${btnStyles[btnColor]} ${
+      btnStyles.btn
+    } ${className} ${outline && btnStyles.outline} ${
+      fullWidth && btnStyles.fullWidth
+    } ${float && btnStyles[float]} ${margin && btnStyles[margin]}`}
   >
-    {children}
-    {' '}
-    {text}
+    {children} {text}
   </button>
 );
 
