@@ -162,10 +162,7 @@ export const ICON_TYPES = {
 };
 
 export const BTN_STYLES = {
-  outlineDark: 'outlineDark',
-  outlineLight: 'outlineLight',
-  fillLight: 'fillLight',
-  fillDark: 'fillDark',
+  outline: 'outline',
 };
 
 export const BTN_COLORS = {

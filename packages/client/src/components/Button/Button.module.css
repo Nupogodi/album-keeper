@@ -1,51 +1,82 @@
 .btn {
-  padding: 5px;
   padding: 0 1rem;
+  margin-bottom: 1rem;
 
   display: block;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 150px;
   min-height: 2.25rem;
+  min-width: 5rem;
 
   font: inherit;
   font-family: inherit;
   font-weight: bold;
   text-transform: uppercase;
 
-  color: var(--color-dark);
-  color: inherit;
-  border-radius: 20px;
   background-color: var(--color-light);
+  border: none;
+  color: var(--color-dark);
+  border-radius: 20px;
 
-  transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
   cursor: pointer;
   appearance: none;
 }
 
 .btn:hover {
+  background-color: var(--color-bg-medium);
+  color: var(--color-accent);
+}
+
+.btn:hover > * {
+  color: var(--color-accent);
+}
+
+.outline {
+  border: 3px solid var(--color-accent);
+  background-color: transparent;
   color: var(--color-light);
-  background-color: var(--color-accent);
+
+  transition: border 0.2s ease-in-out;
 }
 
-/* Btn Styles */
-
-/* .outlineLight {
+.outline:hover {
+  border: 3px solid transparent;
 }
 
-.outlineDark {
+.fullWidth {
+  min-width: 100%;
 }
 
-.fillLight {
+/* Float parameter */
+
+.left {
+  margin-right: auto;
 }
 
-.fillDark {
+.right {
+  margin-left: auto;
+}
+.bottom {
+  margin-top: auto;
 }
 
-.light {
+.top {
+  margin-bottom: auto;
 }
 
-.dark {
-} */
+/* Margin */
+
+.mx1 {
+  margin-top: 0.5rem;
+}
+
+.mx2 {
+  margin-top: 1rem;
+}
+
+.mx3 {
+  margin-top: 2rem;
+}

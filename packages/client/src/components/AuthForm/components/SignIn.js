@@ -68,7 +68,7 @@ const SignIn = () => {
         btnType={BTN_TYPES.submit}
         // btnStyle={BTN_STYLES.outlineDark}
         // btnColor={BTN_COLORS.light}
-        bold
+        
         className={styles.submitBtn}
       >
         {isSubmitting ? <LoadingSpinner /> : 'Sign In'}

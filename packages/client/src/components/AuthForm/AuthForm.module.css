@@ -9,8 +9,7 @@
   text-transform: uppercase;
 
   color: #b8bdd1;
-  background:
-    linear-gradient(var(--color-bg-dark) 50%, var(--color-bg-medium))
+  background: linear-gradient(var(--color-bg-dark) 50%, var(--color-bg-medium))
     no-repeat center center;
   background-size: cover;
   box-shadow: 0 2px 7px rgb(0 0 0 / 20%);
@@ -87,10 +86,4 @@
   border: none;
   outline: transparent;
   background-color: #838aaa;
-}
-
-.submitBtn {
-  margin-top: 3rem;
-
-  background-color: #6d738f;
 }

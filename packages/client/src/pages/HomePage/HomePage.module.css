@@ -12,7 +12,7 @@
 
   flex: 1;
 
-  background-image: url("assets/img/hero-image-4.jpg");
+  background-image: url('assets/img/hero-image-4.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center bottom;
@@ -32,8 +32,7 @@
   text-align: center;
 
   color: #fff;
-  background:
-    linear-gradient(var(--color-bg-dark) 50%, var(--color-bg-medium))
+  background: linear-gradient(var(--color-bg-dark) 50%, var(--color-bg-medium))
     no-repeat center center;
   background-size: cover;
 }
@@ -85,13 +84,6 @@
   font-size: 6rem;
 
   color: var(--color-accent);
-}
-
-.button {
-  margin: auto;
-  margin-top: 1.5rem;
-
-  /* margin-left: auto; */
 }
 
 .subtitle {
