@@ -1,14 +1,12 @@
 :root {
   /* Color Scheme */
-  --color-dark: rgba(26, 26, 26, 1);
-  --color-light: rgba(238, 238, 238, 1);
-  --color-accent: rgba(243, 206, 47, 1);
-  
-  --color-bg-light: rgba(238, 233, 214, 1);
-  --color-bg-medium: rgba(78, 78, 78, 1);
-  --color-bg-dark: rgba(26, 26, 26, 1);
-  --main-bg-color: rgba(26, 26, 26, 1);
-
+  --color-dark: rgba(26 26 26 100%);
+  --color-light: rgba(238 238 238 100%);
+  --color-accent: rgba(243 206 47 100%);
+  --color-bg-light: rgba(238 233 214 100%);
+  --color-bg-medium: rgba(78 78 78 100%);
+  --color-bg-dark: rgba(26 26 26 100%);
+  --main-bg-color: rgba(26 26 26 100%);
   --nav-height: 60px;
 
   /*  Typography */

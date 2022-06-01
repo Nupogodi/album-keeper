@@ -1,23 +1,23 @@
 .btn {
-  padding: 0 1rem;
   margin-bottom: 1rem;
+  padding: 0 1rem;
 
   display: block;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.25rem;
   min-width: 5rem;
+  min-height: 2.25rem;
 
   font: inherit;
   font-family: inherit;
   font-weight: bold;
   text-transform: uppercase;
 
-  background-color: var(--color-light);
-  border: none;
   color: var(--color-dark);
+  border: none;
   border-radius: 20px;
+  background-color: var(--color-light);
 
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
@@ -26,8 +26,8 @@
 }
 
 .btn:hover {
-  background-color: var(--color-bg-medium);
   color: var(--color-accent);
+  background-color: var(--color-bg-medium);
 }
 
 .btn:hover > * {
@@ -35,9 +35,9 @@
 }
 
 .outline {
+  color: var(--color-light);
   border: 3px solid var(--color-accent);
   background-color: transparent;
-  color: var(--color-light);
 
   transition: border 0.2s ease-in-out;
 }
@@ -59,6 +59,7 @@
 .right {
   margin-left: auto;
 }
+
 .bottom {
   margin-top: auto;
 }
