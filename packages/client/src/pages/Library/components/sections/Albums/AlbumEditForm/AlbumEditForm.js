@@ -108,7 +108,7 @@ const AlbumEditForm = ({ onSuccess, album }) => {
             btnType={BTN_TYPES.button}
             btnStyle={BTN_STYLES.outlineDark}
             btnColor={BTN_COLORS.dark}
-            action={onSuccess}
+            onClick={onSuccess}
           >
             Cancel
           </Button>
@@ -117,7 +117,7 @@ const AlbumEditForm = ({ onSuccess, album }) => {
             btnStyle={BTN_STYLES.fillLight}
             btnColor={BTN_COLORS.dark}
             className={styles.mx10}
-            action={handleFormSubmit}
+            onClick={handleFormSubmit}
           >
             {isSubmitting ? <LoadingSpinner /> : 'Save'}
           </Button>

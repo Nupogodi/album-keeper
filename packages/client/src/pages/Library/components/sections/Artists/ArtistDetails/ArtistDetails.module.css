@@ -15,7 +15,7 @@
 
   display: flex;
 
-  background: var(--secondary-accent-color-light);
+  background: var(--color-light);
 }
 
 .detailsGroup {

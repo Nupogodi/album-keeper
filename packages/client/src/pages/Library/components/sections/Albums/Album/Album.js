@@ -64,7 +64,7 @@ const Album = ({ albumTitle, albumYear, artist, albumId }) => {
         )}
         {showIcon && (
           <ButtonWrapper
-            action={toggleShowSettings}
+            onClick={toggleShowSettings}
             className={styles.iconBtnWrapper}
           >
             <Icon className={styles.editIcon} iconType={ICON_TYPES.threeDots} />

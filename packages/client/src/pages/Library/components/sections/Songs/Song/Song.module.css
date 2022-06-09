@@ -5,7 +5,7 @@
 }
 
 .link {
-  color: var(--secondary-accent-color-light);
+  color: var(--color-light);
 }
 
 .songItem {
@@ -15,19 +15,21 @@
   align-items: center;
   min-height: 50px;
 
-  color: var(--secondary-accent-color-light);
-  border-bottom: 1px solid var(--secondary-accent-color-medium);
+  color: var(--color-light);
+  border-bottom: 1px solid var(--color-dark);
+  border-left: 2px solid transparent;
 
   transition: all 0.05s ease;
 }
 
 .songItem:hover {
-  background-color: var(--secondary-accent-color-color-dark-hover);
+  border-left: 2px solid var(--color-accent);
+  background-color: var(--color-dark);
 }
 
 .songItem:hover,
 .songItem:hover .link {
-  color: var(--secondary-accent-color-light);
+  color: var(--color-light);
 }
 
 .imgWrapper {
@@ -54,7 +56,7 @@
 }
 
 .gridSpan3 {
-  grid-column: 3/ 5;
+  grid-column: 3 / 5;
 }
 
 .songIndex {

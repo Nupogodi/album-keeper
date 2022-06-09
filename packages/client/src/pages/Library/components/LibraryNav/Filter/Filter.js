@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 
-// context
+// Components
+import Input from 'components/Input/Input';
+
+// Context
 import AddItemContext from 'context/addItem/addItemContext';
 
-// styles
+// Styles
 import styles from './Filter.module.css';
 
 const Filter = () => {
@@ -30,18 +33,15 @@ const Filter = () => {
   return (
     <div className={styles.filter}>
       <div className='formGroup'>
-        <input
+        <Input
           className={`input ${data.searchInput && 'hasValue'}`}
-          value={data.searchInput}
+          inputValue={data.searchInput}
           onChange={handleChange}
           type='text'
           name='searchInput'
           id='searchInput'
         />
         {/* eslint-disable-next-line */}
-        <label className='label' htmlFor='searchInput'>
-          Search
-        </label>
       </div>
     </div>
   );
