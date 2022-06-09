@@ -102,7 +102,7 @@ const ArtistDetails = () => {
 
           <Button
             type={BTN_TYPES.button}
-            action={toggleModal}
+            onClick={toggleModal}
             btnStyle={BTN_STYLES.outlineDark}
             btnColor={BTN_COLORS.dark}
           >

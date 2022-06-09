@@ -59,7 +59,7 @@ const ArtistForm = ({
       <div key={index} className={styles.bandMemberWrapper}>
         <p className={styles.bandMember}>{bandMember}</p>
         <ButtonWrapper
-          action={() => handleRemoveBandMember(index)}
+          onClick={() => handleRemoveBandMember(index)}
           className={styles.iconBtnMinus}
           type='button'
         >
@@ -160,7 +160,7 @@ const ArtistForm = ({
               htmlFor='newBandMember'
             />
             <ButtonWrapper
-              action={handleAddBandMember}
+              onClick={handleAddBandMember}
               type='button'
               className={styles.iconBtnPlus}
             >
@@ -177,7 +177,7 @@ const ArtistForm = ({
 
         <div className={styles.formFooter}>
           <Button
-            action={onSuccess}
+            onClick={onSuccess}
             className={`${styles.btn} ${styles.clearBtn}`}
             btnType={BTN_TYPES.button}
             btnStyle={BTN_STYLES.outlineDark}

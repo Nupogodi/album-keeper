@@ -97,7 +97,7 @@ const AlbumDetails = () => {
               btnType={BTN_TYPES.button}
               btnStyle={BTN_STYLES.outlineDark}
               btnColor={BTN_COLORS.dark}
-              action={toggleModal}
+              onClick={toggleModal}
               text='Edit Album'
             />
           </div>

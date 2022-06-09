@@ -52,6 +52,11 @@
 
 /* Float parameter */
 
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .left {
   margin-right: auto;
 }
@@ -80,4 +85,16 @@
 
 .mx3 {
   margin-top: 2rem;
+}
+
+/* Text Color */
+
+.light,
+.light > * {
+  color: var(--color-light);
+}
+
+.dark,
+.dark > * {
+  color: var(--color-dark);
 }

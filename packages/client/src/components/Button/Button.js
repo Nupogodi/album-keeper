@@ -7,7 +7,7 @@ const Button = ({
   btnType = 'button',
   text,
   btnStyle,
-  btnColor = 'light',
+  btnColor = 'dark',
   outline = false,
   fullWidth = false,
   float = false,

@@ -14,6 +14,7 @@ module.exports = {
         ignoreFontFamilies: ['Arial', 'Officina Serif', 'Roboto'],
       },
     ],
+    'color-function-notation': null,
     'selector-class-pattern': null,
     'declaration-block-single-line-max-declarations': 5,
     'no-descending-specificity': null,

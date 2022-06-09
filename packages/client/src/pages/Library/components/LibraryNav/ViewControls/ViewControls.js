@@ -17,12 +17,12 @@ const ViewControls = ({ onAddItem, showItem }) => {
   return (
     <div className={styles.controls}>
       <div className={styles.controlsWrapper}>
-        <ButtonWrapper btnType='button' action={() => history.goBack()}>
+        <ButtonWrapper btnType='button' onClick={() => history.goBack()}>
           <Icon iconType={ICON_TYPES.backArrow} className={styles.icon} />
         </ButtonWrapper>
         <ButtonWrapper
           btnType='button'
-          action={onAddItem}
+          onClick={onAddItem}
           className={styles.btn}
         >
           {showItem && (

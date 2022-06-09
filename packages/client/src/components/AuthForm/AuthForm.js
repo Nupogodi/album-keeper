@@ -16,7 +16,7 @@ const AuthForm = ({ onSuccess = () => {} }) => {
     signup: 'signup',
   };
 
-  const [currentTab, setCurrentTab] = useState(TAB_CONFIG.signin);
+  const [currentTab, setCurrentTab] = useState(TAB_CONFIG.signup);
 
   const CurrentTabComponent = useMemo(() => {
     const TAB_COMPONENTS_CONFIG = {
