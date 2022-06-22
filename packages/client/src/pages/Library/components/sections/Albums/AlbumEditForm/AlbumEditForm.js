@@ -2,7 +2,7 @@ import React, { useState, memo } from 'react';
 import { toast } from 'react-toastify';
 
 // constants
-import { API_ROUTES, BTN_TYPES, BTN_STYLES, BTN_COLORS } from 'util/constants';
+import { API_ROUTES, BTN_TYPES } from 'util/constants';
 
 // api
 import api from 'util/api';
@@ -104,20 +104,13 @@ const AlbumEditForm = ({ onSuccess, album }) => {
           />
         </div>
         <div className={styles.formFooter}>
-          <Button
-            btnType={BTN_TYPES.button}
-            btnStyle={BTN_STYLES.outlineDark}
-            btnColor={BTN_COLORS.dark}
-            action={onSuccess}
-          >
+          <Button btnType={BTN_TYPES.button} onClick={onSuccess}>
             Cancel
           </Button>
           <Button
             btnType={BTN_TYPES.button}
-            btnStyle={BTN_STYLES.fillLight}
-            btnColor={BTN_COLORS.dark}
             className={styles.mx10}
-            action={handleFormSubmit}
+            onClick={handleFormSubmit}
           >
             {isSubmitting ? <LoadingSpinner /> : 'Save'}
           </Button>

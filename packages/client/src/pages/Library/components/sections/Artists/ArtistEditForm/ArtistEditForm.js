@@ -5,13 +5,7 @@ import { toast } from 'react-toastify';
 import api from 'util/api';
 
 // constants
-import {
-  API_ROUTES,
-  ICON_TYPES,
-  BTN_TYPES,
-  BTN_STYLES,
-  BTN_COLORS,
-} from 'util/constants';
+import { API_ROUTES, ICON_TYPES, BTN_TYPES } from 'util/constants';
 
 // components
 import Icon from 'components/Icon/Icon';
@@ -177,20 +171,13 @@ const ArtistForm = ({
 
         <div className={styles.formFooter}>
           <Button
-            action={onSuccess}
+            onClick={onSuccess}
             className={`${styles.btn} ${styles.clearBtn}`}
             btnType={BTN_TYPES.button}
-            btnStyle={BTN_STYLES.outlineDark}
-            btnColor={BTN_COLORS.dark}
           >
             Cancel
           </Button>
-          <Button
-            className={styles.btn}
-            btnType={BTN_TYPES.submit}
-            btnStyle={BTN_STYLES.outlineDark}
-            btnColor={BTN_COLORS.dark}
-          >
+          <Button className={styles.btn} btnType={BTN_TYPES.submit}>
             {data.isSubmitting ? <LoadingSpinner /> : 'Save'}
           </Button>
         </div>

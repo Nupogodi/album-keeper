@@ -5,13 +5,7 @@ import { toast } from 'react-toastify';
 import api from 'util/api';
 
 // constants
-import {
-  API_ROUTES,
-  BTN_TYPES,
-  BTN_STYLES,
-  BTN_COLORS,
-  ICON_TYPES,
-} from 'util/constants';
+import { API_ROUTES, BTN_TYPES, ICON_TYPES } from 'util/constants';
 
 // components
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
@@ -149,7 +143,7 @@ const ArtistForm = ({ onSuccess }) => {
           />
 
           <ButtonWrapper
-            action={handleAddBandMember}
+            onClick={handleAddBandMember}
             type='button'
             className={styles.absolute}
           >
@@ -161,12 +155,7 @@ const ArtistForm = ({ onSuccess }) => {
             ? renderBandMembers()
             : null}
         </div>
-        <Button
-          className={styles.btnSubmit}
-          btnStyle={BTN_STYLES.fillLight}
-          btnType={BTN_TYPES.submit}
-          btnColor={BTN_COLORS.dark}
-        >
+        <Button className={styles.btnSubmit} btnType={BTN_TYPES.submit}>
           {data.isSubmitting ? <LoadingSpinner /> : 'Add'}
         </Button>
       </form>

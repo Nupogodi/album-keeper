@@ -161,18 +161,6 @@ export const ICON_TYPES = {
   sun: 'sun',
 };
 
-export const BTN_STYLES = {
-  outlineDark: 'outlineDark',
-  outlineLight: 'outlineLight',
-  fillLight: 'fillLight',
-  fillDark: 'fillDark',
-};
-
-export const BTN_COLORS = {
-  light: 'light',
-  dark: 'dark',
-};
-
 export const BTN_TYPES = {
   submit: 'submit',
   button: 'button',
