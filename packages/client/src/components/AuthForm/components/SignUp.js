@@ -15,7 +15,7 @@ import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
 
-// Styles
+// styles
 import styles from '../AuthForm.module.css';
 
 const SignUp = () => {

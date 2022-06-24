@@ -1,5 +1,5 @@
 import React from 'react';
-// Styles
+// styles
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -7,11 +7,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p>
-        Made with
-        {' '}
-        <span className={styles.red}>❤</span>
-        {' '}
-        by Alex Sherbin
+        Made with <span className={styles.red}>❤</span> by Alex Sherbin
       </p>
       <p>
         &#169;

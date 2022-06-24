@@ -23,7 +23,7 @@ const Song = ({
   songDuration,
   index,
   view = SONG_GRID_VIEWS.generalView,
-// eslint-disable-next-line consistent-return
+  // eslint-disable-next-line consistent-return
 }) => {
   const { generalView, albumView, songsPageView } = SONG_GRID_VIEWS;
 
@@ -31,7 +31,10 @@ const Song = ({
     return (
       <div className={styles.songItem}>
         <div className={styles.imgWrapper}>
-          <img src={albumCover === undefined ? DefaultImg : albumCover} alt='Album Cover' />
+          <img
+            src={albumCover === undefined ? DefaultImg : albumCover}
+            alt='Album Cover'
+          />
         </div>
         <div className={styles.songDetails}>
           <h4 className={(styles.songTitle, styles.songDetail)}>{songTitle}</h4>
@@ -57,7 +60,8 @@ const Song = ({
         </div>
       </div>
     );
-  } if (view === albumView) {
+  }
+  if (view === albumView) {
     return (
       <div className={styles.songItem}>
         <p className={styles.songIndex}>{index}</p>

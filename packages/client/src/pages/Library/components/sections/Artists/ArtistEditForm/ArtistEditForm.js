@@ -9,7 +9,6 @@ import { API_ROUTES, ICON_TYPES, BTN_TYPES } from 'util/constants';
 
 // components
 import Icon from 'components/Icon/Icon';
-import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
@@ -52,13 +51,14 @@ const ArtistForm = ({
       // eslint-disable-next-line
       <div key={index} className={styles.bandMemberWrapper}>
         <p className={styles.bandMember}>{bandMember}</p>
-        <ButtonWrapper
-          action={() => handleRemoveBandMember(index)}
+        <Button
+          isWrapper
+          onClick={() => handleRemoveBandMember(index)}
           className={styles.iconBtnMinus}
           type='button'
         >
           <Icon iconType={ICON_TYPES.cancel} className={styles.iconSmall} />
-        </ButtonWrapper>
+        </Button>
       </div>
     ));
 
@@ -153,13 +153,14 @@ const ArtistForm = ({
               labelValue='Band Members'
               htmlFor='newBandMember'
             />
-            <ButtonWrapper
-              action={handleAddBandMember}
+            <Button
+              isWrapper
+              onClick={handleAddBandMember}
               type='button'
               className={styles.iconBtnPlus}
             >
               <Icon iconType={ICON_TYPES.plus} className={styles.icon} />
-            </ButtonWrapper>
+            </Button>
           </div>
 
           <div className={styles.bandMembers}>

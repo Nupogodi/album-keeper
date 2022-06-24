@@ -6,7 +6,7 @@ import { ICON_TYPES } from 'util/constants';
 //  Components
 import Icon from 'components/Icon/Icon';
 
-// Styles
+// styles
 import styles from './LoadingSpinner.module.css';
 
 const LoadingSpinner = ({ full }) => (

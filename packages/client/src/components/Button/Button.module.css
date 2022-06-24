@@ -30,22 +30,14 @@
   background-color: var(--color-accent);
 }
 
-/* Btn Styles */
+.transparent {
+  font-weight: inherit;
+  text-transform: none;
 
-/* .outlineLight {
+  border: none;
+  background-color: transparent;
 }
 
-.outlineDark {
+.transparent:hover {
+  background-color: transparent;
 }
-
-.fillLight {
-}
-
-.fillDark {
-}
-
-.light {
-}
-
-.dark {
-} */

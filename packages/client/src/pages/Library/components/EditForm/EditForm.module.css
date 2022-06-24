@@ -1,3 +1,62 @@
-.editForm {
-  max-width: 450px;
+.artistForm {
+  padding: 20px;
+}
+
+.formTitle {
+  margin-bottom: 20px;
+}
+
+.iconBtnPlus {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+
+  transform: translateY(-50%);
+}
+
+.iconBtnMinus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  font-size: 18px;
+}
+
+.iconSmall {
+  font-size: 16px;
+}
+
+.relative {
+  position: relative;
+}
+
+.bandMembers {
+  margin-top: 10px;
+}
+
+.bandMemberWrapper {
+  margin-bottom: 2px;
+
+  display: flex;
+  align-items: center;
+}
+
+.bandMember {
+  margin-right: 5px;
+
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.btn {
+  margin-right: 8px;
+}
+
+/* form footer */
+
+.formFooter {
+  display: flex;
+  justify-content: flex-end;
 }
