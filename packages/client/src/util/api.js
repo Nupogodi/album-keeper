@@ -20,7 +20,7 @@ const getUserToken = () => {
 
 const token = getUserToken();
 
-if (token) {
+if (token) { 
   api.defaults.headers.common.Authorization = token;
 }
 

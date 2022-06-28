@@ -1,12 +1,12 @@
 .btn {
-  padding: 5px;
+  margin-bottom: 1rem;
   padding: 0 1rem;
 
   display: block;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 150px;
+  min-width: 5rem;
   min-height: 2.25rem;
 
   font: inherit;
@@ -15,19 +15,50 @@
   text-transform: uppercase;
 
   color: var(--color-dark);
-  color: inherit;
+  border: none;
   border-radius: 20px;
   background-color: var(--color-light);
 
-  transition: background-color 0.4s ease-in-out;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 
   cursor: pointer;
   appearance: none;
 }
 
 .btn:hover {
+  color: var(--color-accent);
+  background-color: var(--color-bg-medium);
+}
+
+.btn:hover > * {
+  color: var(--color-accent);
+}
+
+.outline {
   color: var(--color-light);
-  background-color: var(--color-accent);
+  border: 3px solid var(--color-accent);
+  background-color: transparent;
+
+  transition: border 0.2s ease-in-out;
+}
+
+.outline:hover {
+  border: 3px solid transparent;
+}
+
+.fullWidth {
+  min-width: 100%;
+}
+
+/* Float parameter */
+
+.center {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.left {
+  margin-right: auto;
 }
 
 .transparent {

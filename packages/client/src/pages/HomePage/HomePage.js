@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // constants
-import { API_ROUTES, ROUTES } from 'util/constants';
+import {
+  AUTH_ROUTES,
+  ROUTES,
+  // BTN_STYLES,
+  // BTN_COLORS,
+  BTN_TYPES,
+} from 'util/constants';
 
 // hooks
 import { useAuth } from 'hooks/useAuth';
@@ -59,9 +65,16 @@ const HomePage = () => {
               <p className={styles.subtitle}>
                 A single place to organize your music collection.
               </p>
-              <Button className={styles.button}>
-                <Link to={API_ROUTES.auth.signIn}>Sign Up</Link>
-              </Button>
+              <Link to={AUTH_ROUTES.register.url}>
+                <Button
+                  fullWidth
+                  float='right'
+                  margin='mx3'
+                  btnType={BTN_TYPES.button}
+                >
+                  Sign Up
+                </Button>
+              </Link>
             </article>
           </Container>
         </section>
@@ -84,7 +97,14 @@ const HomePage = () => {
                   {`Songs:  ${libraryStats.songCount}`}
                 </p>
               </div>
-              <Button className={styles.button}>
+              <Button
+                float='center'
+                outline
+                margin='mx2'
+                btnType={BTN_TYPES.button}
+                className={styles.button}
+                btnColor='light'
+              >
                 <Link to={ROUTES.library.url}>Library</Link>
               </Button>
             </article>

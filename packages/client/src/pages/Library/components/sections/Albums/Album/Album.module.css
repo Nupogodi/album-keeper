@@ -15,7 +15,7 @@
   max-width: 200px;
   max-height: 200px;
 
-  color: var(--secondary-accent-color-light);
+  color: var(--color-light);
   background: inherit;
   box-shadow: 0 0 1rem 0 rgb(0 0 0 / 20%);
 }
@@ -63,7 +63,7 @@
 }
 
 .editIcon:hover {
-  color: var(--main-accent-color-dark);
+  color: var(--color-dark);
   background-color: #fff;
 }
 
@@ -80,7 +80,7 @@
 .albumFooter {
   margin-top: 5px;
 
-  color: var(--secondary-accent-color-light);
+  color: var(--color-light);
 }
 
 .albumDetails {
