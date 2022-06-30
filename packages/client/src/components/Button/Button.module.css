@@ -61,40 +61,14 @@
   margin-right: auto;
 }
 
-.right {
-  margin-left: auto;
+.transparent {
+  font-weight: inherit;
+  text-transform: none;
+
+  border: none;
+  background-color: transparent;
 }
 
-.bottom {
-  margin-top: auto;
-}
-
-.top {
-  margin-bottom: auto;
-}
-
-/* Margin */
-
-.mx1 {
-  margin-top: 0.5rem;
-}
-
-.mx2 {
-  margin-top: 1rem;
-}
-
-.mx3 {
-  margin-top: 2rem;
-}
-
-/* Text Color */
-
-.light,
-.light > * {
-  color: var(--color-light);
-}
-
-.dark,
-.dark > * {
-  color: var(--color-dark);
+.transparent:hover {
+  background-color: transparent;
 }

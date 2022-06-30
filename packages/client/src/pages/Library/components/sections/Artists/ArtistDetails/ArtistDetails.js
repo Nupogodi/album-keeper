@@ -7,9 +7,7 @@ import api from 'util/api';
 import {
   API_ROUTES,
   ICON_TYPES,
-  BTN_STYLES,
   BTN_TYPES,
-  BTN_COLORS,
   SONG_GRID_VIEWS,
 } from 'util/constants';
 
@@ -100,12 +98,7 @@ const ArtistDetails = () => {
             </div>
           ) : null}
 
-          <Button
-            type={BTN_TYPES.button}
-            onClick={toggleModal}
-            btnStyle={BTN_STYLES.outlineDark}
-            btnColor={BTN_COLORS.dark}
-          >
+          <Button type={BTN_TYPES.button} onClick={toggleModal}>
             <Icon className={styles.icon} iconType={ICON_TYPES.edit} />
             Edit Artist
           </Button>

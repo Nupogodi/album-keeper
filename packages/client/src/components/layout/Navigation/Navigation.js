@@ -8,10 +8,10 @@ import { ROUTES, AUTH_ROUTES } from 'util/constants';
 import { useAuth, useProvideAuth } from 'hooks/useAuth';
 
 // components
-import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
+import Button from 'components/Button/Button';
 import Container from 'components/wrappers/Container/Container';
 
-// Styles
+// styles
 import styles from './Navigation.module.css';
 
 const Navigation = () => {
@@ -48,12 +48,13 @@ const Navigation = () => {
             if (isAuthenticated && value.url === '/signout') {
               return (
                 <li className={styles.navItem} key={key}>
-                  <ButtonWrapper
+                  <Button
+                    transparent
                     className={`${styles.link} ${styles.btnOutline}`}
                     onClick={() => signout()}
                   >
                     {value.title}
-                  </ButtonWrapper>
+                  </Button>
                 </li>
               );
             }

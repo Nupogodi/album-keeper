@@ -5,18 +5,11 @@ import { toast } from 'react-toastify';
 import api from 'util/api';
 
 // constants
-import {
-  API_ROUTES,
-  BTN_TYPES,
-  BTN_STYLES,
-  BTN_COLORS,
-  ICON_TYPES,
-} from 'util/constants';
+import { API_ROUTES, BTN_TYPES, ICON_TYPES } from 'util/constants';
 
 // components
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import Button from 'components/Button/Button';
-import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import Icon from 'components/Icon/Icon';
 import Input from 'components/Input/Input';
 
@@ -100,13 +93,13 @@ const ArtistForm = ({ onSuccess }) => {
       // eslint-disable-next-line
       <div key={index} className={styles.bandMemberWrapper}>
         <p className={styles.bandMember}>{bandMember}</p>
-        <ButtonWrapper
+        <Button
           action={() => handleRemoveBandMember(index)}
           className={styles.iconBtnMinus}
           type='button'
         >
           <Icon iconType={ICON_TYPES.cancel} className={styles.iconSmall} />
-        </ButtonWrapper>
+        </Button>
       </div>
     ));
 
@@ -148,25 +141,20 @@ const ArtistForm = ({ onSuccess }) => {
             htmlFor='bandMembers'
           />
 
-          <ButtonWrapper
-            action={handleAddBandMember}
+          <Button
+            onClick={handleAddBandMember}
             type='button'
             className={styles.absolute}
           >
             <Icon iconType={ICON_TYPES.plus} className={styles.icon} />
-          </ButtonWrapper>
+          </Button>
         </div>
         <div className={styles.bandMembers}>
           {data.bandMembers && data.bandMembers.length > 0
             ? renderBandMembers()
             : null}
         </div>
-        <Button
-          className={styles.btnSubmit}
-          btnStyle={BTN_STYLES.fillLight}
-          btnType={BTN_TYPES.submit}
-          btnColor={BTN_COLORS.dark}
-        >
+        <Button className={styles.btnSubmit} btnType={BTN_TYPES.submit}>
           {data.isSubmitting ? <LoadingSpinner /> : 'Add'}
         </Button>
       </form>

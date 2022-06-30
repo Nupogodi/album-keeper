@@ -1,6 +1,4 @@
-import React, {
-  useState, useCallback, useContext, useEffect,
-} from 'react';
+import React, { useState, useCallback, useContext, useEffect } from 'react';
 import { useRouteMatch, useLocation, Link } from 'react-router-dom';
 
 // constants
@@ -37,16 +35,12 @@ const LibraryNav = () => {
   }, [pathname]);
 
   return (
-    <div className="pageFixer">
+    <div className='pageFixer'>
       <div className={styles.libraryNav}>
         <ul className={styles.linksWrapper}>
           {Object.entries(LIBRARY_ROUTES).map(([key, value]) => (
             <Link key={key} className={styles.link} to={`${url}${value.url}`}>
-              <li className={styles.linkItem}>
-                {' '}
-                {value.title}
-                {' '}
-              </li>
+              <li className={styles.linkItem}> {value.title} </li>
             </Link>
           ))}
         </ul>

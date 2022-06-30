@@ -4,13 +4,7 @@ import { toast } from 'react-toastify';
 
 // api
 import api from 'util/api';
-import {
-  API_ROUTES,
-  SONG_GRID_VIEWS,
-  BTN_STYLES,
-  BTN_TYPES,
-  BTN_COLORS,
-} from 'util/constants';
+import { API_ROUTES, SONG_GRID_VIEWS } from 'util/constants';
 
 // calculations
 import { AlbumLength } from 'util/calculations';
@@ -93,13 +87,7 @@ const AlbumDetails = () => {
             </p>
           </div>
           <div className={styles.controls}>
-            <Button
-              btnType={BTN_TYPES.button}
-              btnStyle={BTN_STYLES.outlineDark}
-              btnColor={BTN_COLORS.dark}
-              onClick={toggleModal}
-              text='Edit Album'
-            />
+            <Button onClick={toggleModal}>Edit Album</Button>
           </div>
         </div>
       </div>

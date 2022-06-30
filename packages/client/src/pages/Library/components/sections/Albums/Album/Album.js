@@ -13,7 +13,7 @@ import useRouter from 'hooks/useRouter';
 
 // components
 import SettingsMenu from 'components/SettingsMenu/SettingsMenu';
-import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
+import Button from 'components/Button/Button';
 import Icon from 'components/Icon/Icon';
 
 import DefaultSvg from '../../../DefaultSvg/DefaultSvg';
@@ -63,12 +63,14 @@ const Album = ({ albumTitle, albumYear, artist, albumId }) => {
           />
         )}
         {showIcon && (
-          <ButtonWrapper
-            onClick={toggleShowSettings}
-            className={styles.iconBtnWrapper}
-          >
-            <Icon className={styles.editIcon} iconType={ICON_TYPES.threeDots} />
-          </ButtonWrapper>
+          <div className={styles.iconBtnWrapper}>
+            <Button transparent onClick={toggleShowSettings}>
+              <Icon
+                className={styles.editIcon}
+                iconType={ICON_TYPES.threeDots}
+              />
+            </Button>
+          </div>
         )}
 
         <Link to={`${url}/${albumId}`}>

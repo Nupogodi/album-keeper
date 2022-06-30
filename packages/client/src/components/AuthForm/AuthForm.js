@@ -3,11 +3,11 @@ import React, { useState, memo, useMemo } from 'react';
 // Constants
 
 // Components
-import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
+import Button from 'components/Button/Button';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 
-// Styles
+// styles
 import styles from './AuthForm.module.css';
 
 const AuthForm = ({ onSuccess = () => {} }) => {
@@ -36,18 +36,18 @@ const AuthForm = ({ onSuccess = () => {} }) => {
               currentTab === 'signup' && styles.active
             } large`}
           >
-            <ButtonWrapper onClick={() => setCurrentTab(TAB_CONFIG.signup)}>
+            <Button isWrapper onClick={() => setCurrentTab(TAB_CONFIG.signup)}>
               Sign Up
-            </ButtonWrapper>
+            </Button>
           </li>
           <li
             className={`${styles.tab} ${
               currentTab === 'signin' && styles.active
             } large`}
           >
-            <ButtonWrapper onClick={() => setCurrentTab(TAB_CONFIG.signin)}>
+            <Button isWrapper onClick={() => setCurrentTab(TAB_CONFIG.signin)}>
               Sign In
-            </ButtonWrapper>
+            </Button>
           </li>
         </ul>
       </div>

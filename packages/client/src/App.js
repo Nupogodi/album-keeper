@@ -18,7 +18,7 @@ import Navigation from 'components/layout/Navigation/Navigation';
 import Footer from 'components/layout/Footer/Footer';
 import ErrorBoundary from 'components/ErrorBoundary';
 
-// Styles
+// styles
 import styles from './App.module.css';
 import 'assets/styles/main.css';
 

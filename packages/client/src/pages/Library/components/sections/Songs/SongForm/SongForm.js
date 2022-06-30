@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import api from 'util/api';
 
 // constants
-import { API_ROUTES, BTN_TYPES, BTN_STYLES, BTN_COLORS } from 'util/constants';
+import { API_ROUTES, BTN_TYPES } from 'util/constants';
 import { calculateSeconds } from 'util/calculations';
 
 // components
@@ -150,12 +150,7 @@ const SongForm = ({ onSuccess }) => {
           htmlFor='releaseYear'
         />
 
-        <Button
-          className={styles.btnSubmit}
-          btnStyle={BTN_STYLES.fillLight}
-          btnType={BTN_TYPES.submit}
-          btnColor={BTN_COLORS.dark}
-        >
+        <Button className={styles.btnSubmit} btnType={BTN_TYPES.submit}>
           {data.isSubmitting ? <LoadingSpinner /> : 'Add'}
         </Button>
       </form>

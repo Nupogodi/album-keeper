@@ -13,7 +13,7 @@ import {
 import { useAuth } from 'hooks/useAuth';
 
 // components
-// import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
+// import Button from 'components/Button/Button';
 import Container from 'components/wrappers/Container/Container';
 import Button from 'components/Button/Button';
 

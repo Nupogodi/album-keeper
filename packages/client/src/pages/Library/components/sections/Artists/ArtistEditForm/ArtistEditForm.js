@@ -5,17 +5,10 @@ import { toast } from 'react-toastify';
 import api from 'util/api';
 
 // constants
-import {
-  API_ROUTES,
-  ICON_TYPES,
-  BTN_TYPES,
-  BTN_STYLES,
-  BTN_COLORS,
-} from 'util/constants';
+import { API_ROUTES, ICON_TYPES, BTN_TYPES } from 'util/constants';
 
 // components
 import Icon from 'components/Icon/Icon';
-import ButtonWrapper from 'components/wrappers/ButtonWrapper/ButtonWrapper';
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import Input from 'components/Input/Input';
 import Button from 'components/Button/Button';
@@ -58,13 +51,14 @@ const ArtistForm = ({
       // eslint-disable-next-line
       <div key={index} className={styles.bandMemberWrapper}>
         <p className={styles.bandMember}>{bandMember}</p>
-        <ButtonWrapper
+        <Button
+          isWrapper
           onClick={() => handleRemoveBandMember(index)}
           className={styles.iconBtnMinus}
           type='button'
         >
           <Icon iconType={ICON_TYPES.cancel} className={styles.iconSmall} />
-        </ButtonWrapper>
+        </Button>
       </div>
     ));
 
@@ -159,13 +153,14 @@ const ArtistForm = ({
               labelValue='Band Members'
               htmlFor='newBandMember'
             />
-            <ButtonWrapper
+            <Button
+              isWrapper
               onClick={handleAddBandMember}
               type='button'
               className={styles.iconBtnPlus}
             >
               <Icon iconType={ICON_TYPES.plus} className={styles.icon} />
-            </ButtonWrapper>
+            </Button>
           </div>
 
           <div className={styles.bandMembers}>
@@ -180,17 +175,10 @@ const ArtistForm = ({
             onClick={onSuccess}
             className={`${styles.btn} ${styles.clearBtn}`}
             btnType={BTN_TYPES.button}
-            btnStyle={BTN_STYLES.outlineDark}
-            btnColor={BTN_COLORS.dark}
           >
             Cancel
           </Button>
-          <Button
-            className={styles.btn}
-            btnType={BTN_TYPES.submit}
-            btnStyle={BTN_STYLES.outlineDark}
-            btnColor={BTN_COLORS.dark}
-          >
+          <Button className={styles.btn} btnType={BTN_TYPES.submit}>
             {data.isSubmitting ? <LoadingSpinner /> : 'Save'}
           </Button>
         </div>

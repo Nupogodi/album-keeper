@@ -8,7 +8,6 @@ import {
   ADD_ITEM_PATHNAME_TYPES,
   ICON_TYPES,
   BTN_TYPES,
-  BTN_STYLES,
 } from 'util/constants';
 
 // api
@@ -129,11 +128,7 @@ const AlbumGrid = () => {
             />
           ))
         ) : (
-          <Button
-            btnStyle={BTN_STYLES.fillDark}
-            btnType={BTN_TYPES.button}
-            onClick={toggleModal}
-          >
+          <Button btnType={BTN_TYPES.button} onClick={toggleModal}>
             Add New Album{' '}
             <Icon iconType={ICON_TYPES.plus} className={styles.icon} />
           </Button>
