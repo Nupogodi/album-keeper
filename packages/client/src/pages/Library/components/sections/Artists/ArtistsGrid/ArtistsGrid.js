@@ -3,7 +3,11 @@ import { useRouteMatch } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 // constants
-import { API_ROUTES, ADD_ITEM_PATHNAME_TYPES } from 'util/constants';
+import {
+  API_ROUTES,
+  ADD_ITEM_PATHNAME_TYPES,
+  EDIT_FORM_VIEWS,
+} from 'util/constants';
 
 // api
 import api from 'util/api';
@@ -12,12 +16,13 @@ import api from 'util/api';
 import AddItemContext from 'context/addItem/addItemContext';
 
 // components
+// import ArtistForm from '../ArtistForm/ArtistForm';
 import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import CustomModal from 'components/CustomModal/CustomModal';
 
 // dependecies
 import Fuse from 'fuse.js';
-import ArtistForm from '../ArtistForm/ArtistForm';
+import EditForm from '../../../EditForm/EditForm';
 import Artist from '../Artist/Artist';
 
 // styles
@@ -35,6 +40,17 @@ const ArtistsGrid = () => {
     currentActiveFormPathname,
     filterValue,
   } = addItemContext;
+
+  // Initial state for the EditForm component
+  const initialState = {
+    // artistTitle,
+    // bandMembers,
+    // newBandMember: '',
+    // description,
+    // isSubmitting: false,
+    // errorMessage: null,
+    // artistId,
+  };
 
   useEffect(() => {
     const getArtists = async () => {
@@ -99,10 +115,35 @@ const ArtistsGrid = () => {
   }
 
   return (
+    // <div>
+    //   {modalOpen && (
+    //     <CustomModal modalOpen={modalOpen} toggleModal={toggleModal}>
+    //       <ArtistForm onSuccess={handleSuccess} />
+    //     </CustomModal>
+    //   )}
+    //   <div className={styles.artistsGrid}>
+    //     {filteredArtists?.length > 0
+    //       ? filteredArtists.map((artist) => (
+    //           <Artist
+    //             key={artist._id}
+    //             artistId={artist._id}
+    //             artistName={artist.artist_name}
+    //             image={artist.artist_image}
+    //             songList={artist.song_list}
+    //           />
+    //         ))
+    //       : 'No artists'}
+    //   </div>
+    // </div>
     <div>
       {modalOpen && (
         <CustomModal modalOpen={modalOpen} toggleModal={toggleModal}>
-          <ArtistForm onSuccess={handleSuccess} />
+          <EditForm
+            onSuccess={handleSuccess}
+            viewType={EDIT_FORM_VIEWS.artists}
+            initialState={initialState}
+            utilityFunctions
+          />
         </CustomModal>
       )}
       <div className={styles.artistsGrid}>

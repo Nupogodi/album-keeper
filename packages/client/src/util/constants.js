@@ -115,6 +115,12 @@ export const SONG_GRID_VIEWS = {
   songsPageView: 'SongsPageView',
 };
 
+export const EDIT_FORM_VIEWS = {
+  artist: 'artists',
+  albums: 'albums',
+  songs: 'songs',
+};
+
 // SVG Color Scheme
 export const SVG_COLOR_SCHEME = {
   light: '#FFF',

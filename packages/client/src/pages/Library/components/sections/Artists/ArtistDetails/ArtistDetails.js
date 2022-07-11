@@ -17,7 +17,7 @@ import DefaultImg from 'assets/img/default_album.jpg';
 import Icon from 'components/Icon/Icon';
 import CustomModal from 'components/CustomModal/CustomModal';
 import Button from 'components/Button/Button';
-import ArtistForm from '../ArtistEditForm/ArtistEditForm';
+import EditForm from '../../../EditForm/EditForm';
 import SongGrid from '../../Songs/SongsGrid/SongsGrid';
 
 // styles
@@ -62,11 +62,12 @@ const ArtistDetails = () => {
     <div>
       {modalOpen && (
         <CustomModal modalOpen={modalOpen} toggleModal={toggleModal}>
-          <ArtistForm
-            artistTitle={artist.artist_name}
-            artistId={artist._id}
-            description={artist.artist_description}
-            bandMembers={artist.band_members}
+          <EditForm
+            // artistTitle={artist.artist_name}
+            // artistId={artist._id}
+            // description={artist.artist_description}
+            // bandMembers={artist.band_members}
+            utilityFunctions
             onSuccess={toggleModal}
           />
         </CustomModal>
