@@ -1,3 +1,33 @@
 .editForm {
-  max-width: 450px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  overflow: hidden;
+  min-width: 100%;
+
+  text-transform: uppercase;
+
+  color: #b8bdd1;
+  background: linear-gradient(var(--color-bg-dark) 50%, var(--color-bg-medium))
+    no-repeat center center;
+  background-size: cover;
+  box-shadow: 0 2px 7px rgb(0 0 0 / 20%);
+}
+
+.submitBtn {
+  margin-top: 3rem;
+
+  background-color: #6d738f;
+}
+
+/* Album Edit Form */
+.bandMembers {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.bandMemberWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

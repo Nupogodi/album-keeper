@@ -116,7 +116,7 @@ export const SONG_GRID_VIEWS = {
 };
 
 export const EDIT_FORM_VIEWS = {
-  artist: 'artists',
+  artists: 'artists',
   albums: 'albums',
   songs: 'songs',
 };

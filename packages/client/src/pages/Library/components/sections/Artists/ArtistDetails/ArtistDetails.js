@@ -4,11 +4,14 @@ import { toast } from 'react-toastify';
 
 // api
 import api from 'util/api';
+
+// Constants
 import {
   API_ROUTES,
   ICON_TYPES,
   BTN_TYPES,
   SONG_GRID_VIEWS,
+  EDIT_FORM_VIEWS,
 } from 'util/constants';
 
 // components
@@ -28,6 +31,23 @@ const ArtistDetails = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [artist, setArtist] = useState({});
+
+  // Form State
+  const initialState = {
+    artistId: artist._id,
+    artistTitle: artist.artist_name,
+    bandMembers: artist.band_members,
+    newBandMember: '',
+    description: artist.artist_description,
+    isSubmitting: false,
+    errorMessage: null,
+  };
+
+  // artistTitle={artist.artist_name}
+  // artistId={artist._id}
+  // description={artist.artist_description}
+  // bandMembers={artist.band_members}
+  // onSuccess={handleSuccess}
 
   useEffect(() => {
     const getArtistDetails = async () => {
@@ -67,7 +87,9 @@ const ArtistDetails = () => {
             // artistId={artist._id}
             // description={artist.artist_description}
             // bandMembers={artist.band_members}
-            utilityFunctions
+            // onSuccess={handleSuccess}
+            viewType={EDIT_FORM_VIEWS.artists}
+            initialState={initialState}
             onSuccess={toggleModal}
           />
         </CustomModal>

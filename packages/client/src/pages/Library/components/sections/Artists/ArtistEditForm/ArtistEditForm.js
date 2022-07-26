@@ -81,7 +81,7 @@ const ArtistForm = ({
     });
   };
 
-  const handleSubmitArtist = async (e) => {
+  const handleSubmitArtist = async (e, onSuccess) => {
     e.preventDefault();
 
     setData({

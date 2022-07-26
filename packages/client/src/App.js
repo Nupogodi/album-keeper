@@ -29,7 +29,6 @@ const App = () => {
 
   return (
     <div className={styles.App}>
-      <ToastContainer />
       <ErrorBoundary>
         <BrowserRouter>
           <nav className={styles.nav}>
@@ -57,6 +56,7 @@ const App = () => {
           </footer>
         </BrowserRouter>
       </ErrorBoundary>
+      <ToastContainer />
     </div>
   );
 };

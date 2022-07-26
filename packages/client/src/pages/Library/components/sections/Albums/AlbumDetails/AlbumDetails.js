@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 
 // api
 import api from 'util/api';
-import { API_ROUTES, SONG_GRID_VIEWS } from 'util/constants';
+import { API_ROUTES, SONG_GRID_VIEWS, EDIT_FORM_VIEWS } from 'util/constants';
 
 // calculations
 import { AlbumLength } from 'util/calculations';
@@ -14,7 +14,7 @@ import LoadingSpinner from 'components/LoadingSpinner/LoadingSpinner';
 import DefaultImg from 'assets/img/default_album.jpg';
 import CustomModal from 'components/CustomModal/CustomModal';
 import Button from 'components/Button/Button';
-import AlbumEditForm from '../AlbumEditForm/AlbumEditForm';
+import EditForm from '../../../EditForm/EditForm';
 import SongGrid from '../../Songs/SongsGrid/SongsGrid';
 
 // styles
@@ -62,11 +62,22 @@ const AlbumDetails = () => {
   if (isSubmitting) return <LoadingSpinner />;
 
   const { album_title, artist, release_year, song_list } = album;
+
+  const initialState = {
+    albumTitle: album_title,
+    description: album.description,
+    releaseYear: album.release_year,
+    albumId: album._id,
+  };
   return (
     <div>
       {modalOpen && (
         <CustomModal modalOpen={modalOpen} toggleModal={toggleModal}>
-          <AlbumEditForm onSuccess={handleSuccess} album={album} />
+          <EditForm
+            viewType={EDIT_FORM_VIEWS.albums}
+            onSuccess={handleSuccess}
+            initialState={initialState}
+          />
         </CustomModal>
       )}
       <div className={styles.detailsHeader}>
